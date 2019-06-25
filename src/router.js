@@ -26,10 +26,11 @@ export default new Router({
         import( /* webpackChunkName: 'testprep' */ './views/TestPrep.vue')
     },
     {
-      path: '/topiclists/:topic',
+      path: '/topic_lists/:topic',
+      alias: '/testprep_lists/:topic',
       name: 'topiclists',
       component: TopicLists,
-    }
+    },
   ],
 
   scrollBehavior: (to, from, savedPosition) => {

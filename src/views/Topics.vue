@@ -5,7 +5,7 @@
       :key="index"
     )
       router-link.topics__list-router(
-        :to="`/topiclists/${city.href}`"
+        :to="`/topic_lists/${city.href}`"
       )
         div.topics__list-container(
           @click="setHeaderTitle(key)"
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 
 export default {
@@ -31,40 +31,11 @@ export default {
     setHeaderTitle,
   ],
 
-  data: _ => ({
-    cities: {
-      'Los Angeles, CA': {
-        href: 'los_angeles',
-        status: 'Status',
-        desc: 'City in California',
-        src: 'https://images.unsplash.com/photo-1534253893894-10d024888e49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
-      },
-      'Dallas, TX': {
-        href: 'dallas',
-        status: 'Status',
-        desc: 'City in Texas',
-        src: 'https://images.unsplash.com/photo-1542482780641-7f549ee20bc2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
-      },
-      'New York City, NY': {
-        href: 'new_york_city',
-        status: 'Status',
-        desc: 'City in New York',
-        src: 'https://images.unsplash.com/photo-1445023086979-7244a12345a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
-      },
-      'Riverside, CA': {
-        href: 'riverside',
-        status: 'Status',
-        desc: 'City in California',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/MissionInn_SpanishWing.jpg/560px-MissionInn_SpanishWing.jpg',
-      },
-      'Boston, MA': {
-        href: 'boston',
-        status: 'Status',
-        desc: 'City in Massachusetts',
-        src: 'https://images.unsplash.com/photo-1488750059241-ed3ad4563245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
-      },
-    },
-  }),
+  computed: {
+    ...mapState([
+      'cities',
+    ])
+  },
 
 }
 </script>
@@ -121,7 +92,7 @@ export default {
           height: $grid16x;
           position: absolute;
           display: inline-block;
-          border-radius: $grid2x;
+          @include border-radius();
         }
       }
     }

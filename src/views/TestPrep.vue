@@ -9,7 +9,7 @@
         v-for="(index, key) in category"
       )
         router-link(
-          :to="`/topiclists/${index.href}`"
+          :to="`/testprep_lists/${index.href}`"
         )
           div.testprep__list-lesson(
             @click="setHeaderTitle(key)"
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 
 export default {
@@ -28,44 +29,11 @@ export default {
     setHeaderTitle,
   ],
 
-  data: _ => ({
-    categories: {
-      'TOEIC Speaking': {
-        'Lesson 1': {
-          href: 'lesson_1'
-        },
-        'Lesson 2': {
-          href: 'lesson_2'
-        },
-        'Lesson 3': {
-          href: 'lesson_3'
-        },
-        'Lesson 4': {
-          href: 'lesson_4'
-        },
-        'Lesson 5': {
-          href: 'lesson_5'
-        },
-      },
-      'OPIc' : {
-        'Lesson 1': {
-          href: 'lesson_1'
-        },
-        'Lesson 2': {
-          href: 'lesson_2'
-        },
-        'Lesson 3': {
-          href: 'lesson_3'
-        },
-        'Lesson 4': {
-          href: 'lesson_4'
-        },
-        'Lesson 5': {
-          href: 'lesson_5'
-        },
-      },
-    }
-  }),
+  computed: {
+    ...mapState([
+      'categories',
+    ])
+  },
 
 }
 </script>

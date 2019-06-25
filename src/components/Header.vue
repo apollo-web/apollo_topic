@@ -6,7 +6,7 @@
         @click="$router.back()"
       )
         i.material-icons close
-      div.header__title {{ headerTitle.value }}
+      div.header__title {{ headerTitle }}
       div.header__right(
         v-if="['topiclists'].includes($route.name)"
       ) Filters
