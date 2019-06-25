@@ -147,11 +147,8 @@ git_push() {
     case ${yn} in
       [Yy]* )
         printf "\n"
-        echo "${BOLD}${PURPLE}🔥 Push 🔥${RESET}"
+        echo "${BOLD}${PURPLE}🔥 Push: GitHub 🔥${RESET}"
         git push;
-        # printf "\n"
-        # echo "${BOLD}${PURPLE}🔥 Push: GitHub 🔥${RESET}"
-        # git push github;
         break;;
       [Nn]* ) return 0;;
       * ) echo "${YELLOW}Please answer yes or no.${RESET}";;
