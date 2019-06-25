@@ -1,0 +1,133 @@
+/* ==============================
+  box-shadow
+============================== */
+@mixin box-shadow ($val:$grid, $val2:$grid2x, $color:$black08) {
+  -webkit-box-shadow: 0 $val $val2 $color;
+  -khtml-box-shadow: 0 $val $val2 $color;
+  -moz-box-shadow: 0 $val $val2 $color;
+  -ms-box-shadow: 0 $val $val2 $color;
+  -o-box-shadow: 0 $val $val2 $color;
+  box-shadow: 0 $val $val2 $color;
+}
+
+
+/* ==============================
+  drop-shadow
+============================== */
+@mixin drop-shadow ($val:0, $val2:$grid, $val3:$grid2x, $color:$black16) {
+  -webkit-filter: drop-shadow($val $val2 $val3 $color);
+  -khtml-filter: drop-shadow($val $val2 $val3 $color);
+  -moz-filter: drop-shadow($val $val2 $val3 $color);
+  -ms-filter: drop-shadow($val $val2 $val3 $color);
+  -o-filter: drop-shadow($val $val2 $val3 $color);
+  filter: drop-shadow($val $val2 $val3 $color);
+}
+
+
+/* ==============================
+  border-radius
+============================== */
+@mixin border-radius ($val:$grid4x) {
+  -webkit-border-radius: $val;
+  -khtml-border-radius: $val;
+  -moz-border-radius: $val;
+  -ms-border-radius: $val;
+  -o-border-radius: $val;
+  border-radius: $val;
+}
+
+
+/* ==============================
+  user-select
+============================== */
+@mixin user-select () {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+
+/* ==============================
+  transform
+============================== */
+@mixin transform ($val) {
+  -webkit-transform: $val;
+  -khtml-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  -o-transform: $val;
+  transform: $val;
+}
+
+
+/* ==============================
+  css grid layout
+============================== */
+@mixin grid-layout($col:3, $row:$grid12x, $gap:$grid24x) {
+  // display: -ms-grid;
+  display: grid;
+  //  -ms-grid-columns: (1fr)[$col];
+  grid-template-columns: repeat($col, 1fr);
+  grid-auto-rows: minmax($row, auto);
+  grid-gap: $gap;
+}
+
+
+/* ==============================
+  transition
+============================== */
+@mixin transition ($transition...) {
+  -webkit-transition: $transition;
+  -khtml-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+
+/* ==============================
+  setGridIcons - 3
+============================== */
+@mixin setGridIcons($base, $ext:'svg') {
+  margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @for $i from 0 through 2 {
+
+    &.img-#{$i} {
+      background-image: url('#{$base + ($i + 1)}'+ '.'+ '#{$ext}');
+    }
+  }
+}
+
+
+/* ==============================
+  global btn
+============================== */
+.global__cta {
+  text-align: center;
+
+  .global__cta--btn {
+    outline: none;
+    width: $grid48x;
+    cursor: pointer;
+    height: $grid14x;
+    font-weight: 900;
+    color: $brand;
+    margin-top: $grid8x;
+    border: 2px solid transparent;
+    background-color: #fff;
+    @include transition(all .25s ease);
+    @include border-radius($grid16x);
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
