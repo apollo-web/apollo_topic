@@ -10,7 +10,6 @@
   box-shadow: 0 $val $val2 $color;
 }
 
-
 /* ==============================
   drop-shadow
 ============================== */
@@ -22,7 +21,6 @@
   -o-filter: drop-shadow($val $val2 $val3 $color);
   filter: drop-shadow($val $val2 $val3 $color);
 }
-
 
 /* ==============================
   border-radius
@@ -36,7 +34,6 @@
   border-radius: $val;
 }
 
-
 /* ==============================
   user-select
 ============================== */
@@ -48,7 +45,6 @@
   -o-user-select: none;
   user-select: none;
 }
-
 
 /* ==============================
   transform
@@ -62,7 +58,6 @@
   transform: $val;
 }
 
-
 /* ==============================
   css grid layout
 ============================== */
@@ -75,7 +70,6 @@
   grid-gap: $gap;
 }
 
-
 /* ==============================
   transition
 ============================== */
@@ -87,7 +81,6 @@
   -o-transition: $transition;
   transition: $transition;
 }
-
 
 /* ==============================
   setGridIcons - 3
@@ -105,7 +98,6 @@
     }
   }
 }
-
 
 /* ==============================
   global btn
