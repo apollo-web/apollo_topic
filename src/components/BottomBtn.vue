@@ -9,14 +9,15 @@ export default {
 
   props: {
     msg: String,
-  }
+  },
+
 }
 </script>
 
 <style lang="scss">
 #bottombtn {
   bottom: 0;
-  z-index: 5;
+  z-index: 2;
   width: 100%;
   display: table;
   cursor: pointer;

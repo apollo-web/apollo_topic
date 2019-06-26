@@ -22,7 +22,7 @@ export default {
     ...mapState([
       'headerTitle',
       'cities',
-    ])
+    ]),
   },
 
   components: {

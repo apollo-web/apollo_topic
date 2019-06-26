@@ -1,4 +1,5 @@
 #topicdetails,
 #testprepdetails {
+  margin-bottom: calc(#{$bottom} + #{$grid8x});
   margin-top: calc(#{$header});
 }

@@ -25,7 +25,7 @@ export default {
       TestPrep: {
         title: 'Test Prep',
         href: '/testprep',
-      }
+      },
     },
   }),
 

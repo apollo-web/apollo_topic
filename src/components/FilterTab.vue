@@ -3,47 +3,55 @@
     div.filtertab__container
       div.filtertab__level
         p.filtertab__level-title Topic Level:
-        p.filtertab__level-level {{ topicLevel[3] }}
-      div.filtertab__filter
+        p.filtertab__level-level {{ getCurrentLevel }}
+      div.filtertab__filter(
+        @click="toggleSheet(true)"
+      )
         p.filtertab__filter-text Change
         i.material-icons expand_more
     BottomSheet(
-      v-if="bottomsheet"
+      v-if="bottomSheet"
     )
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 import BottomSheet from './BottomSheet'
 
 export default {
   name: 'filtertab',
 
-  data: _ => ({
-    bottomsheet: false,
-  }),
+  methods: {
+    ...mapMutations([
+      'SET_BOTTOM_SHEET'
+    ]),
 
-  // methods: {
-  //   toggleSheet() {
-  //     this.bottomsheet = !this.bottomsheet
-  //   }
-  // },
+    toggleSheet(bool) {
+      this.SET_BOTTOM_SHEET(bool)
+    },
+  },
 
   computed: {
     ...mapState([
-      'topicLevel',
-    ])
+      'currentLevel',
+      'bottomSheet',
+    ]),
+
+    ...mapGetters([
+      'getCurrentLevel',
+    ]),
   },
 
   components: {
     BottomSheet,
   },
+
 }
 </script>
 
 <style lang="scss">
 #filtertab {
-  z-index: 5;
+  z-index: 3;
   width: 100%;
   top: $header;
   height: $header;
@@ -80,6 +88,7 @@ export default {
 
   .filtertab__filter {
     float: right;
+    cursor: pointer;
 
     .filtertab__filter-text,
     i {
@@ -93,7 +102,7 @@ export default {
     }
 
     i {
-      margin-bottom: 10px;
+      margin-bottom: $grid2x;
     }
   }
 }

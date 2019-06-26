@@ -44,7 +44,7 @@ export default {
         console.log(this.categories[this.$route.params.lesson].title)
         // this.setHeaderTitle(this.categories[this.$route.params.lesson].title)
       }
-    }
+    },
   },
 
 }
@@ -53,17 +53,11 @@ export default {
 <style lang="scss">
 #headercomp {
   top: 0;
-  z-index: 5;
+  z-index: 3;
   width: 100%;
   height: $header;
-  // position: sticky;
   position: fixed;
   background-color: $brand_dark;
-
-  // @supports (position: sticky) or (position: -webkit-sticky) {
-  //   position: -webkit-sticky;
-  //   position: sticky;
-  // }
 
   .header__wrapper {
     position: relative;

@@ -67,6 +67,7 @@ export default {
 
   .topicslist__attractions {
     height: 100%;
+    cursor: pointer;
     max-width: 100%;
     position: relative;
     margin-bottom: $grid4x;
