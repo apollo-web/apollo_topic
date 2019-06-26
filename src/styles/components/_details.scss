@@ -1,5 +1,9 @@
 #topicdetails,
 #testprepdetails {
-  margin-bottom: calc(#{$bottom} + #{$grid8x});
   margin-top: calc(#{$header});
+  margin-bottom: calc(#{$bottom} + #{$grid8x});
+
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    margin-bottom: calc(#{$bottom} + #{$grid20x});
+  }
 }

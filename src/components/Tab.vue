@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss">
 #tab {
-  z-index: 5;
+  z-index: 2;
   width: 100%;
   top: $header;
   height: $header;

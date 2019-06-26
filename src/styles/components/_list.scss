@@ -1,7 +1,11 @@
 #topicslist,
 #testpreplist {
-  margin-bottom: $bottom;
+  margin-bottom: calc(#{$bottom});
   margin-top: calc(#{$header} + #{$header} + #{$grid2x});
+
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    margin-bottom: calc(#{$bottom} + #{$grid12x});
+  }
 
   .topicslist__title-container {
     padding-bottom: $grid4x;

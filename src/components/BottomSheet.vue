@@ -1,28 +1,36 @@
 <template lang="pug">
   div#bottomsheet
     div.bottomsheet__dim(
-      @click="toggleSheet(false)"
+      @click="toggleHandler(false)"
+      v-bind:class="{active: !isActive}"
     )
     div.bottomsheet__sheet-box
-      div.bottomsheet__sheet
+      div.bottomsheet__sheet(
+        v-bind:class="{active: isActive}"
+      )
         div.bottomsheet__wrapper
           div.bottomsheet__header
             div.bottomsheet__header-left(
-              @click="toggleSheet(false)"
+              @click="toggleHandler(false)"
             )
               i.material-icons close
             div.bottomsheet__header-title
               div.bottomsheet__header-title-text Topic Level
-          div.bottomsheet__body
-            div.bottomsheet__body-list(
-              v-for="level in topicLevel"
-            ) {{ level.level }}
+          slot
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex'
 
 export default {
+  props: {
+    title: String,
+  },
+
+  data: _ => ({
+    isActive: true,
+  }),
+
   computed: {
     ...mapState([
       'topicLevel',
@@ -34,13 +42,11 @@ export default {
       'SET_BOTTOM_SHEET'
     ]),
 
-    toggleSheet(bool) {
+    toggleHandler(bool) {
       this.SET_BOTTOM_SHEET(bool)
+      this.isActive = !this.isActive
     },
-  },
 
-  beforeDestroy () {
-    this.SET_BOTTOM_SHEET(false)
   },
 
 }
@@ -48,9 +54,9 @@ export default {
 
 <style lang="scss">
 #bottomsheet {
-  z-index: 25;
   top: -#{$header};
   position: absolute;
+  z-index: 25 !important;
 
   .bottomsheet__dim {
     top: 0;
@@ -60,6 +66,29 @@ export default {
     bottom: $header;
     position: relative;
     background-color: $black54;
+    animation: 0.35s dim_ease_in ease-in-out;
+
+    @keyframes dim_ease_in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    &.active {
+      animation: 0.35s dim_ease_out ease-in-out;
+
+      @keyframes dim_ease_out {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    }
   }
 
   .bottomsheet__sheet-box {
@@ -74,8 +103,40 @@ export default {
       padding: $grid4x 0;
       position: absolute;
       background-color: #fff;
-      padding-bottom: $grid80x;
+      padding-bottom: $grid48x;
       border-radius: $grid4x $grid4x 0 0;
+      animation: 0.35s slide_up ease-in-out;
+
+      @keyframes slide_up {
+        from {
+          opacity: 1;
+          padding-bottom: $grid52x;
+        }
+        to {
+          opacity: 0.5;
+          padding-bottom: 0;
+        }
+      }
+
+      &.active {
+        animation: 0.35s slide_down ease-in-out;
+
+        @keyframes slide_down {
+          from {
+            opacity: 0.5;
+            padding-bottom: 0;
+          }
+          to {
+            opacity: 1;
+            padding-bottom: $grid52x;
+          }
+        }
+      }
+
+      // iPhone X safearea
+      @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        padding-bottom: calc(env(safe-area-inset-bottom) + #{$grid52x});
+      }
 
       .bottomsheet__wrapper {
         padding: 0 $grid4x;

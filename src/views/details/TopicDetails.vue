@@ -8,7 +8,10 @@
       div.topicdetails__text-box
         div.topicdetails__text {{ cities[this.$route.params.topic].attractions[this.$route.params.attr].desc }}
 
-    BottomBtn(msg="View Lesson")
+    BottomBtn(
+      msg="View Lesson"
+    )
+      div.slot_class(@click="startLesson")
 </template>
 
 <script>
@@ -29,11 +32,21 @@ export default {
     ...mapMutations([
       'UPDATE_HEADER_TITLE',
     ]),
+
+    startLesson () {
+      this.$router.push({
+        name: 'lesson',
+        params: {
+          no: '1',
+        },
+      })
+    },
   },
 
   components: {
     BottomBtn,
   },
+
 }
 </script>
 

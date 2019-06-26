@@ -166,38 +166,46 @@ export default {
 
   categories: {
     'TOEIC Speaking': {
-      // title: 'TOEIC Speaking',
       'Lesson 1': {
         title: 'Lesson 1',
         href: 'lesson_1'
       },
       'Lesson 2': {
+        title: 'Lesson 2',
         href: 'lesson_2'
       },
       'Lesson 3': {
+        title: 'Lesson 3',
         href: 'lesson_3'
       },
       'Lesson 4': {
+        title: 'Lesson 4',
         href: 'lesson_4'
       },
       'Lesson 5': {
+        title: 'Lesson 5',
         href: 'lesson_5'
       },
     },
     'OPIc': {
       'Lesson 1': {
+        title: 'Lesson 1',
         href: 'lesson_1'
       },
       'Lesson 2': {
+        title: 'Lesson 2',
         href: 'lesson_2'
       },
       'Lesson 3': {
+        title: 'Lesson 3',
         href: 'lesson_3'
       },
       'Lesson 4': {
+        title: 'Lesson 4',
         href: 'lesson_4'
       },
       'Lesson 5': {
+        title: 'Lesson 5',
         href: 'lesson_5'
       },
     },

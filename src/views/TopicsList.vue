@@ -18,7 +18,9 @@
             :src="attr.src"
           )
 
-    BottomBtn(msg="Enroll")
+    BottomBtn(
+      msg="Enroll"
+    )
 </template>
 
 <script>
@@ -42,7 +44,7 @@ export default {
     ]),
 
     topicDetailsLink(title, attr) {
-      this.$router.push({
+      this.$router.replace({
         name: 'topicdetails',
         params: {
           topic: this.$route.params.topic,
@@ -81,7 +83,6 @@ export default {
       @include border-radius();
 
       .topicslist__attractions-dimlayer {
-        z-index: 2;
         position: absolute;
         background-color: $black38;
         width: calc(100% - #{$grid4x} - #{$grid4x});

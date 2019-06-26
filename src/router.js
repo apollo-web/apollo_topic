@@ -4,13 +4,14 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import Topics from '@/views/Topics.vue'
-import TestPrep from '@/views/TestPrep.vue'
-
 import TopicsList from '@/views/TopicsList.vue'
-import TestPrepList from '@/views/TestPrepList.vue'
-
 import TopicDetails from '@/views/details/TopicDetails.vue'
+
+import TestPrep from '@/views/TestPrep.vue'
+import TestPrepList from '@/views/TestPrepList.vue'
 import TestPrepDetails from '@/views/details/TestPrepDetails.vue'
+
+import Lesson from '@/views/details/Lesson.vue'
 
 export default new Router({
   mode: 'history',
@@ -20,15 +21,13 @@ export default new Router({
       path: '/',
       redirect: '/topics',
     },
+    /*
+      <- :topics: ->
+    */
     {
       path: '/topics',
       name: 'topics',
       component: Topics,
-    },
-    {
-      path: '/testprep',
-      name: 'testprep',
-      component: TestPrep,
     },
     {
       path: '/topics/:topic',
@@ -39,6 +38,19 @@ export default new Router({
       path: '/topics/:topic/:attr',
       name: 'topicdetails',
       component: TopicDetails,
+    },
+    {
+      path: '/topics/:topic/:attr/:no',
+      name: 'lesson',
+      component: Lesson,
+    },
+    /*
+      <- :testprep: ->
+    */
+    {
+      path: '/testprep',
+      name: 'testprep',
+      component: TestPrep,
     },
     {
       path: '/testprep/:lesson',

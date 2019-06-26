@@ -1,12 +1,20 @@
 <template lang="pug">
   div#headercomp
     div.header__wrapper
+
       div.header__left(
         v-if="this.$route.path !== '/topics' && this.$route.path !== '/testprep'"
-        @click="_setHeaderTitle()"
+        @click="_setHeaderTitle"
       )
         i.material-icons arrow_back
+      //- div.header__left(
+      //-   v-else-if="this.$route.params.no"
+      //-   @click="confirmClose"
+      //- )
+      //-   i.material-icons close
+
       div.header__title {{ headerTitle }}
+
       div.header__right(
         v-if="!this.$route.params.topic && !this.$route.params.lesson"
       ) Filters
@@ -35,16 +43,27 @@ export default {
   },
 
   methods: {
-    _setHeaderTitle() {
-      this.$router.back()
-      if (this.$route.params.topic) {
+    _setHeaderTitle () {
+      this.$router.go(-1)
+      if (this.$route.params.topic && ! this.$route.params.attr) {
         this.setHeaderTitle(this.cities[this.$route.params.topic].title)
       }
-      else if (this.$route.params.lesson) {
-        console.log(this.categories[this.$route.params.lesson].title)
-        // this.setHeaderTitle(this.categories[this.$route.params.lesson].title)
+      else if (this.$route.params.topic && this.$route.params.attr) {
+        this.setHeaderTitle(this.cities[this.$route.params.topic].attractions[this.$route.params.attr].title)
+      }
+      // else if (this.$route.params.lesson) {
+      //   this.setHeaderTitle(this.categories[this.$route.params.lesson].title)
+      // }
+    },
+
+    confirmClose () {
+      let _confirmClose = confirm('The lesson is not finished yet. Would you really quit the lesson?')
+      if (_confirmClose) {
+        this.$router.replace(`/topics/${this.$route.params.topic}`)
+        this.setHeaderTitle(this.cities[this.$route.params.topic].title)
       }
     },
+
   },
 
 }
@@ -53,7 +72,7 @@ export default {
 <style lang="scss">
 #headercomp {
   top: 0;
-  z-index: 3;
+  z-index: 2;
   width: 100%;
   height: $header;
   position: fixed;

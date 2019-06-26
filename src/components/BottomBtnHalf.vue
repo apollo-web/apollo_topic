@@ -1,41 +1,35 @@
 <template lang="pug">
-  div#bottombtn
-    slot.slot_class
-    div.bottombtn__base
-      p {{ msg }}
+  div#bottombtnhalf
+    div.bottombtnhalf__base
+      div.bottombtnhalf__base-left
+        p {{ msg_left }}
+      div.bottombtnhalf__base-right
+        p {{ msg_right }}
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-
 export default {
-  name: 'bottombtn',
+  name: 'bottombtnhalf',
 
   props: {
-    msg: String,
-  },
-
-  methods: {
-    ...mapMutations([
-      'SET_BOTTOM_SHEET'
-    ]),
-  },
-
-  beforeDestroy () {
-    this.SET_BOTTOM_SHEET(false)
+    msg_left: String,
+    msg_right: String,
   },
 
 }
 </script>
 
 <style lang="scss">
-#bottombtn {
+#bottombtnhalf {
   bottom: 0;
-  z-index: 1;
+  left: 0;
+  z-index: 2;
   width: 100vw;
   position: fixed;
   padding-top: $grid4x;
-  height: calc(#{$bottom} + #{$grid4x});
+  height: calc(#{$bottom_short} + #{$grid7x});
+
+  // background-color: $brand_dark;
 
   // background gradient
   background: rgba(132, 77, 255, 0);
@@ -83,31 +77,42 @@ export default {
     padding-bottom: calc(env(safe-area-inset-bottom));
   }
 
-  .slot_class {
-    width: 100%;
-    height: $bottom;
-    position: absolute;
-  }
-
-  .bottombtn__base {
-    z-index: 2;
+  .bottombtnhalf__base {
     margin: 0 auto;
-    display: table;
-    cursor: pointer;
-    height: $bottom;
-    text-align: center;
-    background-color: #fff;
+    display: block;
     width: calc(100% - #{$grid8x});
-    @include border-radius();
-    @include line-height($bottom);
+
+    .bottombtnhalf__base-left,
+    .bottombtnhalf__base-right {
+      z-index: 2;
+      cursor: pointer;
+      text-align: center;
+      height: $bottom_short;
+      display: inline-table;
+      width: calc(49.99% - #{4.49px});
+      @include border-radius();
+      @include line-height($bottom_short);
+    }
+
+    .bottombtnhalf__base-left {
+      color: #fff;
+      margin-right: $grid;
+      background-color: $brand;
+      border: 1px solid #fff;
+    }
+
+    .bottombtnhalf__base-right {
+      color: $brand;
+      margin-left: $grid;
+      background-color: #fff;
+    }
 
     p {
-      color: $brand;
       height: $header;
       font-weight: 700;
       display: table-cell;
       vertical-align: middle;
-      @include font-size(18px);
+      @include font-size(14px);
     }
   }
 }

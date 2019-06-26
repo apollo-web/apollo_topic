@@ -9,7 +9,6 @@ export const setHeaderTitle = {
     ]),
 
     setHeaderTitle(title) {
-      console.log(title)
       this.UPDATE_HEADER_TITLE(title)
     },
   },

@@ -4,7 +4,13 @@ export default {
   },
 
   SET_BOTTOM_SHEET: (state, bool) => {
-    state.bottomSheet = bool
-  }
+    if (!bool) {
+      setTimeout(() => {
+        state.bottomSheet = bool
+      }, 250)
+    } else {
+      state.bottomSheet = bool
+    }
+  },
 
 }

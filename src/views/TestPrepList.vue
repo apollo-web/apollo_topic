@@ -7,7 +7,9 @@
         p.topicslist__title-text Lessons for
         p.topicslist__title-topic {{ headerTitle }}
 
-    BottomBtn(msg="Enroll")
+    BottomBtn(
+      msg="Enroll"
+    )
 </template>
 
 <script>

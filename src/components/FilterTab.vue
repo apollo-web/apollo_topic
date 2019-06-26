@@ -9,9 +9,15 @@
       )
         p.filtertab__filter-text Change
         i.material-icons expand_more
+
     BottomSheet(
+      msg="Topic Level"
       v-if="bottomSheet"
     )
+      div.bottomsheet__body
+        div.bottomsheet__body-list(
+          v-for="level in topicLevel"
+        ) {{ level.level }}
 </template>
 
 <script>
@@ -35,11 +41,16 @@ export default {
     ...mapState([
       'currentLevel',
       'bottomSheet',
+      'topicLevel',
     ]),
 
     ...mapGetters([
       'getCurrentLevel',
     ]),
+  },
+
+  beforeDestroy () {
+      this.SET_BOTTOM_SHEET(false)
   },
 
   components: {
@@ -51,7 +62,7 @@ export default {
 
 <style lang="scss">
 #filtertab {
-  z-index: 3;
+  z-index: 2;
   width: 100%;
   top: $header;
   height: $header;
