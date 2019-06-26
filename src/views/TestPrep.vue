@@ -9,7 +9,7 @@
         v-for="(index, key) in category"
       )
         router-link(
-          :to="`/testprep_lists/${index.href}`"
+          :to="`/testprep/${index.href}`"
         )
           div.testprep__list-lesson(
             @click="setHeaderTitle(key)"
@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss">
 #testprep {
+  margin-top: $grid4x;
   padding-top: $grid3x;
 
   .testprep__list {

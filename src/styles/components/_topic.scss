@@ -1,4 +1,6 @@
 #topics,
 #testprep {
   padding: $grid4x;
+  margin-top: calc(#{$header} + #{$header});
+  margin-bottom: $grid4x;
 }

@@ -1,8 +1,11 @@
 @charset 'UTF-8';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 @import './modules/grid',
 './modules/color',
 './modules/class',
 './modules/global';
 
-@import './components/_topic';
+@import './components/_topic',
+'./components/_list',
+'./components/_details';

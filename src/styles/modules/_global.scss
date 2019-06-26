@@ -2,12 +2,30 @@
   mixin default font
 ============================== */
 @mixin font-stack-html() {
-  -webkit-font-family: Sans-serif;
-  -khtml-font-family: Sans-serif;
-  -moz-font-family: Sans-serif;
-  -ms-font-family: Sans-serif;
-  -o-font-family: Sans-serif;
-  font-family: Sans-serif;
+  -webkit-font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+  -khtml-font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+  -moz-font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+  -ms-font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+  -o-font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+
+  @supports (-webkit-overflow-scrolling: touch) {
+    -webkit-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    -khtml-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    -moz-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    -ms-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    -o-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    -webkit-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    -khtml-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    -moz-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    -ms-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    -o-font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+    font-family: 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
+  }
 }
 
 
@@ -63,6 +81,10 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   -moz-tap-highlight-color: rgba(0, 0, 0, 0) !important;
   tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+html {
+  background-color: $brand;
 }
 
 

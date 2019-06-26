@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'Tab',
+  name: 'tab',
 
   data: _ => ({
     tab: {
@@ -35,16 +35,12 @@ export default {
 <style lang="scss">
 #tab {
   z-index: 5;
+  width: 100%;
   top: $header;
   height: $header;
-  position: sticky;
+  position: fixed;
   background-color: $brand_dark;
   border-bottom: 1px solid $white38;
-
-  @supports (position: sticky) or (position: -webkit-sticky) {
-    position: -webkit-sticky;
-    position: sticky;
-  }
 
   .tab__button {
     width: 50%;
@@ -56,7 +52,7 @@ export default {
     .tab__button-link {
       width: 100%;
       display: inline-block;
-      line-height: $grid12x;
+      line-height: $header;
 
       .tab__button-btn {
         border: none;

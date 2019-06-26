@@ -3,7 +3,14 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import TopicLists from './views/TopicLists.vue'
+import Topics from '@/views/Topics.vue'
+import TestPrep from '@/views/TestPrep.vue'
+
+import TopicsList from '@/views/TopicsList.vue'
+import TestPrepList from '@/views/TestPrepList.vue'
+
+import TopicDetails from '@/views/details/TopicDetails.vue'
+import TestPrepDetails from '@/views/details/TestPrepDetails.vue'
 
 export default new Router({
   mode: 'history',
@@ -16,20 +23,32 @@ export default new Router({
     {
       path: '/topics',
       name: 'topics',
-      component: _ =>
-        import( /* webpackChunkName: 'topics' */ './views/Topics.vue')
+      component: Topics,
     },
     {
       path: '/testprep',
       name: 'testprep',
-      component: _ =>
-        import( /* webpackChunkName: 'testprep' */ './views/TestPrep.vue')
+      component: TestPrep,
     },
     {
-      path: '/topic_lists/:topic',
-      alias: '/testprep_lists/:topic',
-      name: 'topiclists',
-      component: TopicLists,
+      path: '/topics/:topic',
+      name: 'topicslist',
+      component: TopicsList,
+    },
+    {
+      path: '/topics/:topic/:attr',
+      name: 'topicdetails',
+      component: TopicDetails,
+    },
+    {
+      path: '/testprep/:lesson',
+      name: 'testpreplist',
+      component: TestPrepList,
+    },
+    {
+      path: '/topics/:lesson/:dir',
+      name: 'testprepdetails',
+      component: TestPrepDetails,
     },
   ],
 

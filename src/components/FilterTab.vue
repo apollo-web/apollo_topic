@@ -44,16 +44,12 @@ export default {
 <style lang="scss">
 #filtertab {
   z-index: 5;
+  width: 100%;
   top: $header;
   height: $header;
-  position: sticky;
+  position: fixed;
   background-color: $brand_dark;
   border-bottom: 1px solid $white38;
-
-  @supports (position: sticky) or (position: -webkit-sticky) {
-    position: -webkit-sticky;
-    position: sticky;
-  }
 
   .filtertab__level,
   .filtertab__filter {

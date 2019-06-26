@@ -4,14 +4,14 @@
       v-for="(city, key, index) in cities"
       :key="index"
     )
-      router-link.topics__list-router(
-        :to="`/topic_lists/${city.href}`"
+      div.topics__list-router(
+        @click="topicListRouter(city.href)"
       )
         div.topics__list-container(
-          @click="setHeaderTitle(key)"
+          @click="setHeaderTitle(city.title)"
         )
           div.topics__list-textwrapper
-            div.topics__list-title {{ key }}
+            div.topics__list-title {{ city.title }}
             div.topics__list-status {{ city.status }}
             div.topics__list-desc {{ city.desc }}
           div.topics__list-imgwrapper
@@ -31,6 +31,17 @@ export default {
     setHeaderTitle,
   ],
 
+  methods: {
+    topicListRouter(topic) {
+      this.$router.push({
+        name: 'topicslist',
+        params: {
+          topic: topic,
+        },
+      })
+    },
+  },
+
   computed: {
     ...mapState([
       'cities',
@@ -42,6 +53,8 @@ export default {
 
 <style lang="scss">
 #topics {
+  margin-top: $grid4x;
+
   .topics__list {
     cursor: pointer;
 

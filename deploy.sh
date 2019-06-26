@@ -27,7 +27,6 @@ dev_or_deploy() {
         npm_run_build
         firebase_deploy
         git_commit
-        git_push
         break;;
 
       [Dd]* )
@@ -129,6 +128,8 @@ git_commit() {
         printf "\n"
         git add .
         git commit -m "$commitmsg"
+
+        git_push
         break;;
 
       [Nn]* ) return 0;;
@@ -149,9 +150,6 @@ git_push() {
         printf "\n"
         echo "${BOLD}${PURPLE}🔥 Push: origin 🔥${RESET}"
         git push ;
-        # printf "\n"
-        # echo "${BOLD}${PURPLE}🔥 Push: github 🔥${RESET}"
-        # git push github;
         break;;
       [Nn]* ) return 0;;
       * ) echo "${YELLOW}Please answer yes or no.${RESET}";;
