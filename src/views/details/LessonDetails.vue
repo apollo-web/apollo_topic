@@ -72,6 +72,7 @@ export default {
     if (localStorage.getItem('reloaded')) {
       localStorage.removeItem('reloaded')
     } else {
+      console.warn('RELOADING')
       localStorage.setItem('reloaded', '1')
       this.$router.go(0)
     }

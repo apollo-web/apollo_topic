@@ -27,7 +27,7 @@ export default {
     document.body.removeChild(div)
 
     return result
-  }
+  },
 
 }
 </script>

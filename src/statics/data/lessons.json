@@ -8,8 +8,24 @@
       ]
     },
     {
-      "title": "Fisherman’s 123123123, Pier 39",
-      "id": "asdfasdfas",
+      "title": "Lombard Street",
+      "id": "lombard_street",
+      "types": [
+        "questions",
+        "vocabulary_expressions"
+      ]
+    },
+    {
+      "title": "Golden Gate Bridge",
+      "id": "golden_gate_bridge",
+      "types": [
+        "questions",
+        "vocabulary_expressions"
+      ]
+    },
+    {
+      "title": "Ferry Building",
+      "id": "ferry_building",
       "types": [
         "questions",
         "vocabulary_expressions"
