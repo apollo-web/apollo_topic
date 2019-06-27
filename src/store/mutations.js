@@ -13,4 +13,12 @@ export default {
     }
   },
 
+  SET_TOPIC_LEVEL: (state, [lv, bool]) => {
+    for (let lv in state.topicLevel) {
+      state.topicLevel[lv].bool = false
+    }
+    state.topicLevel[lv].bool = true
+    state.bottomSheet = false
+  },
+
 }

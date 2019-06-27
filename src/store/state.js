@@ -1,17 +1,18 @@
 export default {
-  topicLevel: [{
+  topicLevel: {
+    'Advanced': {
       level: 'Advanced',
       bool: false,
     },
-    {
+    'Intermediate': {
       level: 'Intermediate',
       bool: false,
     },
-    {
+    'Beginner': {
       level: 'Beginner',
       bool: true,
     },
-  ],
+  },
 
   bottomSheet: false,
 

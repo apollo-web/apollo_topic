@@ -89,7 +89,7 @@ export default {
       text-align: center;
       height: $bottom_short;
       display: inline-table;
-      width: calc(49.99% - #{4.49px});
+      width: calc(49.9% - #{4.49px});
       @include border-radius();
       @include line-height($bottom_short);
     }

@@ -1,7 +1,10 @@
 export default {
   getCurrentLevel: state => {
-    return state.topicLevel
-      .filter(level => level.bool)[0]
-      .level
+    let currentLevel
+    for (let lv in state.topicLevel) {
+      if (state.topicLevel[lv].bool === true) {
+        return currentLevel = state.topicLevel[lv].level
+      }
+    }
   }
 }

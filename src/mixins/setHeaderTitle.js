@@ -11,10 +11,11 @@ export const setHeaderTitle = {
     setHeaderTitle(title) {
       this.UPDATE_HEADER_TITLE(title)
     },
+
   },
 
   mounted() {
     this.UPDATE_HEADER_TITLE('Topics')
-  }
+  },
 
 }

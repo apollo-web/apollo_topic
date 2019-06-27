@@ -16,8 +16,9 @@
     )
       div.bottomsheet__body
         div.bottomsheet__body-list(
-          v-for="level in topicLevel"
-        ) {{ level.level }}
+          v-for="lv in topicLevel"
+          @click="SET_TOPIC_LEVEL([lv.level, true])"
+        ) {{ lv.level }}
 </template>
 
 <script>
@@ -29,7 +30,8 @@ export default {
 
   methods: {
     ...mapMutations([
-      'SET_BOTTOM_SHEET'
+      'SET_BOTTOM_SHEET',
+      'SET_TOPIC_LEVEL',
     ]),
 
     toggleSheet(bool) {
@@ -50,7 +52,7 @@ export default {
   },
 
   beforeDestroy () {
-      this.SET_BOTTOM_SHEET(false)
+    this.SET_BOTTOM_SHEET(false)
   },
 
   components: {
