@@ -2,8 +2,6 @@
   div#lessonDetails
     router-view#markdown.container
 
-    p LessonDetails
-
     BottomBtnHalf(
       msg_left="Back"
       msg_right="Next"
@@ -19,18 +17,39 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import LESSONENTRIES from '@/statics/data/lessons.json'
 import BottomBtnHalf from '@/components/BottomBtnHalf'
 
 export default {
   name: 'lessonDetails',
 
+  data: _ => ({
+    header: '',
+  }),
+
   mounted () {
-    console.log(this.$router.currentRoute.params.id)
-    console.log(this.entries[this.$router.currentRoute.params.id])
+    localStorage.setItem('header', this.headerTitle)
+    this.header = localStorage.getItem('header')
+    this.UPDATE_HEADER_TITLE(localStorage.getItem('header'))
+
+    console.log(this.header)
+    if (localStorage.getItem('reloaded')) {
+      localStorage.removeItem('reloaded')
+    } else {
+      localStorage.setItem('reloaded', '1')
+      this.$router.go(0)
+    }
+
+    // console.log(this.$router.currentRoute.params.id)
+    // console.log(this.entries[this.$router.currentRoute.params.id])
   },
 
   methods: {
+    ...mapMutations([
+      'UPDATE_HEADER_TITLE',
+    ]),
+
     slotBack () {
       this.$router.go(-1)
     },
@@ -41,6 +60,10 @@ export default {
   },
 
   computed: {
+    ...mapState([
+      'headerTitle',
+    ]),
+
     entries () {
       return LESSONENTRIES
     },

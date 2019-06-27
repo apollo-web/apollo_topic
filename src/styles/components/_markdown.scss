@@ -21,11 +21,11 @@
 
   ul,
   ol {
+    margin-top: $grid4x;
     margin-left: -#{$grid4x};
 
     li {
       color: #fff;
-      margin-bottom: $grid4x;
     }
   }
 

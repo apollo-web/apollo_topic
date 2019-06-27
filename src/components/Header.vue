@@ -21,6 +21,9 @@
       div.header__right(
         v-else-if="this.$route.params.attr || this.$route.params.dir || this.$route.params.no"
       ) Tutor
+      div.header__right(
+        v-else-if="['topicLesson'].indexOf($route.name)"
+      ) Hint
 </template>
 
 <script>
