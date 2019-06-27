@@ -11,12 +11,13 @@
     BottomBtn(
       msg="View Lesson"
     )
-      div.slot_class(@click="startLesson")
+      div.slot_class(@click="startLesson(cities[$route.params.topic].attractions[$route.params.attr].href)")
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex'
 import BottomBtn from '@/components/BottomBtn'
+import LESSONENTRIES from '@/statics/data/lessons.json'
 
 export default {
   name: 'topicdetails',
@@ -26,6 +27,10 @@ export default {
       'headerTitle',
       'cities',
     ]),
+
+    entries () {
+      return LESSONENTRIES
+    },
   },
 
   methods: {
@@ -33,14 +38,22 @@ export default {
       'UPDATE_HEADER_TITLE',
     ]),
 
-    startLesson () {
+    startLesson (id) {
       this.$router.push({
-        name: 'lesson',
+        name: 'topicLesson',
         params: {
-          no: '1',
+          id: `${id}`,
         },
       })
     },
+  },
+
+  mounted () {
+    this.UPDATE_HEADER_TITLE(
+      this.cities[this.$route.params.topic]
+      .attractions[this.$route.params.attr]
+      .title
+    )
   },
 
   components: {

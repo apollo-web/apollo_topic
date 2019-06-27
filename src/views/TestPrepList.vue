@@ -24,7 +24,19 @@ export default {
     ...mapState([
       'headerTitle',
       'cities',
+      'categories',
     ]),
+  },
+
+  methods: {
+    ...mapMutations([
+      'UPDATE_HEADER_TITLE',
+    ]),
+  },
+
+  mounted () {
+    console.log(this.categories)
+    // this.UPDATE_HEADER_TITLE(this.categories[this.$route.params.lesson].title)
   },
 
   components: {

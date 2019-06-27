@@ -19,7 +19,7 @@
         v-if="!this.$route.params.topic && !this.$route.params.lesson"
       ) Filters
       div.header__right(
-        v-else-if="this.$route.params.attr || this.$route.params.dir"
+        v-else-if="this.$route.params.attr || this.$route.params.dir || this.$route.params.no"
       ) Tutor
 </template>
 

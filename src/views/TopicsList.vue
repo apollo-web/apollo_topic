@@ -55,6 +55,10 @@ export default {
     },
   },
 
+  mounted () {
+    this.UPDATE_HEADER_TITLE(this.cities[this.$route.params.topic].title)
+  },
+
   components: {
     FilterTab,
     BottomBtn,

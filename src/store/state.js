@@ -16,6 +16,8 @@ export default {
 
   bottomSheet: false,
 
+  savedCurrentRoute: null,
+
   headerTitle: 'Topics',
 
   cities: {

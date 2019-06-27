@@ -2,8 +2,14 @@
   div#bottombtnhalf
     div.bottombtnhalf__base
       div.bottombtnhalf__base-left
+        slot.slot_class(
+          name="left"
+        )
         p {{ msg_left }}
       div.bottombtnhalf__base-right
+        slot.slot_class(
+          name="right"
+        )
         p {{ msg_right }}
 </template>
 
@@ -77,6 +83,12 @@ export default {
     padding-bottom: calc(env(safe-area-inset-bottom));
   }
 
+  .slot_class {
+    position: absolute;
+    height: calc(#{$bottom_short} + #{$grid2x});
+    width: calc(49.8% - #{$grid5x});
+  }
+
   .bottombtnhalf__base {
     margin: 0 auto;
     display: block;
@@ -112,7 +124,7 @@ export default {
       font-weight: 700;
       display: table-cell;
       vertical-align: middle;
-      @include font-size(14px);
+      @include font-size($grid4x);
     }
   }
 }

@@ -6,6 +6,7 @@
 './modules/class',
 './modules/global';
 
-@import './components/_topic',
-'./components/_list',
-'./components/_details';
+@import './components/topic',
+'./components/list',
+'./components/details',
+'./components/markdown';

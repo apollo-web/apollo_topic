@@ -1,0 +1,60 @@
+#markdown {
+  $p_font_size: $grid4x;
+
+  margin: 0 auto;
+  @include user-select();
+
+  h1 {
+    margin-top: 0;
+    text-align: left;
+    font-weight: 700;
+    @include font-size($grid4x);
+  }
+
+  h4 {
+    color: #fff;
+    font-weight: 400;
+    padding-bottom: $grid4x;
+    border-bottom: 1px solid $texteee;
+    @include font-size($grid3x);
+  }
+
+  ul,
+  ol {
+    margin-left: -#{$grid4x};
+
+    li {
+      color: #fff;
+      margin-bottom: $grid4x;
+    }
+  }
+
+  a {
+    font-weight: 700;
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+    margin-top: $grid4x;
+    display: inline-block;
+    margin-bottom: $grid4x;
+  }
+
+  em {
+    margin: 0 auto;
+    display: block;
+    max-width: 80%;
+    text-align: center;
+  }
+
+  hr {
+    margin: $grid16x 0;
+  }
+
+  p,
+  li {
+    @include font-size($p_font_size);
+  }
+
+}
