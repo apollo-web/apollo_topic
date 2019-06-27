@@ -16,7 +16,7 @@ export default {
 
   bottomSheet: false,
 
-  savedCurrentRoute: null,
+  topicIndex: null,
 
   headerTitle: 'Topics',
 
@@ -29,6 +29,7 @@ export default {
       desc: 'City in California',
       attractions: {
         'fishermans_wharf_pier_39': {
+          index: 0,
           title: 'Fisherman’s Wharf, Pier 39',
           href: 'fishermans_wharf_pier_39',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Sealions_on_Pier_39%2C_SF%2C_CA%2C_jjron_26.03.2012.jpg/440px-Sealions_on_Pier_39%2C_SF%2C_CA%2C_jjron_26.03.2012.jpg',
@@ -37,16 +38,19 @@ export default {
           `
         },
         'lombard_street': {
+          index: 1,
           title: 'Lombard Street',
           href: 'lombard_street',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sanfran_61_bg_032605.jpg/440px-Sanfran_61_bg_032605.jpg',
         },
         'golden_gate_bridge': {
+          index: 2,
           title: 'Golden Gate Bridge',
           href: 'golden_gate_bridge',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/540px-GoldenGateBridge-001.jpg',
         },
         'ferry_building': {
+          index: 3,
           title: 'Ferry Building',
           href: 'ferry_building',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/San_Francisco_Ferry_Building_%28cropped%29.jpg/600px-San_Francisco_Ferry_Building_%28cropped%29.jpg',

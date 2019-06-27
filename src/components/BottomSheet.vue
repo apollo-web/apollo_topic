@@ -54,6 +54,7 @@ export default {
 
 <style lang="scss">
 #bottomsheet {
+  left: 0;
   top: -#{$header};
   position: absolute;
   z-index: 25 !important;

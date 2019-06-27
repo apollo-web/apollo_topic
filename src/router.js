@@ -22,7 +22,7 @@ const lessonRoutes = Object.keys(LessonEntries).map(section => {
   }))
   return {
     path: `/${section}/:id?`,
-    name: 'topicLesson',
+    name: section,
     component: LessonDetails,
     children,
   }

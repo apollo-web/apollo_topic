@@ -1,5 +1,15 @@
 <template lang="pug">
   div#topicdetails
+    Header
+      div.header__left(
+        slot="header__left"
+        @click="routerBack('topicslist', 'topic', cities[$route.params.topic].href)"
+      )
+        i.material-icons arrow_back
+      div.header__right(
+        slot="header__right"
+      )
+
     div.topicdetails__container
       div.topicdetails__img-box
         img.topicdetails__img(
@@ -16,11 +26,19 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
+import Header from '@/components/Header'
 import BottomBtn from '@/components/BottomBtn'
 import LESSONENTRIES from '@/statics/data/lessons.json'
+import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
+import { routerBack } from '@/mixins/routerBack.js'
 
 export default {
   name: 'topicdetails',
+
+  mixins: [
+    setHeaderTitle,
+    routerBack,
+  ],
 
   computed: {
     ...mapState([
@@ -35,10 +53,15 @@ export default {
 
   methods: {
     ...mapMutations([
-      'UPDATE_HEADER_TITLE',
+      'SET_TOPIC_INDEX',
     ]),
 
     startLesson (id) {
+      this.SET_TOPIC_INDEX(
+        this.cities[this.$route.params.topic]
+        .attractions[this.$route.params.attr]
+        .index
+      )
       this.$router.push({
         name: 'topicLesson',
         params: {
@@ -49,7 +72,7 @@ export default {
   },
 
   mounted () {
-    this.UPDATE_HEADER_TITLE(
+    this.setHeaderTitle(
       this.cities[this.$route.params.topic]
       .attractions[this.$route.params.attr]
       .title
@@ -57,6 +80,7 @@ export default {
   },
 
   components: {
+    Header,
     BottomBtn,
   },
 

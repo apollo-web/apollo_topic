@@ -1,54 +1,97 @@
 <template lang="pug">
   div#lessonDetails
-    router-view#markdown.container
+    Header
+      div.header__left(
+        slot="header__left"
+        @click="quitLesson"
+      )
+        i.material-icons close
+      div.header__right(
+        slot="header__right"
+        @click="toggleSheet(true)"
+      ) Hint
 
-    BottomBtnHalf(
-      msg_left="Back"
-      msg_right="Next"
+    div.wrapper
+      router-view#markdown.container
+
+      BottomBtnHalf(
+        msg_left="Back"
+        msg_right="Next"
+      )
+        div.slot_class(
+          slot="left"
+          @click="slotBack"
+        )
+        div.slot_class(
+          slot="right"
+          @click="slotForward"
+        )
+
+    BottomSheet.bottomsheet(
+      msg="Hint"
+      v-if="bottomSheet"
     )
-      div.slot_class(
-        slot="left"
-        @click="slotBack"
-      )
-      div.slot_class(
-        slot="right"
-        @click="slotForward"
-      )
+      div.bottomsheet__body
+        div.bottomsheet__body-list(
+        ) Hint
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex'
-import LESSONENTRIES from '@/statics/data/lessons.json'
+import Header from '@/components/Header'
 import BottomBtnHalf from '@/components/BottomBtnHalf'
+import BottomSheet from '@/components/BottomSheet'
+import LESSONENTRIES from '@/statics/data/lessons.json'
+import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
+import { routerBack } from '@/mixins/routerBack.js'
 
 export default {
   name: 'lessonDetails',
 
-  data: _ => ({
-    header: '',
-  }),
+  mixins: [
+    setHeaderTitle,
+    routerBack,
+  ],
+
+  computed: {
+    ...mapState([
+      'topicIndex',
+      'bottomSheet',
+    ]),
+
+    entries () {
+      return LESSONENTRIES
+    },
+  },
 
   mounted () {
-    localStorage.setItem('header', this.headerTitle)
-    this.header = localStorage.getItem('header')
-    this.UPDATE_HEADER_TITLE(localStorage.getItem('header'))
+    this.setHeaderTitle(
+      this.entries.topicLesson[this.topicIndex - 1].title
+    )
 
-    console.log(this.header)
     if (localStorage.getItem('reloaded')) {
       localStorage.removeItem('reloaded')
     } else {
       localStorage.setItem('reloaded', '1')
       this.$router.go(0)
     }
-
-    // console.log(this.$router.currentRoute.params.id)
-    // console.log(this.entries[this.$router.currentRoute.params.id])
   },
 
   methods: {
     ...mapMutations([
-      'UPDATE_HEADER_TITLE',
+      'SET_BOTTOM_SHEET',
     ]),
+
+    toggleSheet(bool) {
+      this.SET_BOTTOM_SHEET(bool)
+    },
+
+    quitLesson () {
+      let _confirmClose = confirm(
+        `The lesson is not finished yet.\nWould you really quit the lesson?`
+      )
+      this.$router.go(-1)
+    },
 
     slotBack () {
       this.$router.go(-1)
@@ -59,18 +102,14 @@ export default {
     },
   },
 
-  computed: {
-    ...mapState([
-      'headerTitle',
-    ]),
-
-    entries () {
-      return LESSONENTRIES
-    },
+  beforeDestroy () {
+    this.SET_BOTTOM_SHEET(false)
   },
 
   components: {
+    Header,
     BottomBtnHalf,
+    BottomSheet,
   },
 
 }
@@ -78,11 +117,18 @@ export default {
 
 <style lang="scss">
 #lessonDetails {
-  padding: $header $grid4x 0;
-  margin-bottom: calc(#{$bottom} + #{$grid8x});
+  .wrapper {
+    padding: $header $grid4x 0;
+    margin-bottom: calc(#{$bottom} + #{$grid8x});
 
-  @supports (padding-bottom: env(safe-area-inset-bottom)) {
-    margin-bottom: calc(#{$bottom} + #{$grid20x});
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      margin-bottom: calc(#{$bottom} + #{$grid20x});
+    }
+  }
+
+  .bottomsheet {
+    top: 0;
+    position: fixed;
   }
 }
 </style>

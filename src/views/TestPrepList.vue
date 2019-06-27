@@ -1,5 +1,15 @@
 <template lang="pug">
   div#testpreplist
+    Header
+      div.header__left(
+        slot="header__left"
+        @click="$router.go(-1)"
+      )
+        i.material-icons close
+      div.header__right(
+        slot="header__right"
+      )
+
     FilterTab
 
     div.topicslist__title-container
@@ -14,6 +24,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
+import Header from '@/components/Header'
 import FilterTab from '../components/FilterTab'
 import BottomBtn from '../components/BottomBtn'
 
@@ -35,11 +46,11 @@ export default {
   },
 
   mounted () {
-    console.log(this.categories)
     // this.UPDATE_HEADER_TITLE(this.categories[this.$route.params.lesson].title)
   },
 
   components: {
+    Header,
     FilterTab,
     BottomBtn,
   },

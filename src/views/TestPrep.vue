@@ -1,5 +1,13 @@
 <template lang="pug">
   div#testprep
+    Header
+      div.header__left(
+        slot="header__left"
+      )
+      div.header__right(
+        slot="header__right"
+      )
+
     div.testprep__list(
       v-for="(category, key, index) in categories"
       :key="index"
@@ -20,6 +28,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import Header from '@/components/Header'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 
 export default {
@@ -33,6 +42,10 @@ export default {
     ...mapState([
       'categories',
     ]),
+  },
+
+  components: {
+    Header,
   },
 
 }

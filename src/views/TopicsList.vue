@@ -1,5 +1,15 @@
 <template lang="pug">
   div#topicslist
+    Header
+      div.header__left(
+        slot="header__left"
+        @click="routerBack('topics')"
+      )
+        i.material-icons close
+      div.header__right(
+        slot="header__right"
+      )
+
     FilterTab
 
     div.topicslist__title-container
@@ -25,11 +35,17 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
+import Header from '@/components/Header'
 import FilterTab from '@/components/FilterTab'
 import BottomBtn from '@/components/BottomBtn'
+import { routerBack } from '@/mixins/routerBack.js'
 
 export default {
   name: 'topicslist',
+
+  mixins: [
+    routerBack,
+  ],
 
   computed: {
     ...mapState([
@@ -56,10 +72,13 @@ export default {
   },
 
   mounted () {
-    this.UPDATE_HEADER_TITLE(this.cities[this.$route.params.topic].title)
+    this.UPDATE_HEADER_TITLE(
+      this.cities[this.$route.params.topic].title
+    )
   },
 
   components: {
+    Header,
     FilterTab,
     BottomBtn,
   },

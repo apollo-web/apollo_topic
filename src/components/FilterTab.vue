@@ -23,7 +23,7 @@
 
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex'
-import BottomSheet from './BottomSheet'
+import BottomSheet from '@/components/BottomSheet'
 
 export default {
   name: 'filtertab',

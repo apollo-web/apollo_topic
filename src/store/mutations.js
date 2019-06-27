@@ -21,4 +21,8 @@ export default {
     state.bottomSheet = false
   },
 
+  SET_TOPIC_INDEX: (state, n) => {
+    state.topicIndex = n
+  }
+
 }

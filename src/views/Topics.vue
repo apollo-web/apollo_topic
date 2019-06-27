@@ -1,5 +1,13 @@
 <template lang="pug">
   div#topics
+    Header
+      div.header__left(
+        slot="header__left"
+      )
+      div.header__right(
+        slot="header__right"
+      )
+
     div.topics__list(
       v-for="(city, key, index) in cities"
       :key="index"
@@ -22,6 +30,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import Header from '@/components/Header'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 
 export default {
@@ -46,6 +55,10 @@ export default {
     ...mapState([
       'cities',
     ]),
+  },
+
+  components: {
+    Header,
   },
 
 }
