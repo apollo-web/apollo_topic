@@ -12,12 +12,29 @@ import TestPrepList from '@/views/TestPrepList.vue'
 import TestPrepDetails from '@/views/details/TestPrepDetails.vue'
 
 import Lesson from '@/views/details/Lesson.vue'
+import LessonEntries from '@/statics/data/lessons.json'
+
+const lessonRoutes = Object.keys(LessonEntries).map(section => {
+  const children = LessonEntries[section].map(child => ({
+    path: child.id,
+    name: child.id,
+    component: () => import(`@/markdowns/${section}/${child.id}.md`),
+  }))
+  return {
+    path: `/${section}`,
+    name: section,
+    component: () => import('@/views/details/Lesson.vue'),
+    children,
+  }
+})
 
 export default new Router({
   mode: 'history',
   functional: true,
   base: process.env.BASE_URL,
-  routes: [{
+  routes: [
+    ...lessonRoutes,
+    {
       path: '/',
       redirect: '/topics',
     },
