@@ -1,32 +1,24 @@
 <template lang="pug">
-  div#app
+  div#app(
+    :class="{noscroll: bottomSheet}"
+  )
     Tab
     router-view
 </template>
 
 <script>
 import Tab from '@/components/Tab'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     Tab,
   },
 
-  mounted () {
-    let result, computed, div = document.createElement('div')
-
-    div.style.padding = 'env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)'
-    document.body.appendChild(div)
-    computed = getComputedStyle(div)
-    result = {
-      top: parseInt(computed.paddingTop) || 0,
-      right: parseInt(computed.paddingRight) || 0,
-      bottom: parseInt(computed.paddingBottom) || 0,
-      left: parseInt(computed.paddingLeft) || 0
-    }
-    document.body.removeChild(div)
-
-    return result
+  computed: {
+    ...mapState([
+      'bottomSheet',
+    ])
   },
 
 }

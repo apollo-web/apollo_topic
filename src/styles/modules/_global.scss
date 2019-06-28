@@ -89,7 +89,7 @@ html {
 
 
 /* ==============================
-    fonts
+  fonts
 ============================== */
 a {
   color: $brand;
@@ -190,4 +190,12 @@ textarea:focus {
 
 .material-icons {
   @include font-size($grid5x);
+}
+
+
+/* ==============================
+  Prevent body scrolling but allow overlay scrolling
+============================== */
+.noscroll {
+  position: fixed;
 }

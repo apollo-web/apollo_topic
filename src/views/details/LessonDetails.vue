@@ -32,8 +32,7 @@
       v-if="bottomSheet"
     )
       div.bottomsheet__body
-        div.bottomsheet__body-list(
-        ) Hint
+        p.bottomsheet__body-p {{ hint }}
 </template>
 
 <script>
@@ -52,6 +51,10 @@ export default {
     setHeaderTitle,
     routerBack,
   ],
+
+  data: _ => ({
+    hint: null,
+  }),
 
   computed: {
     ...mapState([
@@ -73,6 +76,8 @@ export default {
     this.SET_CURRENT_ROUTE_PARAMS(this.$route.params.id)
 
     let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+
+    this.hint = _obj.attractions[this.$route.params.id].desc
 
     this.setHeaderTitle(
       _obj.attractions[this.$route.params.id].title

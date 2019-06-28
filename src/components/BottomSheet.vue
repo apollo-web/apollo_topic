@@ -1,22 +1,25 @@
 <template lang="pug">
-  div#bottomsheet
+  div#bottomsheet(
+    :aria-hidden="{true: isActive}"
+  )
     div.bottomsheet__dim(
       @click="toggleHandler(false)"
-      v-bind:class="{active: !isActive}"
+      :class="{active: !isActive}"
     )
-    div.bottomsheet__sheet-box
-      div.bottomsheet__sheet(
-        v-bind:class="{active: isActive}"
-      )
-        div.bottomsheet__wrapper
-          div.bottomsheet__header
-            div.bottomsheet__header-left(
-              @click="toggleHandler(false)"
-            )
-              i.material-icons close
-            div.bottomsheet__header-title
-              div.bottomsheet__header-title-text {{ title }}
-          slot
+    div.bottomsheet__sheet-wrapper
+      div.bottomsheet__sheet-box
+        div.bottomsheet__sheet(
+          :class="{active: isActive}"
+        )
+          div.bottomsheet__wrapper
+            div.bottomsheet__header
+              div.bottomsheet__header-left(
+                @click="toggleHandler(false)"
+              )
+                i.material-icons close
+              div.bottomsheet__header-title
+                div.bottomsheet__header-title-text {{ title }}
+            slot
 </template>
 
 <script>
@@ -96,101 +99,112 @@ export default {
     }
   }
 
-  .bottomsheet__sheet-box {
-    z-index: 27;
-    position: relative;
+  .bottomsheet__sheet-wrapper {
+    height: 100%;
 
-    .bottomsheet__sheet {
-      bottom: 0;
-      z-index: 28;
-      width: 100vw;
+    .bottomsheet__sheet-box {
+      z-index: 27;
       height: 100%;
-      padding: $grid4x 0;
-      position: absolute;
-      background-color: #fff;
-      padding-bottom: $grid48x;
-      border-radius: $grid4x $grid4x 0 0;
-      animation: 0.35s slide_up ease-in-out;
+      max-width: 100%;
+      position: relative;
 
-      @keyframes slide_up {
-        from {
-          opacity: 1;
-          padding-bottom: $grid52x;
-        }
-        to {
-          opacity: 0.5;
-          padding-bottom: 0;
-        }
-      }
+      .bottomsheet__sheet {
+        bottom: 0;
+        z-index: 28;
+        width: 100vw;
+        height: 100%;
+        padding: $grid4x 0;
+        position: absolute;
+        background-color: #fff;
+        padding-bottom: $grid48x;
+        border-radius: $grid4x $grid4x 0 0;
+        animation: 0.35s slide_up ease-in-out;
 
-      &.active {
-        animation: 0.35s slide_down ease-in-out;
-
-        @keyframes slide_down {
+        @keyframes slide_up {
           from {
-            opacity: 0.5;
-            padding-bottom: 0;
-          }
-          to {
             opacity: 1;
             padding-bottom: $grid52x;
           }
+          to {
+            opacity: 0.5;
+            padding-bottom: 0;
+          }
         }
-      }
 
-      // iPhone X safearea
-      @supports (padding-bottom: env(safe-area-inset-bottom)) {
-        padding-bottom: calc(env(safe-area-inset-bottom) + #{$grid52x});
-      }
+        &.active {
+          animation: 0.35s slide_down ease-in-out;
 
-      .bottomsheet__wrapper {
-        padding: 0 $grid4x;
-
-        .bottomsheet__header {
-          height: $grid12x;
-          position: relative;
-
-          .bottomsheet__header-left {
-            color: #fff;
-            cursor: pointer;
-            height: $grid12x;
-            position: absolute;
-          }
-
-          i,
-          .bottomsheet__header-title-text {
-            color: $text333;
-            text-align: center;
-            padding-top: $grid2x;
-            display: inline-block;
-          }
-
-          .bottomsheet__header-title {
-            .bottomsheet__header-title-text {
-              height: $grid12x;
-              overflow: hidden;
-              font-weight: 700;
-              margin: 0 $header;
-              position: absolute;
-              text-align: center;
-              white-space: nowrap;
-              display: inline-block;
-              text-overflow: ellipsis;
-              width: calc(100% - #{$header} - #{$header});
-              @include font-size($grid4x);
-              @include line-height($grid5x);
+          @keyframes slide_down {
+            from {
+              opacity: 0.5;
+              padding-bottom: 0;
+            }
+            to {
+              opacity: 1;
+              padding-bottom: $grid52x;
             }
           }
         }
 
-        .bottomsheet__body {
-          color: $text333;
+        // iPhone X safearea
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+          padding-bottom: calc(env(safe-area-inset-bottom) + #{$grid52x});
+        }
 
-          .bottomsheet__body-list {
-            cursor: pointer;
+        .bottomsheet__wrapper {
+          padding: 0 $grid4x;
+
+          .bottomsheet__header {
             height: $grid12x;
-            @include font-size($grid4x);
-            @include line-height($grid8x);
+            position: relative;
+
+            .bottomsheet__header-left {
+              color: #fff;
+              cursor: pointer;
+              height: $grid12x;
+              position: absolute;
+            }
+
+            i,
+            .bottomsheet__header-title-text {
+              color: $text333;
+              text-align: center;
+              padding-top: $grid2x;
+              display: inline-block;
+            }
+
+            .bottomsheet__header-title {
+              .bottomsheet__header-title-text {
+                height: $grid12x;
+                overflow: hidden;
+                font-weight: 700;
+                margin: 0 $header;
+                position: absolute;
+                text-align: center;
+                white-space: nowrap;
+                display: inline-block;
+                text-overflow: ellipsis;
+                width: calc(100% - #{$header} - #{$header});
+                @include font-size($grid4x);
+                @include line-height($grid5x);
+              }
+            }
+          }
+
+          .bottomsheet__body {
+            height: auto;
+            color: $text333;
+
+            .bottomsheet__body-list {
+              cursor: pointer;
+              height: $grid12x;
+              @include font-size($grid4x);
+              @include line-height($grid8x);
+            }
+
+            .bottomsheet__body-p {
+              height: auto;
+            }
           }
         }
       }
