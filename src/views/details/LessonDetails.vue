@@ -70,6 +70,8 @@ export default {
   },
 
   mounted () {
+    this.SET_CURRENT_ROUTE_PARAMS(this.$route.params.id)
+
     let _obj = _.find(this.cities, this.cities[this.$route.params.id])
 
     this.setHeaderTitle(
@@ -92,6 +94,7 @@ export default {
     ...mapMutations([
       'SET_BOTTOM_SHEET',
       'SET_TOPIC_INDEX',
+      'SET_CURRENT_ROUTE_PARAMS',
     ]),
 
     toggleSheet(bool) {
@@ -145,8 +148,13 @@ export default {
     },
   },
 
+  beforeMount () {
+    this.SET_TOPIC_INDEX(0)
+  },
+
   beforeDestroy () {
     this.SET_BOTTOM_SHEET(false)
+    this.SET_TOPIC_INDEX(0)
   },
 
   components: {

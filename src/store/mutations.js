@@ -23,6 +23,10 @@ export const mutations = {
 
   SET_TOPIC_INDEX: (state, n) => {
     state.topicIndex = n
-  }
+  },
+
+  SET_CURRENT_ROUTE_PARAMS: (state, param) => {
+    state.currentRouteParams = param
+  },
 
 }

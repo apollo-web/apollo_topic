@@ -82,6 +82,10 @@ export default {
     )
   },
 
+  beforeDestroy () {
+    this.SET_TOPIC_INDEX(0)
+  },
+
   components: {
     Header,
     BottomBtn,
