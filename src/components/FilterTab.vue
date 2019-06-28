@@ -11,7 +11,7 @@
         i.material-icons expand_more
 
     BottomSheet(
-      msg="Topic Level"
+      title="Topic Level"
       v-if="bottomSheet"
     )
       div.bottomsheet__body

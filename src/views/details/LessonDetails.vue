@@ -28,7 +28,7 @@
         )
 
     BottomSheet.bottomsheet(
-      msg="Hint"
+      title="Hint"
       v-if="bottomSheet"
     )
       div.bottomsheet__body
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 import Header from '@/components/Header'
 import BottomBtnHalf from '@/components/BottomBtnHalf'
 import BottomSheet from '@/components/BottomSheet'
@@ -57,6 +57,11 @@ export default {
     ...mapState([
       'topicIndex',
       'bottomSheet',
+      'cities',
+    ]),
+
+    ...mapGetters([
+      'getCurrentTopicIndex',
     ]),
 
     entries () {
@@ -65,22 +70,28 @@ export default {
   },
 
   mounted () {
+    let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+
     this.setHeaderTitle(
-      this.entries.topicLesson[this.topicIndex - 1].title
+      _obj.attractions[this.$route.params.id].title
     )
 
-    if (localStorage.getItem('reloaded')) {
-      localStorage.removeItem('reloaded')
-    } else {
-      console.warn('RELOADING')
-      localStorage.setItem('reloaded', '1')
-      this.$router.go(0)
-    }
+    this.$nextTick(() => {
+      setTimeout(() => {
+        if (localStorage.getItem('reloaded')) {
+          localStorage.removeItem('reloaded')
+        } else {
+          localStorage.setItem('reloaded', '1')
+          location.reload()
+        }
+      }, 10)
+    })
   },
 
   methods: {
     ...mapMutations([
       'SET_BOTTOM_SHEET',
+      'SET_TOPIC_INDEX',
     ]),
 
     toggleSheet(bool) {
@@ -91,15 +102,46 @@ export default {
       let _confirmClose = confirm(
         `The lesson is not finished yet.\nWould you really quit the lesson?`
       )
-      this.$router.go(-1)
+      if (_confirmClose) {
+        this.$router.go(-1)
+      }
     },
 
     slotBack () {
-      this.$router.go(-1)
+      let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+
+      if (this.getCurrentTopicIndex > 0) {
+        this.$router.go(-1)
+        this.SET_TOPIC_INDEX(_obj.attractions[this.$route.params.id].index - 1)
+
+        this.$router.push({
+          name: 'topicLesson',
+          params: {
+            id: this.$route.params.id,
+          },
+          query: {
+            index: this.getCurrentTopicIndex,
+          },
+        })
+      }
+      else {
+        this.$router.go(-1)
+      }
     },
 
     slotForward () {
-      console.log('slotForward')
+      let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+      this.SET_TOPIC_INDEX(_obj.attractions[this.$route.params.id].index)
+
+      this.$router.push({
+        name: 'topicLesson',
+        params: {
+          id: this.$route.params.id,
+        },
+        query: {
+          index: this.getCurrentTopicIndex,
+        },
+      })
     },
   },
 

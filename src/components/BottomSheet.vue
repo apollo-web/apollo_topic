@@ -15,7 +15,7 @@
             )
               i.material-icons close
             div.bottomsheet__header-title
-              div.bottomsheet__header-title-text Topic Level
+              div.bottomsheet__header-title-text {{ title }}
           slot
 </template>
 
@@ -47,6 +47,10 @@ export default {
       this.isActive = !this.isActive
     },
 
+  },
+
+  beforeDestroy () {
+    this.SET_BOTTOM_SHEET(false)
   },
 
 }

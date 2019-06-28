@@ -26,6 +26,11 @@
 
     li {
       color: #fff;
+
+      ul,
+      ol {
+        margin-bottom: $grid16x;
+      }
     }
   }
 

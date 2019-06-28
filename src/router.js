@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/store/index.js'
 
 Vue.use(Router)
 
@@ -15,13 +16,17 @@ import LessonDetails from '@/views/details/LessonDetails.vue'
 import LessonEntries from '@/statics/data/lessons.json'
 
 const lessonRoutes = Object.keys(LessonEntries).map(section => {
+  let _index = store.getters.getCurrentTopicIndex
+
   const children = LessonEntries[section].map(child => ({
-    path: `${child.id}`,
+    path: `/${section}/:id/:index?`,
     name: child.id,
-    component: () => import(`@/markdowns/${section}/${child.id}.md`),
+    // component: () => import(`@/markdowns/${section}/${child.id}/${child.index[_index - 1]}.md`),
+    component: () => import(`@/markdowns/${section}/${child.id}/${child.index[_obj - 1]}.md`),
   }))
+
   return {
-    path: `/${section}/:id?`,
+    path: `/${section}/:id/:index?`,
     name: section,
     component: LessonDetails,
     children,

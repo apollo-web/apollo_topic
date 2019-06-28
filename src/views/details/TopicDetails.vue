@@ -65,8 +65,11 @@ export default {
       this.$router.push({
         name: 'topicLesson',
         params: {
-          id: `${id}`,
+          id: id,
         },
+        query: {
+          index: 0,
+        }
       })
     },
   },

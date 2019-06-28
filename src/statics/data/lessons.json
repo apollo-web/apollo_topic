@@ -2,7 +2,7 @@
   "topicLesson": [{
       "title": "Fisherman’s Wharf, Pier 39",
       "id": "fishermans_wharf_pier_39",
-      "types": [
+      "index": [
         "questions",
         "vocabulary_expressions"
       ]
@@ -10,7 +10,7 @@
     {
       "title": "Lombard Street",
       "id": "lombard_street",
-      "types": [
+      "index": [
         "questions",
         "vocabulary_expressions"
       ]
@@ -18,7 +18,7 @@
     {
       "title": "Golden Gate Bridge",
       "id": "golden_gate_bridge",
-      "types": [
+      "index": [
         "questions",
         "vocabulary_expressions"
       ]
@@ -26,7 +26,7 @@
     {
       "title": "Ferry Building",
       "id": "ferry_building",
-      "types": [
+      "index": [
         "questions",
         "vocabulary_expressions"
       ]

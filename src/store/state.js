@@ -1,4 +1,5 @@
-export default {
+export const state = {
+
   topicLevel: {
     'Advanced': {
       level: 'Advanced',
@@ -16,7 +17,7 @@ export default {
 
   bottomSheet: false,
 
-  topicIndex: null,
+  topicIndex: 0,
 
   headerTitle: 'Topics',
 
@@ -27,8 +28,7 @@ export default {
       src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/540px-GoldenGateBridge-001.jpg',
       status: 'Status',
       desc: 'City in California',
-      attractions: {
-        'fishermans_wharf_pier_39': {
+      attractions: [{
           index: 0,
           title: 'Fisherman’s Wharf, Pier 39',
           href: 'fishermans_wharf_pier_39',
@@ -37,25 +37,25 @@ export default {
             Dating back to the California Gold Rush, San Francisco’s Fisherman’s Wharf was originally little more than a collection of waterfront stands manned by entrepreneurial fishermen selling their daily catch to hungry prospectors. In the decades since, it has grown into a festive backdrop for diverse cultural events and attractions enjoyed by an estimated 12 million visitors annually. Among the more curious sights on the wharf is a colony of wild sea lions that took up residence at Pier 39 in October 1989. Although nearby shop and restaurant owners initially considered them a nuisance due to their strong odor and near-constant barking, they had a change of heart after realizing that the presence of the colony drew tourists to the area.
           `
         },
-        'lombard_street': {
+        {
           index: 1,
           title: 'Lombard Street',
           href: 'lombard_street',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sanfran_61_bg_032605.jpg/440px-Sanfran_61_bg_032605.jpg',
         },
-        'golden_gate_bridge': {
+        {
           index: 2,
           title: 'Golden Gate Bridge',
           href: 'golden_gate_bridge',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/540px-GoldenGateBridge-001.jpg',
         },
-        'ferry_building': {
+        {
           index: 3,
           title: 'Ferry Building',
           href: 'ferry_building',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/San_Francisco_Ferry_Building_%28cropped%29.jpg/600px-San_Francisco_Ferry_Building_%28cropped%29.jpg',
         },
-      },
+      ],
     },
     'los_angeles_ca': {
       title: 'Los Angeles, CA',
