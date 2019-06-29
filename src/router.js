@@ -17,17 +17,19 @@ import LessonEntries from '@/statics/data/lessons.json'
 
 const lessonRoutes = Object.keys(LessonEntries).map(section => {
   let _index = store.getters.getCurrentTopicIndex
-  let _currentRouteParams = store.state.currentRouteParams
+  let _currentRouteParams = store.state.currentRouteParams.id
 
   const children = LessonEntries[section].map(child => ({
-    path: `/${section}/:id/:index?`,
-    name: child.id,
-    component: () => import(`@/markdowns/${section}/${_currentRouteParams}/${child.index[_index]}.md`),
+    path: `/${section}/:id`,
+    name: child.href,
+    props: true,
+    component: () => import(`@/markdowns/${section}/${_currentRouteParams}/${child.idx[_index]}.md`),
   }))
 
   return {
-    path: `/${section}/:id/:index?`,
+    path: `/${section}/:id`,
     name: section,
+    props: true,
     component: LessonDetails,
     children,
   }

@@ -1,65 +1,75 @@
-#markdown {
-  $p_font_size: $grid4x;
+section {
 
-  margin: 0 auto;
-  @include user-select();
+  &.container {
+    padding: $header $grid4x 0;
+    margin-bottom: calc(#{$bottom} + #{$grid8x});
 
-  h1 {
-    margin-top: 0;
-    text-align: left;
-    font-weight: 700;
-    @include font-size($grid4x);
-  }
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      margin-bottom: calc(#{$bottom} + #{$grid20x});
+    }
 
-  h4 {
-    color: #fff;
-    font-weight: 400;
-    padding-bottom: $grid4x;
-    border-bottom: 1px solid $texteee;
-    @include font-size($grid3x);
-  }
+    $p_font_size: $grid4x;
 
-  ul,
-  ol {
-    margin-top: $grid4x;
-    margin-left: -#{$grid4x};
+    margin: 0 auto;
+    @include user-select();
 
-    li {
+    h1 {
+      margin-top: 0;
+      text-align: left;
+      font-weight: 700;
+      @include font-size($grid4x);
+    }
+
+    h4 {
       color: #fff;
+      font-weight: 400;
+      padding-bottom: $grid4x;
+      border-bottom: 1px solid $texteee;
+      @include font-size($grid3x);
+    }
 
-      ul,
-      ol {
-        margin-bottom: $grid16x;
+    ul,
+    ol {
+      margin-top: $grid4x;
+      margin-left: -#{$grid4x};
+
+      li {
+        color: #fff;
+
+        ul,
+        ol {
+          margin-bottom: $grid16x;
+        }
       }
     }
-  }
 
-  a {
-    font-weight: 700;
-  }
+    a {
+      font-weight: 700;
+    }
 
-  img {
-    margin: 0 auto;
-    max-width: 100%;
-    margin-top: $grid4x;
-    display: inline-block;
-    margin-bottom: $grid4x;
-  }
+    img {
+      margin: 0 auto;
+      max-width: 100%;
+      margin-top: $grid4x;
+      display: inline-block;
+      margin-bottom: $grid4x;
+    }
 
-  em {
-    margin: 0 auto;
-    display: block;
-    max-width: 80%;
-    text-align: center;
-  }
+    em {
+      margin: 0 auto;
+      display: block;
+      max-width: 80%;
+      text-align: center;
+    }
 
-  hr {
-    margin: $grid16x 0;
-  }
+    hr {
+      margin: $grid16x 0;
+    }
 
-  p,
-  li {
-    @include font-size($p_font_size);
-  }
+    p,
+    li {
+      @include font-size($p_font_size);
+    }
 
+  }
 }

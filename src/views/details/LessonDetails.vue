@@ -61,6 +61,7 @@ export default {
       'topicIndex',
       'bottomSheet',
       'cities',
+      'currentRouteParams',
     ]),
 
     ...mapGetters([
@@ -73,7 +74,7 @@ export default {
   },
 
   mounted () {
-    this.SET_CURRENT_ROUTE_PARAMS(this.$route.params.id)
+    this.SET_CURRENT_ROUTE_PARAMS(this.$route.params)
 
     let _obj = _.find(this.cities, this.cities[this.$route.params.id])
 
@@ -89,10 +90,16 @@ export default {
           localStorage.removeItem('reloaded')
         } else {
           localStorage.setItem('reloaded', '1')
-          location.reload()
+          this.$router.go(0)
         }
-      }, 10)
+      }, 1)
     })
+  },
+
+  watch: {
+    '$route.query.index'() {
+      console.log('watch!')
+    }
   },
 
   methods: {
@@ -111,7 +118,14 @@ export default {
         `The lesson is not finished yet.\nWould you really quit the lesson?`
       )
       if (_confirmClose) {
-        this.$router.go(-1)
+        let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+        this.$router.push({
+          name: 'topicdetails',
+          params: {
+            topic: _obj.href,
+            attr: _obj.attractions[this.$route.params.id].href,
+          },
+        })
       }
     },
 
@@ -128,6 +142,7 @@ export default {
             id: this.$route.params.id,
           },
           query: {
+            // index: _obj.attractions[this.$route.params.id].index - 1,
             index: this.getCurrentTopicIndex,
           },
         })
@@ -147,6 +162,7 @@ export default {
           id: this.$route.params.id,
         },
         query: {
+          // index: _obj.attractions[this.$route.params.id].index,
           index: this.getCurrentTopicIndex,
         },
       })
@@ -173,15 +189,6 @@ export default {
 
 <style lang="scss">
 #lessonDetails {
-  .wrapper {
-    padding: $header $grid4x 0;
-    margin-bottom: calc(#{$bottom} + #{$grid8x});
-
-    @supports (padding-bottom: env(safe-area-inset-bottom)) {
-      margin-bottom: calc(#{$bottom} + #{$grid20x});
-    }
-  }
-
   .bottomsheet {
     top: 0;
     position: fixed;

@@ -25,10 +25,9 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 import Header from '@/components/Header'
 import BottomBtn from '@/components/BottomBtn'
-import LESSONENTRIES from '@/statics/data/lessons.json'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 import { routerBack } from '@/mixins/routerBack.js'
 
@@ -46,9 +45,9 @@ export default {
       'cities',
     ]),
 
-    entries () {
-      return LESSONENTRIES
-    },
+    ...mapGetters([
+      'getCurrentTopicIndex',
+    ]),
   },
 
   methods: {
@@ -57,19 +56,24 @@ export default {
     ]),
 
     startLesson (id) {
-      this.SET_TOPIC_INDEX(
-        this.cities[this.$route.params.topic]
-        .attractions[this.$route.params.attr]
-        .index
-      )
+      // this.SET_TOPIC_INDEX(0)
+        // this.cities[this.$route.params.topic]
+        // .attractions[this.$route.params.attr]
+        // .index
+      console.log(`startLesson: ${this.getCurrentTopicIndex}`)
+
       this.$router.push({
         name: 'topicLesson',
         params: {
           id: id,
+          // index: 0,
         },
+        // query: Object.assign(this.$route.query, {
+        //   index: 0,
+        // }),
         query: {
           index: 0,
-        }
+        },
       })
     },
   },
