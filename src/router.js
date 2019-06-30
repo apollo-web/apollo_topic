@@ -22,7 +22,9 @@ const lessonRoutes = Object.keys(LessonEntries).map(section => {
   const children = LessonEntries[section].map(child => ({
     path: `/${section}/:id`,
     name: child.href,
-    component: () => import(`@/markdowns/${section}/${_currentRouteParams}/${child.idx[_index]}.md`),
+    component: _ => {
+      return import(`@/markdowns/${section}/${_currentRouteParams}/${child.idx[_index]}.md`)
+    },
   }))
 
   return {

@@ -1,4 +1,5 @@
 export const getters = {
+
   getCurrentLevel: state => {
     let currentLevel
 
@@ -11,6 +12,6 @@ export const getters = {
 
   getCurrentTopicIndex: state => {
     return Number(state.topicIndex)
-  }
+  },
 
 }

@@ -139,7 +139,6 @@ export default {
       let _obj = _.find(this.cities, this.cities[this.$route.params.id])
 
       if (this.getCurrentTopicIndex > 0) {
-        this.$router.go(-1)
         this.SET_TOPIC_INDEX(_obj.attractions[this.$route.params.id].index - 1)
 
         this.$router.push({
@@ -148,8 +147,8 @@ export default {
             id: this.$route.params.id,
           },
           query: {
-            // index: Number(_obj.attractions[this.$route.params.id].index - 1),
-            index: Number(this.getCurrentTopicIndex),
+            index: Number(_obj.attractions[this.$route.params.id].index),
+            // index: Number(this.getCurrentTopicIndex),
           },
         })
       }
@@ -168,8 +167,8 @@ export default {
           id: this.$route.params.id,
         },
         query: {
-          // index: Number(_obj.attractions[this.$route.params.id].index),
-          index: Number(this.getCurrentTopicIndex),
+          index: Number(_obj.attractions[this.$route.params.id].index),
+          // index: Number(this.getCurrentTopicIndex),
         },
       })
     },

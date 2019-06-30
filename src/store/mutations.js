@@ -1,4 +1,5 @@
 export const mutations = {
+
   UPDATE_HEADER_TITLE: (state, value) => {
     state.headerTitle = value
   },

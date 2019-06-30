@@ -56,10 +56,8 @@ export default {
     ]),
 
     startLesson (id) {
-      // this.SET_TOPIC_INDEX(0)
-        // this.cities[this.$route.params.topic]
-        // .attractions[this.$route.params.attr]
-        // .index
+      this.SET_TOPIC_INDEX(0)
+
       console.log(`startLesson: ${this.getCurrentTopicIndex}`)
 
       this.$router.push({
@@ -67,9 +65,6 @@ export default {
         params: {
           id: id,
         },
-        // query: Object.assign(this.$route.query, {
-        //   index: 0,
-        // }),
         query: {
           index: 0,
         },
