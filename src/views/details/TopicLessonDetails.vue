@@ -105,6 +105,13 @@ export default {
         this.$router.go(0)
       }
     })
+
+    if ((this.topicIndex + 1) === this.entries.topicLesson[getJsonTopicIndex].markdowns.length) {
+      this.msg_right = 'Finish'
+    }
+    else {
+      this.msg_right = 'Next'
+    }
   },
 
   methods: {
@@ -128,7 +135,6 @@ export default {
           name: 'topicslist',
           params: {
             topic: _obj.href,
-            // attr: _obj.attractions[this.$route.params.id].href,
           },
         })
       }

@@ -28,7 +28,6 @@
   }
 }
 
-
 /* ==============================
   text rendering
 ============================== */
@@ -45,7 +44,6 @@
   text-rendering: optimizeLegibility !important;
   -webkit-text-decoration-skip: ink;
 }
-
 
 /* ==============================
   default font-size, line-height
@@ -66,7 +64,6 @@
   @include line-height($size);
 }
 
-
 /* ==============================
   normalize css
 ============================== */
@@ -86,7 +83,6 @@ body {
 html {
   background-color: $brand;
 }
-
 
 /* ==============================
   fonts
@@ -135,18 +131,6 @@ span {
   color: $white54;
 }
 
-::-moz-placeholder {
-  color: $white54;
-}
-
-::-ms-placeholder {
-  color: $white54;
-}
-
-::placeholder {
-  color: $white54;
-}
-
 button {
   border: none;
   outline: none;
@@ -191,7 +175,6 @@ textarea:focus {
 .material-icons {
   @include font-size($grid5x);
 }
-
 
 /* ==============================
   Prevent body scrolling but allow overlay scrolling

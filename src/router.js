@@ -12,7 +12,7 @@ import TestPrep from '@/views/TestPrep.vue'
 import TestPrepList from '@/views/TestPrepList.vue'
 import TestPrepDetails from '@/views/details/TestPrepDetails.vue'
 
-import LessonDetails from '@/views/details/LessonDetails.vue'
+import TopicLessonDetails from '@/views/details/TopicLessonDetails.vue'
 import LessonEntries from '@/statics/data/lessons.json'
 
 const lessonRoutes = Object.keys(LessonEntries).map(section => {
@@ -30,7 +30,7 @@ const lessonRoutes = Object.keys(LessonEntries).map(section => {
   return {
     path: `/${section}/:id`,
     name: section,
-    component: LessonDetails,
+    component: TopicLessonDetails,
     children,
   }
 })
