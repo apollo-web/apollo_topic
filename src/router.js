@@ -17,7 +17,7 @@ import LessonEntries from '@/statics/data/lessons.json'
 
 const lessonRoutes = Object.keys(LessonEntries).map(section => {
   let _index = store.state.topicIndex
-  let _currentRouteParams = store.state.currentRouteParams.id
+  let _currentRouteParams = store.state.currentRouteParams
 
   const children = LessonEntries[section].map(child => ({
     path: `/${section}/:id`,

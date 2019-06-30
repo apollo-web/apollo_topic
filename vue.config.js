@@ -5,8 +5,8 @@ module.exports = {
         data: `
                 @import "@/styles/style.scss";
               `
-      }
-    }
+      },
+    },
   },
   chainWebpack(config) {
     config.module.rule('md')
@@ -19,5 +19,10 @@ module.exports = {
       .options({
         raw: true
       })
-  }
+  },
+  pwa: {
+    workboxOptions: {
+      skipWaiting: true
+    },
+  },
 }

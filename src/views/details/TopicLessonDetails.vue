@@ -75,7 +75,6 @@ export default {
       'topicIndex',
       'bottomSheet',
       'cities',
-      'currentRouteParams',
     ]),
 
     entries() {
@@ -84,8 +83,6 @@ export default {
   },
 
   mounted () {
-    this.SET_CURRENT_ROUTE_PARAMS(this.$route.params)
-
     let _obj = _.find(this.cities, this.cities[this.$route.params.id])
 
     this.hint = _obj.attractions[this.$route.params.id].desc
@@ -118,7 +115,6 @@ export default {
     ...mapMutations([
       'SET_BOTTOM_SHEET',
       'SET_TOPIC_INDEX',
-      'SET_CURRENT_ROUTE_PARAMS',
     ]),
 
     toggleSheet(bool) {
