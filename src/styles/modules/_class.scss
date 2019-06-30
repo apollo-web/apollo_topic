@@ -59,18 +59,6 @@
 }
 
 /* ==============================
-  css grid layout
-============================== */
-@mixin grid-layout($col:3, $row:$grid12x, $gap:$grid24x) {
-  // display: -ms-grid;
-  display: grid;
-  //  -ms-grid-columns: (1fr)[$col];
-  grid-template-columns: repeat($col, 1fr);
-  grid-auto-rows: minmax($row, auto);
-  grid-gap: $gap;
-}
-
-/* ==============================
   transition
 ============================== */
 @mixin transition ($transition...) {
@@ -80,46 +68,4 @@
   -ms-transition: $transition;
   -o-transition: $transition;
   transition: $transition;
-}
-
-/* ==============================
-  setGridIcons - 3
-============================== */
-@mixin setGridIcons($base, $ext:'svg') {
-  margin: 0 auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-
-  @for $i from 0 through 2 {
-
-    &.img-#{$i} {
-      background-image: url('#{$base + ($i + 1)}'+ '.'+ '#{$ext}');
-    }
-  }
-}
-
-/* ==============================
-  global btn
-============================== */
-.global__cta {
-  text-align: center;
-
-  .global__cta--btn {
-    outline: none;
-    width: $grid48x;
-    cursor: pointer;
-    height: $grid14x;
-    font-weight: 900;
-    color: $brand;
-    margin-top: $grid8x;
-    border: 2px solid transparent;
-    background-color: #fff;
-    @include transition(all .25s ease);
-    @include border-radius($grid16x);
-
-    &:hover {
-      opacity: 0.5;
-    }
-  }
 }
