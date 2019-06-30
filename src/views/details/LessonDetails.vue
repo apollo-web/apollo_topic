@@ -58,7 +58,6 @@ export default {
 
   watch: {
     '$route.query.index'() {
-      console.log('watch!')
       this.$nextTick(() => {
         if (localStorage.getItem('reloaded')) {
           localStorage.removeItem('reloaded')
@@ -90,7 +89,9 @@ export default {
 
     this.hint = _obj.attractions[this.$route.params.id].desc
 
-    console.log(`Topic: ${_obj.attractions[this.$route.params.id].title}\nMarkdown length: ${this.entries.topicLesson[0].markdowns.length}`)
+    console.log(`Topic: ${_obj.attractions[this.$route.params.id].title}`)
+    console.log(`Markdown length: ${this.entries.topicLesson[0].markdowns.length}`)
+    console.log(`topicIndex: ${this.topicIndex}`)
 
     this.setHeaderTitle(_obj.attractions[this.$route.params.id].title)
 
@@ -160,20 +161,15 @@ export default {
           },
         })
       }
-      else {
-        this.$router.go(-1)
-      }
     },
 
     slotForward () {
       let _obj = _.find(this.cities, this.cities[this.$route.params.id])
-      let mdLength = this.entries.topicLesson[0].markdowns.length
+      let markdownLength = this.entries.topicLesson[0].markdowns.length
 
-      this.SET_TOPIC_INDEX(_obj.attractions[this.$route.params.id].index)
+      this.SET_TOPIC_INDEX(this.topicIndex + 1)
 
-      if (_obj.attractions[this.$route.params.id].index === mdLength) {
-        // back to topicdetails list
-        // if lesson end
+      if (this.topicIndex === markdownLength) {
         this.$router.push({
           name: 'topicdetails',
           params: {
@@ -189,8 +185,7 @@ export default {
             id: this.$route.params.id,
           },
           query: {
-            index: Number(_obj.attractions[this.$route.params.id].index),
-            // index: Number(this.topicIndex),
+            index: Number(this.topicIndex),
           },
         })
       }

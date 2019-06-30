@@ -54,8 +54,6 @@ export default {
     startLesson (id) {
       this.SET_TOPIC_INDEX(0)
 
-      console.log(`startLesson: ${this.topicIndex}`)
-
       this.$router.push({
         name: 'topicLesson',
         params: {
