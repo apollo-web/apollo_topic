@@ -20,9 +20,4 @@ module.exports = {
         raw: true
       })
   },
-  pwa: {
-    workboxOptions: {
-      skipWaiting: true
-    },
-  },
 }

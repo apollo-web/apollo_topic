@@ -21,7 +21,7 @@
           div.topics__list-textwrapper
             div.topics__list-title {{ city.title }}
             div.topics__list-status {{ city.status }}
-            div.topics__list-desc {{ city.desc }}
+            div.topics__list-desc {{ city.titleDesc }}
           div.topics__list-imgwrapper
             img.topics__list-img(
               :src="city.src"

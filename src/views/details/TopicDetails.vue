@@ -50,6 +50,7 @@ export default {
     ...mapMutations([
       'SET_TOPIC_INDEX',
       'SET_CURRENT_ROUTE_PARAMS',
+      'UPDATE_HEADER_TITLE',
     ]),
 
     startLesson (id) {
@@ -68,14 +69,8 @@ export default {
   },
 
   mounted () {
-    this.SET_CURRENT_ROUTE_PARAMS(
-      this.$route.params.attr
-    )
-    this.setHeaderTitle(
-      this.cities[this.$route.params.topic]
-      .attractions[this.$route.params.attr]
-      .title
-    )
+    this.SET_CURRENT_ROUTE_PARAMS(this.$route.params.attr)
+    this.UPDATE_HEADER_TITLE(this.cities[this.$route.params.topic].attractions[this.$route.params.attr].title)
   },
 
   beforeDestroy () {

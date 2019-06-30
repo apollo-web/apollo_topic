@@ -1,6 +1,3 @@
-/* ==============================
-  mixin default font
-============================== */
 @mixin font-stack-html() {
   -webkit-font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
   -khtml-font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', Sans-serif;
@@ -28,14 +25,10 @@
   }
 }
 
-/* ==============================
-  text rendering
-============================== */
 @mixin font-settings() {
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -khtml-font-feature-settings: 'liga';
-  -moz-font-feature-settings: 'liga';
   -ms-font-feature-settings: 'liga';
   -o-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
@@ -45,9 +38,6 @@
   -webkit-text-decoration-skip: ink;
 }
 
-/* ==============================
-  default font-size, line-height
-============================== */
 @function calculateRem($size) {
   $remSize: $size / $grid4x;
   @return $remSize * 1rem;
@@ -64,9 +54,6 @@
   @include line-height($size);
 }
 
-/* ==============================
-  normalize css
-============================== */
 body {
   outline: none;
   color: #fff;
@@ -84,9 +71,6 @@ html {
   background-color: $brand;
 }
 
-/* ==============================
-  fonts
-============================== */
 a {
   color: $brand;
   text-decoration: none;
@@ -176,9 +160,6 @@ textarea:focus {
   @include font-size($grid5x);
 }
 
-/* ==============================
-  Prevent body scrolling but allow overlay scrolling
-============================== */
 .noscroll {
   position: fixed;
 }

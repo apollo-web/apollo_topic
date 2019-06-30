@@ -29,7 +29,7 @@ export const state = {
       href: 'san_francisco_ca',
       src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/540px-GoldenGateBridge-001.jpg',
       status: 'Status',
-      desc: 'City in California',
+      titleDesc: 'City in California',
       attractions: [{
           title: 'Fisherman’s Wharf, Pier 39',
           href: 'fishermans_wharf_pier_39',
@@ -60,7 +60,7 @@ export const state = {
       href: 'los_angeles_ca',
       src: 'https://images.unsplash.com/photo-1534253893894-10d024888e49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
       status: 'Status',
-      desc: 'City in California',
+      titleDesc: 'City in California',
       attractions: {
         'hollywood': {
           title: 'Hollywood',
@@ -89,7 +89,7 @@ export const state = {
       href: 'new_york_city_ny',
       src: 'https://images.unsplash.com/photo-1445023086979-7244a12345a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
       status: 'Status',
-      desc: 'City in New York',
+      titleDesc: 'City in New York',
       attractions: {
         'Title': {
           title: '',
@@ -118,7 +118,7 @@ export const state = {
       href: 'riverside_ca',
       src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/MissionInn_SpanishWing.jpg/560px-MissionInn_SpanishWing.jpg',
       status: 'Status',
-      desc: 'City in California',
+      titleDesc: 'City in California',
       attractions: {
         'Title': {
           title: '',
@@ -147,7 +147,7 @@ export const state = {
       href: 'boston_ma',
       src: 'https://images.unsplash.com/photo-1488750059241-ed3ad4563245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
       status: 'Status',
-      desc: 'City in Massachusetts',
+      titleDesc: 'City in Massachusetts',
       attractions: {
         'Title': {
           href: '',
