@@ -10,8 +10,4 @@ export const getters = {
     }
   },
 
-  getCurrentTopicIndex: state => {
-    return Number(state.topicIndex)
-  },
-
 }

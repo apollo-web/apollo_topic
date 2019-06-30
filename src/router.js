@@ -16,7 +16,7 @@ import LessonDetails from '@/views/details/LessonDetails.vue'
 import LessonEntries from '@/statics/data/lessons.json'
 
 const lessonRoutes = Object.keys(LessonEntries).map(section => {
-  let _index = store.getters.getCurrentTopicIndex
+  let _index = store.state.topicIndex
   let _currentRouteParams = store.state.currentRouteParams.id
 
   const children = LessonEntries[section].map(child => ({

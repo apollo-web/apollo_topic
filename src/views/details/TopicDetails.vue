@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import Header from '@/components/Header'
 import BottomBtn from '@/components/BottomBtn'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
@@ -44,10 +44,6 @@ export default {
       'headerTitle',
       'cities',
     ]),
-
-    ...mapGetters([
-      'getCurrentTopicIndex',
-    ]),
   },
 
   methods: {
@@ -58,7 +54,7 @@ export default {
     startLesson (id) {
       this.SET_TOPIC_INDEX(0)
 
-      console.log(`startLesson: ${this.getCurrentTopicIndex}`)
+      console.log(`startLesson: ${this.topicIndex}`)
 
       this.$router.push({
         name: 'topicLesson',

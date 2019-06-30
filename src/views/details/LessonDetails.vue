@@ -38,11 +38,10 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import Header from '@/components/Header'
 import BottomBtnHalf from '@/components/BottomBtnHalf'
 import BottomSheet from '@/components/BottomSheet'
-import LESSONENTRIES from '@/statics/data/lessons.json'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 import { routerBack } from '@/mixins/routerBack.js'
 
@@ -79,17 +78,11 @@ export default {
       'cities',
       'currentRouteParams',
     ]),
-
-    ...mapGetters([
-      'getCurrentTopicIndex',
-    ]),
-
-    entries () {
-      return LESSONENTRIES
-    },
   },
 
   mounted () {
+    console.log(this.topicIndex)
+
     this.SET_CURRENT_ROUTE_PARAMS(this.$route.params)
 
     let _obj = _.find(this.cities, this.cities[this.$route.params.id])
@@ -126,19 +119,20 @@ export default {
       if (_confirmClose) {
         let _obj = _.find(this.cities, this.cities[this.$route.params.id])
         this.$router.push({
-          name: 'topicdetails',
+          name: 'topicslist',
           params: {
             topic: _obj.href,
-            attr: _obj.attractions[this.$route.params.id].href,
+            // attr: _obj.attractions[this.$route.params.id].href,
           },
         })
       }
     },
 
     slotBack () {
+    console.log(this.topicIndex)
       let _obj = _.find(this.cities, this.cities[this.$route.params.id])
 
-      if (this.getCurrentTopicIndex > 0) {
+      if (this.topicIndex !== 0) {
         this.SET_TOPIC_INDEX(_obj.attractions[this.$route.params.id].index - 1)
 
         this.$router.push({
@@ -148,7 +142,16 @@ export default {
           },
           query: {
             index: Number(_obj.attractions[this.$route.params.id].index),
-            // index: Number(this.getCurrentTopicIndex),
+            // index: Number(this.topicIndex),
+          },
+        })
+      }
+      else if (this.topicIndex === 0) {
+        this.$router.push({
+          name: 'topicdetails',
+          params: {
+            topic: _obj.href,
+            attr: _obj.attractions[this.$route.params.id].href,
           },
         })
       }
@@ -158,6 +161,7 @@ export default {
     },
 
     slotForward () {
+    console.log(this.topicIndex)
       let _obj = _.find(this.cities, this.cities[this.$route.params.id])
       this.SET_TOPIC_INDEX(_obj.attractions[this.$route.params.id].index)
 
@@ -168,19 +172,14 @@ export default {
         },
         query: {
           index: Number(_obj.attractions[this.$route.params.id].index),
-          // index: Number(this.getCurrentTopicIndex),
+          // index: Number(this.topicIndex),
         },
       })
     },
   },
 
-  beforeMount () {
-    this.SET_TOPIC_INDEX(0)
-  },
-
   beforeDestroy () {
     this.SET_BOTTOM_SHEET(false)
-    this.SET_TOPIC_INDEX(0)
   },
 
   components: {
