@@ -16,7 +16,7 @@
 
       BottomBtnHalf(
         msg_left="Back"
-        msg_right="Next"
+        :msg_right="msg_right"
       )
         div.slot_class(
           slot="left"
@@ -54,6 +54,7 @@ export default {
 
   data: _ => ({
     hint: null,
+    msg_right: 'Next',
   }),
 
   watch: {
@@ -89,8 +90,9 @@ export default {
 
     this.hint = _obj.attractions[this.$route.params.id].desc
 
-    console.log(`Topic: ${_obj.attractions[this.$route.params.id].title}`)
-    console.log(`Markdown length: ${this.entries.topicLesson[0].markdowns.length}`)
+    let getJsonTopicIndex = _.findIndex(this.entries.topicLesson, { href: this.$route.params.id })
+
+    console.log(`Markdown length: ${this.entries.topicLesson[getJsonTopicIndex].markdowns.length}`)
     console.log(`topicIndex: ${this.topicIndex}`)
 
     this.setHeaderTitle(_obj.attractions[this.$route.params.id].title)
@@ -121,7 +123,6 @@ export default {
         `The lesson is not finished yet.\nWould you really quit the lesson?`
       )
       if (_confirmClose) {
-        // back to topicdetails list
         let _obj = _.find(this.cities, this.cities[this.$route.params.id])
         this.$router.push({
           name: 'topicslist',
@@ -137,7 +138,7 @@ export default {
       let _obj = _.find(this.cities, this.cities[this.$route.params.id])
 
       if (this.topicIndex !== 0) {
-        this.SET_TOPIC_INDEX(_obj.attractions[this.$route.params.id].index - 1)
+        this.SET_TOPIC_INDEX(this.topicIndex - 1)
 
         this.$router.push({
           name: 'topicLesson',
@@ -145,14 +146,11 @@ export default {
             id: this.$route.params.id,
           },
           query: {
-            index: Number(_obj.attractions[this.$route.params.id].index - 1),
-            // index: Number(this.topicIndex),
+            index: Number(this.topicIndex),
           },
         })
       }
       else if (this.topicIndex === 0) {
-        // back to topicdetails list
-        // if lesson -> first
         this.$router.push({
           name: 'topicdetails',
           params: {
@@ -165,7 +163,10 @@ export default {
 
     slotForward () {
       let _obj = _.find(this.cities, this.cities[this.$route.params.id])
-      let markdownLength = this.entries.topicLesson[0].markdowns.length
+
+      let getJsonTopicIndex = _.findIndex(this.entries.topicLesson, { href: this.$route.params.id })
+
+      let markdownLength = this.entries.topicLesson[getJsonTopicIndex].markdowns.length
 
       this.SET_TOPIC_INDEX(this.topicIndex + 1)
 
