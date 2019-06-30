@@ -12,7 +12,9 @@
       ) Hint
 
     div.wrapper
-      router-view#markdown.container
+      router-view#markdown.container(
+        :key="$route.fullPath"
+      )
 
       BottomBtnHalf(
         msg_left="Back"
@@ -56,6 +58,20 @@ export default {
     hint: null,
   }),
 
+  watch: {
+    '$route.query.index'() {
+      console.log('watch!')
+      this.$nextTick(() => {
+        if (localStorage.getItem('reloaded')) {
+          localStorage.removeItem('reloaded')
+        } else {
+          localStorage.setItem('reloaded', '1')
+          this.$router.go(0)
+        }
+      })
+    }
+  },
+
   computed: {
     ...mapState([
       'topicIndex',
@@ -80,26 +96,16 @@ export default {
 
     this.hint = _obj.attractions[this.$route.params.id].desc
 
-    this.setHeaderTitle(
-      _obj.attractions[this.$route.params.id].title
-    )
+    this.setHeaderTitle(_obj.attractions[this.$route.params.id].title)
 
     this.$nextTick(() => {
-      setTimeout(() => {
-        if (localStorage.getItem('reloaded')) {
-          localStorage.removeItem('reloaded')
-        } else {
-          localStorage.setItem('reloaded', '1')
-          this.$router.go(0)
-        }
-      }, 1)
+      if (localStorage.getItem('reloaded')) {
+        localStorage.removeItem('reloaded')
+      } else {
+        localStorage.setItem('reloaded', '1')
+        this.$router.go(0)
+      }
     })
-  },
-
-  watch: {
-    '$route.query.index'() {
-      console.log('watch!')
-    }
   },
 
   methods: {
@@ -142,8 +148,8 @@ export default {
             id: this.$route.params.id,
           },
           query: {
-            // index: _obj.attractions[this.$route.params.id].index - 1,
-            index: this.getCurrentTopicIndex,
+            // index: Number(_obj.attractions[this.$route.params.id].index - 1),
+            index: Number(this.getCurrentTopicIndex),
           },
         })
       }
@@ -162,8 +168,8 @@ export default {
           id: this.$route.params.id,
         },
         query: {
-          // index: _obj.attractions[this.$route.params.id].index,
-          index: this.getCurrentTopicIndex,
+          // index: Number(_obj.attractions[this.$route.params.id].index),
+          index: Number(this.getCurrentTopicIndex),
         },
       })
     },

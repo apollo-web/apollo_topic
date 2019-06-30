@@ -66,7 +66,6 @@ export default {
         name: 'topicLesson',
         params: {
           id: id,
-          // index: 0,
         },
         // query: Object.assign(this.$route.query, {
         //   index: 0,
