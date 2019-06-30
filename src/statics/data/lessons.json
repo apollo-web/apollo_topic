@@ -4,7 +4,8 @@
       "href": "fishermans_wharf_pier_39",
       "idx": [
         "questions",
-        "vocabulary_expressions"
+        "vocabulary_expressions",
+        "pronouncing"
       ]
     },
     {
@@ -12,7 +13,8 @@
       "href": "lombard_street",
       "idx": [
         "questions",
-        "vocabulary_expressions"
+        "vocabulary_expressions",
+        "pronouncing"
       ]
     },
     {
@@ -20,7 +22,8 @@
       "href": "golden_gate_bridge",
       "idx": [
         "questions",
-        "vocabulary_expressions"
+        "vocabulary_expressions",
+        "pronouncing"
       ]
     },
     {
@@ -28,7 +31,8 @@
       "href": "ferry_building",
       "idx": [
         "questions",
-        "vocabulary_expressions"
+        "vocabulary_expressions",
+        "pronouncing"
       ]
     }
   ]
