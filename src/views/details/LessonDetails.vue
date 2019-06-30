@@ -12,9 +12,7 @@
       ) Hint
 
     div.wrapper
-      router-view#markdown.container(
-        :key="$route.fullPath"
-      )
+      router-view#markdown.container
 
       BottomBtnHalf(
         msg_left="Back"
@@ -44,6 +42,7 @@ import BottomBtnHalf from '@/components/BottomBtnHalf'
 import BottomSheet from '@/components/BottomSheet'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 import { routerBack } from '@/mixins/routerBack.js'
+import LESSONENTRIES from '@/statics/data/lessons.json'
 
 export default {
   name: 'lessonDetails',
@@ -78,16 +77,20 @@ export default {
       'cities',
       'currentRouteParams',
     ]),
+
+    entries() {
+      return LESSONENTRIES
+    },
   },
 
   mounted () {
-    console.log(this.topicIndex)
-
     this.SET_CURRENT_ROUTE_PARAMS(this.$route.params)
 
     let _obj = _.find(this.cities, this.cities[this.$route.params.id])
 
     this.hint = _obj.attractions[this.$route.params.id].desc
+
+    console.log(`Topic: ${_obj.attractions[this.$route.params.id].title}\nMarkdown length: ${this.entries.topicLesson[0].markdowns.length}`)
 
     this.setHeaderTitle(_obj.attractions[this.$route.params.id].title)
 
@@ -117,6 +120,7 @@ export default {
         `The lesson is not finished yet.\nWould you really quit the lesson?`
       )
       if (_confirmClose) {
+        // back to topicdetails list
         let _obj = _.find(this.cities, this.cities[this.$route.params.id])
         this.$router.push({
           name: 'topicslist',
@@ -129,7 +133,6 @@ export default {
     },
 
     slotBack () {
-    console.log(this.topicIndex)
       let _obj = _.find(this.cities, this.cities[this.$route.params.id])
 
       if (this.topicIndex !== 0) {
@@ -141,12 +144,14 @@ export default {
             id: this.$route.params.id,
           },
           query: {
-            index: Number(_obj.attractions[this.$route.params.id].index),
+            index: Number(_obj.attractions[this.$route.params.id].index - 1),
             // index: Number(this.topicIndex),
           },
         })
       }
       else if (this.topicIndex === 0) {
+        // back to topicdetails list
+        // if lesson -> first
         this.$router.push({
           name: 'topicdetails',
           params: {
@@ -161,20 +166,34 @@ export default {
     },
 
     slotForward () {
-    console.log(this.topicIndex)
       let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+      let mdLength = this.entries.topicLesson[0].markdowns.length
+
       this.SET_TOPIC_INDEX(_obj.attractions[this.$route.params.id].index)
 
-      this.$router.push({
-        name: 'topicLesson',
-        params: {
-          id: this.$route.params.id,
-        },
-        query: {
-          index: Number(_obj.attractions[this.$route.params.id].index),
-          // index: Number(this.topicIndex),
-        },
-      })
+      if (_obj.attractions[this.$route.params.id].index === mdLength) {
+        // back to topicdetails list
+        // if lesson end
+        this.$router.push({
+          name: 'topicdetails',
+          params: {
+            topic: _obj.href,
+            attr: _obj.attractions[this.$route.params.id].href,
+          },
+        })
+      }
+      else {
+        this.$router.push({
+          name: 'topicLesson',
+          params: {
+            id: this.$route.params.id,
+          },
+          query: {
+            index: Number(_obj.attractions[this.$route.params.id].index),
+            // index: Number(this.topicIndex),
+          },
+        })
+      }
     },
   },
 

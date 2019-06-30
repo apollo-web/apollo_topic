@@ -2,7 +2,7 @@
   "topicLesson": [{
       "title": "Fisherman’s Wharf, Pier 39",
       "href": "fishermans_wharf_pier_39",
-      "idx": [
+      "markdowns": [
         "questions",
         "vocabulary_expressions",
         "pronouncing"
@@ -11,7 +11,7 @@
     {
       "title": "Lombard Street",
       "href": "lombard_street",
-      "idx": [
+      "markdowns": [
         "questions",
         "vocabulary_expressions",
         "pronouncing"
@@ -20,7 +20,7 @@
     {
       "title": "Golden Gate Bridge",
       "href": "golden_gate_bridge",
-      "idx": [
+      "markdowns": [
         "questions",
         "vocabulary_expressions",
         "pronouncing"
@@ -29,7 +29,7 @@
     {
       "title": "Ferry Building",
       "href": "ferry_building",
-      "idx": [
+      "markdowns": [
         "questions",
         "vocabulary_expressions",
         "pronouncing"
