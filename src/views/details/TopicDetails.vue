@@ -51,12 +51,12 @@ export default {
     },
 
     setTopicDetailsDesc () {
-      let _objIndex = _.findIndex(this.cities[this.$route.params.topic].attractions, { href: this.$route.params.attr})
+      // let _objIndex = _.findIndex(this.cities[this.$route.params.topic].attractions, { href: this.$route.params.attr})
       return this.cities[this.$route.params.topic].attractions[this.$route.params.attr].desc
     },
 
     setTopicDetailsImg () {
-      let _objIndex = _.findIndex(this.cities[this.$route.params.topic].attractions, { href: this.$route.params.attr})
+      // let _objIndex = _.findIndex(this.cities[this.$route.params.topic].attractions, { href: this.$route.params.attr})
       return this.cities[this.$route.params.topic].attractions[this.$route.params.attr].src
     }
   },

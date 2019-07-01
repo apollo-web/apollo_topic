@@ -81,18 +81,20 @@ export default {
     entries() {
       return LESSONENTRIES
     },
+
+    _obj() {
+      return _.find(this.cities, this.cities[this.$route.query.index])
+    },
   },
 
   mounted () {
-    let _obj = _.find(this.cities, this.cities[this.$route.query.index])
-
-    this.hint = _obj.attractions[this.$route.params.id].desc
+    this.hint = this._obj.attractions[this.$route.params.id].desc
 
     // console.log(this.entries['topicLesson'][this.$route.query.index].markdowns.length)
     // console.log(`Markdown length: ${this.entries['topicLesson'][this.$route.query.index].markdowns.length}`)
     // console.log(`topicIndex: ${this.topicIndex}`)
 
-    this.UPDATE_HEADER_TITLE(_obj.attractions[this.$route.params.id].title)
+    this.UPDATE_HEADER_TITLE(this._obj.attractions[this.$route.params.id].title)
 
     this.$nextTick(() => {
       if (localStorage.getItem('reloaded')) {
@@ -127,19 +129,16 @@ export default {
         `The lesson is not finished yet.\nWould you really quit the lesson?`
       )
       if (_confirmClose) {
-        let _obj = _.find(this.cities, this.cities[this.$route.query.index])
         this.$router.push({
           name: 'topicslist',
           params: {
-            topic: _obj.href,
+            topic: this._obj.href,
           },
         })
       }
     },
 
     slotBack () {
-      let _obj = _.find(this.cities, this.cities[this.$route.query.index])
-
       if (this.topicIndex !== 0) {
         this.SET_TOPIC_INDEX(this.topicIndex - 1)
 
@@ -157,16 +156,14 @@ export default {
         this.$router.push({
           name: 'topicdetails',
           params: {
-            topic: _obj.href,
-            attr: _obj.attractions[this.$route.params.id].href,
+            topic: this._obj.href,
+            attr: this._obj.attractions[this.$route.params.id].href,
           },
         })
       }
     },
 
     slotForward () {
-      let _obj = _.find(this.cities, this.cities[this.$route.query.index])
-
       let getJsonTopicIndex = _.findIndex(this.entries[this.$route.query.index], { href: this.$route.query.index })
 
       let markdownLength = this.entries['topicLesson'][this.$route.query.index].markdowns.length
@@ -177,8 +174,8 @@ export default {
         this.$router.push({
           name: 'topicdetails',
           params: {
-            topic: _obj.href,
-            attr: _obj.attractions[this.$route.params.id].href,
+            topic: this._obj.href,
+            attr: this._obj.attractions[this.$route.params.id].href,
           },
         })
       }
