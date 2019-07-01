@@ -10,7 +10,7 @@
         slot="header__right"
       )
 
-    FilterTab
+    //- FilterTab
 
     div.topicslist__title-container
       div.topicslist__title

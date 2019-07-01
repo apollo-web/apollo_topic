@@ -1,7 +1,7 @@
 #topicslist,
 #testpreplist {
   margin-bottom: calc(#{$bottom});
-  margin-top: calc(#{$header} + #{$header} + #{$grid2x});
+  margin-top: calc(#{$header} + #{$grid2x});
 
   @supports (padding-bottom: env(safe-area-inset-bottom)) {
     margin-bottom: calc(#{$bottom} + #{$grid12x});
