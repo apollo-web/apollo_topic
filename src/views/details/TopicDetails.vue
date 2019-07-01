@@ -51,12 +51,10 @@ export default {
     },
 
     setTopicDetailsDesc () {
-      // let _objIndex = _.findIndex(this.cities[this.$route.params.topic].attractions, { href: this.$route.params.attr})
       return this.cities[this.$route.params.topic].attractions[this.$route.params.attr].desc
     },
 
     setTopicDetailsImg () {
-      // let _objIndex = _.findIndex(this.cities[this.$route.params.topic].attractions, { href: this.$route.params.attr})
       return this.cities[this.$route.params.topic].attractions[this.$route.params.attr].src
     }
   },
@@ -96,7 +94,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #topicdetails {
   .topicdetails__container {
     .topicdetails__img-box {

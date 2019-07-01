@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #testprep {
   margin-top: $grid4x;
   padding-top: $grid3x;

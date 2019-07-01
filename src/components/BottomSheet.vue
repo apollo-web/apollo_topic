@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #bottomsheet {
   left: 0;
   top: -#{$header};
