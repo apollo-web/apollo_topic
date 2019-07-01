@@ -85,16 +85,20 @@ export default {
     _obj() {
       return _.find(this.cities, this.cities[this.$route.query.index])
     },
+
+    getAttrIndex () {
+      return _.findIndex(this.entries['topicLesson'], {href: this.currentRouteParams})
+    },
   },
 
   mounted () {
-    this.hint = this._obj.attractions[this.$route.params.id].desc
+    this.hint = this._obj.attractions[this.getAttrIndex].desc
 
     // console.log(this.entries['topicLesson'][this.$route.query.index].markdowns.length)
     // console.log(`Markdown length: ${this.entries['topicLesson'][this.$route.query.index].markdowns.length}`)
     // console.log(`topicIndex: ${this.topicIndex}`)
 
-    this.UPDATE_HEADER_TITLE(this._obj.attractions[this.$route.params.id].title)
+    this.UPDATE_HEADER_TITLE(this._obj.attractions[this.getAttrIndex].title)
 
     this.$nextTick(() => {
       if (localStorage.getItem('reloaded')) {
@@ -157,7 +161,7 @@ export default {
           name: 'topicdetails',
           params: {
             topic: this._obj.href,
-            attr: this._obj.attractions[this.$route.params.id].href,
+            attr: this._obj.attractions[this.getAttrIndex].href,
           },
         })
       }
@@ -175,7 +179,7 @@ export default {
           name: 'topicdetails',
           params: {
             topic: this._obj.href,
-            attr: this._obj.attractions[this.$route.params.id].href,
+            attr: this._obj.attractions[this.getAttrIndex].href,
           },
         })
       }

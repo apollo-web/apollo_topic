@@ -50,12 +50,16 @@ export default {
       return LESSONENTRIES
     },
 
+    getAttrIndex () {
+      return _.findIndex(this.cities[this.$route.params.topic].attractions, {href: this.$route.params.attr})
+    },
+
     setTopicDetailsDesc () {
-      return this.cities[this.$route.params.topic].attractions[this.$route.params.attr].desc
+      return this.cities[this.$route.params.topic].attractions[this.getAttrIndex].desc
     },
 
     setTopicDetailsImg () {
-      return this.cities[this.$route.params.topic].attractions[this.$route.params.attr].src
+      return this.cities[this.$route.params.topic].attractions[this.getAttrIndex].src
     }
   },
 
@@ -72,7 +76,7 @@ export default {
       this.$router.push({
         name: 'topicLesson',
         params: {
-          id: this.cities[this.$route.params.topic].attractions[this.$route.params.attr].href,
+          id: this.cities[this.$route.params.topic].attractions[this.getAttrIndex].href,
         },
         query: {
           index: 0,
@@ -83,7 +87,7 @@ export default {
 
   mounted () {
     this.SET_CURRENT_ROUTE_PARAMS(this.$route.params.attr)
-    this.UPDATE_HEADER_TITLE(this.cities[this.$route.params.topic].attractions[this.$route.params.attr].title)
+    this.UPDATE_HEADER_TITLE(this.cities[this.$route.params.topic].attractions[this.getAttrIndex].title)
   },
 
   components: {

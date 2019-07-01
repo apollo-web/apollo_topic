@@ -30,8 +30,7 @@ export const state = {
       src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/540px-GoldenGateBridge-001.jpg',
       status: 'Status',
       titleDesc: 'City in California',
-      attractions: {
-        'fishermans_wharf_pier_39': {
+      attractions: [{
           title: 'Fisherman’s Wharf, Pier 39',
           href: 'fishermans_wharf_pier_39',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Sealions_on_Pier_39%2C_SF%2C_CA%2C_jjron_26.03.2012.jpg/440px-Sealions_on_Pier_39%2C_SF%2C_CA%2C_jjron_26.03.2012.jpg',
@@ -39,7 +38,7 @@ export const state = {
             Dating back to the California Gold Rush, San Francisco’s Fisherman’s Wharf was originally little more than a collection of waterfront stands manned by entrepreneurial fishermen selling their daily catch to hungry prospectors. In the decades since, it has grown into a festive backdrop for diverse cultural events and attractions enjoyed by an estimated 12 million visitors annually. Among the more curious sights on the wharf is a colony of wild sea lions that took up residence at Pier 39 in October 1989. Although nearby shop and restaurant owners initially considered them a nuisance due to their strong odor and near-constant barking, they had a change of heart after realizing that the presence of the colony drew tourists to the area.
           `
         },
-        'lombard_street': {
+        {
           title: 'Lombard Street',
           href: 'lombard_street',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sanfran_61_bg_032605.jpg/440px-Sanfran_61_bg_032605.jpg',
@@ -47,7 +46,7 @@ export const state = {
 
           `,
         },
-        'golden_gate_bridge': {
+        {
           title: 'Golden Gate Bridge',
           href: 'golden_gate_bridge',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/540px-GoldenGateBridge-001.jpg',
@@ -55,7 +54,7 @@ export const state = {
 
           `,
         },
-        'ferry_building': {
+        {
           title: 'Ferry Building',
           href: 'ferry_building',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/San_Francisco_Ferry_Building_%28cropped%29.jpg/600px-San_Francisco_Ferry_Building_%28cropped%29.jpg',
@@ -63,7 +62,7 @@ export const state = {
 
           `,
         },
-      },
+      ],
     },
     'los_angeles_ca': {
       title: 'Los Angeles, CA',
@@ -71,8 +70,7 @@ export const state = {
       src: 'https://images.unsplash.com/photo-1534253893894-10d024888e49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
       status: 'Status',
       titleDesc: 'City in California',
-      attractions: {
-        'hollywood': {
+      attractions: [{
           title: 'Hollywood',
           href: 'hollywood',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Hollywood_sign_hill_view.jpg/500px-Hollywood_sign_hill_view.jpg',
@@ -80,7 +78,7 @@ export const state = {
 
           `,
         },
-        'universal_studios_hollywood': {
+        {
           title: 'Universal Studios Hollywood',
           href: 'universal_studios_hollywood',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Universal_archway_2019.jpg/570px-Universal_archway_2019.jpg',
@@ -88,7 +86,7 @@ export const state = {
 
           `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
@@ -96,7 +94,7 @@ export const state = {
 
           `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
@@ -104,7 +102,7 @@ export const state = {
 
           `,
         },
-      },
+      ],
     },
     'new_york_city_ny': {
       title: 'New York City, NY',
@@ -112,8 +110,7 @@ export const state = {
       src: 'https://images.unsplash.com/photo-1445023086979-7244a12345a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
       status: 'Status',
       titleDesc: 'City in New York',
-      attractions: {
-        'Title': {
+      attractions: [{
           title: '',
           href: '',
           src: '',
@@ -121,7 +118,7 @@ export const state = {
 
           `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
@@ -129,7 +126,7 @@ export const state = {
 
           `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
@@ -137,7 +134,7 @@ export const state = {
 
           `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
@@ -145,7 +142,7 @@ export const state = {
 
           `,
         },
-      },
+      ],
     },
     'riverside_ca': {
       title: 'Riverside, CA',
@@ -153,40 +150,39 @@ export const state = {
       src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/MissionInn_SpanishWing.jpg/560px-MissionInn_SpanishWing.jpg',
       status: 'Status',
       titleDesc: 'City in California',
-      attractions: {
-        'Title': {
+      attractions: [{
           title: '',
           href: '',
           src: '',
           desc: `
 
-          `,
+        `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
           desc: `
 
-          `,
+        `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
           desc: `
 
-          `,
+        `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
           desc: `
 
-          `,
+        `,
         },
-      },
+      ],
     },
     'boston_ma': {
       title: 'Boston, MA',
@@ -194,40 +190,39 @@ export const state = {
       src: 'https://images.unsplash.com/photo-1488750059241-ed3ad4563245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60',
       status: 'Status',
       titleDesc: 'City in Massachusetts',
-      attractions: {
-        'Title': {
+      attractions: [{
           title: '',
           href: '',
           src: '',
           desc: `
 
-          `,
+        `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
           desc: `
 
-          `,
+        `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
           desc: `
 
-          `,
+        `,
         },
-        'Title': {
+        {
           title: '',
           href: '',
           src: '',
           desc: `
 
-          `,
+        `,
         },
-      },
+      ],
     },
   },
 
