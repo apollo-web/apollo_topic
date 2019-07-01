@@ -30,6 +30,7 @@ import Header from '@/components/Header'
 import BottomBtn from '@/components/BottomBtn'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 import { routerBack } from '@/mixins/routerBack.js'
+import LESSONENTRIES from '@/statics/data/lessons.json'
 
 export default {
   name: 'topicdetails',
@@ -44,6 +45,10 @@ export default {
       'headerTitle',
       'cities',
     ]),
+
+    entries() {
+      return LESSONENTRIES
+    },
   },
 
   methods: {
@@ -71,10 +76,6 @@ export default {
   mounted () {
     this.SET_CURRENT_ROUTE_PARAMS(this.$route.params.attr)
     this.UPDATE_HEADER_TITLE(this.cities[this.$route.params.topic].attractions[this.$route.params.attr].title)
-  },
-
-  beforeDestroy () {
-    this.SET_TOPIC_INDEX(0)
   },
 
   components: {

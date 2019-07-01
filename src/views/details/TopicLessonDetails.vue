@@ -75,6 +75,7 @@ export default {
       'topicIndex',
       'bottomSheet',
       'cities',
+      'currentRouteParams',
     ]),
 
     entries() {
@@ -89,8 +90,8 @@ export default {
 
     let getJsonTopicIndex = _.findIndex(this.entries.topicLesson, { href: this.$route.params.id })
 
-    // console.log(`Markdown length: ${this.entries.topicLesson[getJsonTopicIndex].markdowns.length}`)
-    // console.log(`topicIndex: ${this.topicIndex}`)
+    console.log(`Markdown length: ${this.entries.topicLesson[getJsonTopicIndex].markdowns.length}`)
+    console.log(`topicIndex: ${this.topicIndex}`)
 
     this.setHeaderTitle(_obj.attractions[this.$route.params.id].title)
 

@@ -42,16 +42,25 @@ export const state = {
           title: 'Lombard Street',
           href: 'lombard_street',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sanfran_61_bg_032605.jpg/440px-Sanfran_61_bg_032605.jpg',
+          desc: `
+
+          `,
         },
         {
           title: 'Golden Gate Bridge',
           href: 'golden_gate_bridge',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/540px-GoldenGateBridge-001.jpg',
+          desc: `
+
+          `,
         },
         {
           title: 'Ferry Building',
           href: 'ferry_building',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/San_Francisco_Ferry_Building_%28cropped%29.jpg/600px-San_Francisco_Ferry_Building_%28cropped%29.jpg',
+          desc: `
+
+          `,
         },
       ],
     },
