@@ -84,16 +84,15 @@ export default {
   },
 
   mounted () {
-    let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+    let _obj = _.find(this.cities, this.cities[this.$route.query.index])
 
     this.hint = _obj.attractions[this.$route.params.id].desc
 
-    let getJsonTopicIndex = _.findIndex(this.entries.topicLesson, { href: this.$route.params.id })
+    // console.log(this.entries['topicLesson'][this.$route.query.index].markdowns.length)
+    // console.log(`Markdown length: ${this.entries['topicLesson'][this.$route.query.index].markdowns.length}`)
+    // console.log(`topicIndex: ${this.topicIndex}`)
 
-    console.log(`Markdown length: ${this.entries.topicLesson[getJsonTopicIndex].markdowns.length}`)
-    console.log(`topicIndex: ${this.topicIndex}`)
-
-    this.setHeaderTitle(_obj.attractions[this.$route.params.id].title)
+    this.UPDATE_HEADER_TITLE(_obj.attractions[this.$route.params.id].title)
 
     this.$nextTick(() => {
       if (localStorage.getItem('reloaded')) {
@@ -104,7 +103,7 @@ export default {
       }
     })
 
-    if ((this.topicIndex + 1) === this.entries.topicLesson[getJsonTopicIndex].markdowns.length) {
+    if ((this.topicIndex + 1) === this.entries['topicLesson'][this.$route.query.index].markdowns.length) {
       this.msg_right = 'Finish'
     }
     else {
@@ -116,6 +115,7 @@ export default {
     ...mapMutations([
       'SET_BOTTOM_SHEET',
       'SET_TOPIC_INDEX',
+      'UPDATE_HEADER_TITLE',
     ]),
 
     toggleSheet(bool) {
@@ -127,7 +127,7 @@ export default {
         `The lesson is not finished yet.\nWould you really quit the lesson?`
       )
       if (_confirmClose) {
-        let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+        let _obj = _.find(this.cities, this.cities[this.$route.query.index])
         this.$router.push({
           name: 'topicslist',
           params: {
@@ -138,7 +138,7 @@ export default {
     },
 
     slotBack () {
-      let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+      let _obj = _.find(this.cities, this.cities[this.$route.query.index])
 
       if (this.topicIndex !== 0) {
         this.SET_TOPIC_INDEX(this.topicIndex - 1)
@@ -146,7 +146,7 @@ export default {
         this.$router.push({
           name: 'topicLesson',
           params: {
-            id: this.$route.params.id,
+            id: this.$route.query.index,
           },
           query: {
             index: Number(this.topicIndex),
@@ -165,11 +165,11 @@ export default {
     },
 
     slotForward () {
-      let _obj = _.find(this.cities, this.cities[this.$route.params.id])
+      let _obj = _.find(this.cities, this.cities[this.$route.query.index])
 
-      let getJsonTopicIndex = _.findIndex(this.entries.topicLesson, { href: this.$route.params.id })
+      let getJsonTopicIndex = _.findIndex(this.entries[this.$route.query.index], { href: this.$route.query.index })
 
-      let markdownLength = this.entries.topicLesson[getJsonTopicIndex].markdowns.length
+      let markdownLength = this.entries['topicLesson'][this.$route.query.index].markdowns.length
 
       this.SET_TOPIC_INDEX(this.topicIndex + 1)
 

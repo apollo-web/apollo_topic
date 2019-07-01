@@ -13,15 +13,15 @@
     div.topicdetails__container
       div.topicdetails__img-box
         img.topicdetails__img(
-          :src="cities[this.$route.params.topic].attractions[this.$route.params.attr].src"
+          :src="setTopicDetailsImg"
         )
       div.topicdetails__text-box
-        div.topicdetails__text {{ cities[this.$route.params.topic].attractions[this.$route.params.attr].desc }}
+        div.topicdetails__text {{ setTopicDetailsDesc }}
 
     BottomBtn(
       msg="View Lesson"
     )
-      div.slot_class(@click="startLesson(cities[$route.params.topic].attractions[$route.params.attr].href)")
+      div.slot_class(@click="startLesson()")
 </template>
 
 <script>
@@ -46,9 +46,19 @@ export default {
       'cities',
     ]),
 
-    entries() {
+    entries () {
       return LESSONENTRIES
     },
+
+    setTopicDetailsDesc () {
+      let _objIndex = _.findIndex(this.cities[this.$route.params.topic].attractions, { href: this.$route.params.attr})
+      return this.cities[this.$route.params.topic].attractions[this.$route.params.attr].desc
+    },
+
+    setTopicDetailsImg () {
+      let _objIndex = _.findIndex(this.cities[this.$route.params.topic].attractions, { href: this.$route.params.attr})
+      return this.cities[this.$route.params.topic].attractions[this.$route.params.attr].src
+    }
   },
 
   methods: {
@@ -58,13 +68,13 @@ export default {
       'UPDATE_HEADER_TITLE',
     ]),
 
-    startLesson (id) {
+    startLesson () {
       this.SET_TOPIC_INDEX(0)
 
       this.$router.push({
         name: 'topicLesson',
         params: {
-          id: id,
+          id: this.cities[this.$route.params.topic].attractions[this.$route.params.attr].href,
         },
         query: {
           index: 0,
