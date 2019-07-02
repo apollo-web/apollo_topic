@@ -16,19 +16,12 @@
 
 <script>
 import { mapState } from 'vuex'
-import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 
 export default {
   name: 'headercomp',
 
-  mixins: [
-    setHeaderTitle,
-  ],
-
   computed: {
     ...mapState([
-      'cities',
-      'categories',
       'headerTitle',
     ]),
   },

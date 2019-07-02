@@ -120,6 +120,10 @@ export default {
         border-radius: $grid4x $grid4x 0 0;
         animation: 0.35s slide_up ease-in-out;
 
+        @media screen and (min-aspect-ratio: 13/9) {
+          padding-bottom: calc(#{$grid48x} + #{$grid12x});
+        }
+
         @keyframes slide_up {
           from {
             opacity: 1;

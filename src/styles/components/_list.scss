@@ -1,20 +1,20 @@
 #topicslist,
 #testpreplist {
-  margin-bottom: calc(#{$bottom});
-  margin-top: calc(#{$header} + #{$grid2x});
+  margin-bottom: calc(#{$bottom}) !important;
+  margin-top: calc(#{$header} + #{$grid2x}) !important;
 
   @supports (padding-bottom: env(safe-area-inset-bottom)) {
-    margin-bottom: calc(#{$bottom} + #{$grid12x});
+    margin-bottom: calc(#{$bottom} + #{$grid12x}) !important;
   }
 
   .topicslist__title-container {
-    padding-bottom: $grid4x;
+    padding-bottom: $grid4x !important;
   }
 
   .topicslist__title {
     height: $grid12x;
     margin: $grid2x 0;
-    padding: 0 $grid4x;
+    padding: 0 $grid4x !important;
 
     .topicslist__title-text,
     .topicslist__title-topic {
@@ -24,7 +24,7 @@
     }
 
     .topicslist__title-text {
-      padding-right: $grid;
+      padding-right: $grid !important;
     }
 
     .topicslist__title-topic {

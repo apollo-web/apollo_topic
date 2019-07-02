@@ -1,10 +1,10 @@
 #topics,
 #testprep {
-  padding: $grid4x;
-  margin-bottom: $grid4x;
+  padding: $grid4x !important;
+  margin-bottom: $grid4x !important;
   margin-top: calc(#{$header} + #{$header}) !important;
 
   @supports (padding-bottom: env(safe-area-inset-bottom)) {
-    margin-bottom: $grid16x;
+    margin-bottom: $grid16x !important;
   }
 }

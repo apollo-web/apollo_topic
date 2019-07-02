@@ -1,9 +1,9 @@
 #topicdetails,
 #testprepdetails {
-  margin-top: calc(#{$header});
-  margin-bottom: calc(#{$bottom} + #{$grid8x});
+  margin-top: calc(#{$header}) !important;
+  margin-bottom: calc(#{$bottom} + #{$grid8x}) !important;
 
   @supports (padding-bottom: env(safe-area-inset-bottom)) {
-    margin-bottom: calc(#{$bottom} + #{$grid20x});
+    margin-bottom: calc(#{$bottom} + #{$grid20x}) !important;
   }
 }
