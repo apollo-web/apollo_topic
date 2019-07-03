@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 import Header from '@/components/Header'
 import BottomBtnHalf from '@/components/BottomBtnHalf'
 import BottomSheet from '@/components/BottomSheet'
@@ -76,6 +76,10 @@ export default {
       'bottomSheet',
       'cities',
       'currentRouteParams',
+    ]),
+
+    ...mapGetters([
+      'getCurrentLevel',
     ]),
 
     entries() {
@@ -152,6 +156,7 @@ export default {
             id: this.$route.query.index,
           },
           query: {
+            lv: this.getCurrentLevel.toLowerCase(),
             index: Number(this.topicIndex),
           },
         })
@@ -162,6 +167,9 @@ export default {
           params: {
             topic: this._obj.href,
             attr: this._obj.attractions[this.getAttrIndex].href,
+          },
+          query: {
+            lv: this.getCurrentLevel.toLowerCase(),
           },
         })
       }
@@ -176,10 +184,9 @@ export default {
 
       if (this.topicIndex === markdownLength) {
         this.$router.push({
-          name: 'topicdetails',
+          name: 'topicslist',
           params: {
             topic: this._obj.href,
-            attr: this._obj.attractions[this.getAttrIndex].href,
           },
         })
       }
@@ -190,6 +197,7 @@ export default {
             id: this.$route.params.id,
           },
           query: {
+            lv: this.getCurrentLevel.toLowerCase(),
             index: Number(this.topicIndex),
           },
         })
