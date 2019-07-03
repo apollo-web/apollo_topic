@@ -2,42 +2,42 @@
 
 #### Ferry Building - Intermediate
 
-- man
-  - (verb) to operate or control something
-  - He **mans** the help desk.
+- locals
+  - (noun) an inhabitant of a particular area or neighborhood
+  - The locals object to the new building in their neighborhood.
 
-- prospector
-  - (noun) a person who searches for mineral deposits
-  - Thousands of **prospectors** came to California looking for gold.
+- terminal
+  - (noun) the end of a railroad or other transport route, or a station at such a point
+  - The international terminal at the airport was under construction.
 
-- backdrop
-  - (noun) the setting of an event
-  - New York City is the **backdrop** of many films.
+- ferry
+  - (noun) a boat or ship for transporting passengers and goods
+  - The ferry had many people as it traveled up the river.
 
-- curious
-  - (adjective) strange or unexpected
-  - That was a **curious** coincidence.
+- peak
+  - (adjective) greatest; maximum
+  - I try to avoid peak traffic when I plan my driving.
 
-- take up residence
-  - (idiom) to settle somewhere and make it home
-  - She left South Korea and **took up residence** in London.
+- decline
+  - (noun) a gradual and continuous loss of strength, numbers, quality, or value
+  - The decline in ice in the north pole is concerning.
 
-- nuisance
-  - (noun) an annoying person, thing, or situation
-  - Mosquitoes are a **nuisance**.
+- converted
+  - (adjective) (of a building) having been adapted to be suitable for a new purpose
+  - Her parents converted her bedroom into an office after she moved out.
 
-- a change of heart
-  - (idiom) a change in opinion
-  - He had never wanted a pet but later experienced **a change of heart**.
+- restore
+  - (verb) repair or renovate (a building, work of art, vehicle, etc.) so as to return it to its original condition
+  - The artist wanted to restore the famous painting.
 
-- draw
-  - (verb) to cause a person or thing to come
-  - The museum **draws** people of all ages.
+- organic
+  - (adjective) (of food or farming methods) produced or involving production without the use of chemical fertilizers, pesticides, or other artificial agents
+  - She only buys organic food for her family.
 
-- staple
-  - (noun) a commonly eaten food
-  - Rice is a **staple** throughout Asia.
+- market
+  - (noun) an area or arena in which commercial dealings are conducted
+  - The market was full of buyers and sellers.
 
-- incentive
-  - (noun) something that encourages someone to act
-  - A discount is offered as an **incentive** to new customers.
+- tourist
+  - (noun) a person who is traveling or visiting a place for pleasure
+  - The tourist asked us for directions.

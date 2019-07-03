@@ -2,24 +2,13 @@
 
 #### Ferry Building - Advanced
 
-1. If you could visit any city in the world, where would you go? Why?
-
-2. What is one of the strangest things you have seen while traveling?
-
-3. Tell me about a business that started out small but became very successful.
-
-4. What sorts of businesses are usually found near the ocean in your country?
-
-5. Would you like to be an entrepreneur one day? Why or why not?
-
-6. Tell me about a time you changed your mind about something.
-
-7. How do you feel about tourism? It is helpful or harmful?
-
-8. Should people interfere with wildlife?
-
-9. Why do you think the sea lions came to Pier 39?
-
-10. What problems did the sea lions cause?
-
-11. Do you think the sea lions at Pier 39 should be removed?
+1. What foods do you like the best? Why?
+2. What foods do you like the least? Why?
+3. Is there a place that you like to walk around and take in the sights?
+4. Do you think fruits and vegetables should be sold in stores or direct to consumers?
+5. Do you like to try new foods or stick with your favorites?
+6. Have you taken a ferry before?
+7. Do you get sea sick?
+8. How long is your commute?
+9. What do you think of a traffic jam?
+10. Do you enjoy the hustle and bustle of a city?

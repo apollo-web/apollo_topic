@@ -2,42 +2,42 @@
 
 #### Ferry Building - Beginner
 
-- man
-  - (verb) to operate or control something
-  - He **mans** the help desk.
+- building
+  - (noun) a structure with a roof and walls, such as a house, school, or store
+  - The new building was designed much better.
 
-- prospector
-  - (noun) a person who searches for mineral deposits
-  - Thousands of **prospectors** came to California looking for gold.
+- ferry
+  - (noun) a boat or ship for transporting passengers and goods
+  - The ferry crossed the river with many people.
 
-- backdrop
-  - (noun) the setting of an event
-  - New York City is the **backdrop** of many films.
+- largest
+  - (adjective) of considerable or relatively great size, extent, or capacity
+  - The largest suitcase fell off of the rack.
 
-- curious
-  - (adjective) strange or unexpected
-  - That was a **curious** coincidence.
+- ride
+  - (verb) sit on and control the movement of (an animal, especially a horse), typically as a recreation or sport
+  - I do not know how to ride a horse.
 
-- take up residence
-  - (idiom) to settle somewhere and make it home
-  - She left South Korea and **took up residence** in London.
+- market
+  - (noun) an area or arena in which commercial dealings are conducted
+  - The seafood market is the largest in the world.
 
-- nuisance
-  - (noun) an annoying person, thing, or situation
-  - Mosquitoes are a **nuisance**.
+- delicious
+  - (adjective) highly pleasant to the taste
+  - The food was so delicious that I ate all of it.
 
-- a change of heart
-  - (idiom) a change in opinion
-  - He had never wanted a pet but later experienced **a change of heart**.
+- travel
+  - (verb) make a journey, typically of some length or abroad
+  - We want to travel to another country for vacation.
 
-- draw
-  - (verb) to cause a person or thing to come
-  - The museum **draws** people of all ages.
+- boats
+  - (noun) a small vessel propelled on water by oars, sails, or an engine
+  - The dock was full of boats of every kind.
 
-- staple
-  - (noun) a commonly eaten food
-  - Rice is a **staple** throughout Asia.
+- enter
+  - (verb) come or go into (a place)
+  - Go ahead and enter the restaurant from the back.
 
-- incentive
-  - (noun) something that encourages someone to act
-  - A discount is offered as an **incentive** to new customers.
+- exit
+  - (verb) go out of or leave a place
+  - It is time to exit the theater since the movie is over.

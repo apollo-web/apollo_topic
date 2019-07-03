@@ -2,24 +2,24 @@
 
 #### Fisherman’s Wharf, Pier 39 - Intermediate
 
-1. If you could visit any city in the world, where would you go? Why?
+1. What are some popular cultural events or tourist attractions in your city?
 
-2. What is one of the strangest things you have seen while traveling?
+2. What sorts of things are usually sold at tourist shops?
 
-3. Tell me about a business that started out small but became very successful.
+3. Have you ever purchased anything while you were on a trip? What was it, and why did you buy it?
 
-4. What sorts of businesses are usually found near the ocean in your country?
+3. Do you think it is important to know the history of a place when you travel? Why?
 
-5. Would you like to be an entrepreneur one day? Why or why not?
+4. When you go on vacation, what do you enjoy doing?
 
-6. Tell me about a time you changed your mind about something.
+5. Would you rather see an animal in the wild or at the zoo?
 
-7. How do you feel about tourism? It is helpful or harmful?
+6. Have you ever seen a wild animal? If so, how did you feel?
 
-8. Should people interfere with wildlife?
+7. If you owned a business near Pier 39, how might the sea lions affect you?
 
-9. Why do you think the sea lions came to Pier 39?
+8. Why is Pier 39 a good home for the sea lions?
 
-10. What problems did the sea lions cause?
+9. Do you think the sea lions are affected by tourists?
 
-11. Do you think the sea lions at Pier 39 should be removed?
+10. Why do you think the sea lions are allowed to stay at Pier 39?

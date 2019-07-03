@@ -2,42 +2,42 @@
 
 #### Fisherman’s Wharf, Pier 39 - Intermediate
 
-- man
-  - (verb) to operate or control something
-  - He **mans** the help desk.
+- go back to
+  - (phrase) to have existed since a certain time
+  - The church goes back to the Middle Ages.
 
-- prospector
-  - (noun) a person who searches for mineral deposits
-  - Thousands of **prospectors** came to California looking for gold.
+- flood into
+  - (idiom) to move quickly into a place in large numbers
+  - The crowd flooded into the concert hall.
 
-- backdrop
-  - (noun) the setting of an event
-  - New York City is the **backdrop** of many films.
+- take advantage of
+  - (phrasal verb) to use for gain
+  - Scott took advantage of the opportunity to study overseas.
 
-- curious
-  - (adjective) strange or unexpected
-  - That was a **curious** coincidence.
+- peddle
+  - (verb) to travel while selling goods
+  - Vendors peddle drinks and snacks along the side of the road.
 
-- take up residence
-  - (idiom) to settle somewhere and make it home
-  - She left South Korea and **took up residence** in London.
+- unique
+  - (adjective) very special and unusual
+  - The artist’s work is unique. I have never seen anything like it.
 
-- nuisance
-  - (noun) an annoying person, thing, or situation
-  - Mosquitoes are a **nuisance**.
+- reside
+  - (verb) to live in a specific place
+  - They still reside with their parents.
 
-- a change of heart
-  - (idiom) a change in opinion
-  - He had never wanted a pet but later experienced **a change of heart**.
+- migrate
+  - (verb) to move from one location to another
+  - Some animals migrate to find food.
 
-- draw
-  - (verb) to cause a person or thing to come
-  - The museum **draws** people of all ages.
+- in effect
+  - (phrase) the state of something that is in operation
+  - The law has been in effect for over a decade.
 
-- staple
-  - (noun) a commonly eaten food
-  - Rice is a **staple** throughout Asia.
+- undergo
+  - (verb) to experience or go through
+  - The office is undergoing renovations.
 
-- incentive
-  - (noun) something that encourages someone to act
-  - A discount is offered as an **incentive** to new customers.
+- ideal
+  - (adjective) perfect for a specific purpose, situation, or person
+  - The weather is ideal for a picnic at the park.

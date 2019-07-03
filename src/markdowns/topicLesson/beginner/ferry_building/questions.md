@@ -2,24 +2,22 @@
 
 #### Ferry Building - Beginner
 
-1. If you could visit any city in the world, where would you go? Why?
+1. Do you like to travel? If so, then where have you been?
 
-2. What is one of the strangest things you have seen while traveling?
+2. Tell me, what was your favorite trip and why?
 
-3. Tell me about a business that started out small but became very successful.
+3. Tell me, how do you get to school or work?
 
-4. What sorts of businesses are usually found near the ocean in your country?
+4. Is the traffic bad where you live?
 
-5. Would you like to be an entrepreneur one day? Why or why not?
+5. Have you been on a boat before? If not, then do you want to?
 
-6. Tell me about a time you changed your mind about something.
+6. Do you know if you get seasick? How does it feel?
 
-7. How do you feel about tourism? It is helpful or harmful?
+7. Where do you buy your food? What is it like?
 
-8. Should people interfere with wildlife?
+8. What type of food do you eat?
 
-9. Why do you think the sea lions came to Pier 39?
+9. What is your favorite drink?
 
-10. What problems did the sea lions cause?
-
-11. Do you think the sea lions at Pier 39 should be removed?
+10. Do you like sweet desserts?

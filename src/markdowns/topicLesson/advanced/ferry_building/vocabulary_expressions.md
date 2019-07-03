@@ -2,42 +2,42 @@
 
 #### Ferry Building - Advanced
 
-- man
-  - (verb) to operate or control something
-  - He **mans** the help desk.
+- ferry
+  - (noun) a boat or ship for transporting passengers and goods
+  - He took the ferry across the river.
 
-- prospector
-  - (noun) a person who searches for mineral deposits
-  - Thousands of **prospectors** came to California looking for gold.
+- artisan
+  - (noun) a person or company that produces something (such as cheese or wine) in limited quantities often using traditional methods - often used before another noun
+  - We enjoyed local artisan cheeses while visiting Napa Valley.
 
-- backdrop
-  - (noun) the setting of an event
-  - New York City is the **backdrop** of many films.
+- trend
+  - (noun) a general direction in which something is developing or changing
+  - The newest fashion trends are started in Italy.
 
-- curious
-  - (adjective) strange or unexpected
-  - That was a **curious** coincidence.
+- terminal
+  - (noun) the end of a railroad or other transport route, or a station at such a point
+  - The terminal at Grand Central Station in New York City is a tourist attraction.
 
-- take up residence
-  - (idiom) to settle somewhere and make it home
-  - She left South Korea and **took up residence** in London.
+- commuters
+  - (noun) people who travel some distance to work on a regular basis
+  - There are many commuters who travel back and forth between their homes and the city.
 
-- nuisance
-  - (noun) an annoying person, thing, or situation
-  - Mosquitoes are a **nuisance**.
+- interior
+  - (noun) the inner or indoor part of something, especially a building; the inside
+  - The interior of their house was very well designed.
 
-- a change of heart
-  - (idiom) a change in opinion
-  - He had never wanted a pet but later experienced **a change of heart**.
+- attraction
+  - (noun) a place which draws visitors by providing something of interest or pleasure
+  - The tallest building is the city’s main attraction.
 
-- draw
-  - (verb) to cause a person or thing to come
-  - The museum **draws** people of all ages.
+- bustling
+  - (adjective) (of a place) full of activity
+  - The bustling downtown square.
 
-- staple
-  - (noun) a commonly eaten food
-  - Rice is a **staple** throughout Asia.
+- world class
+  - (adjective) (of a person, thing, or activity) of or among the best in the world
+  - We enjoyed world class sushi in Tokyo.
 
-- incentive
-  - (noun) something that encourages someone to act
-  - A discount is offered as an **incentive** to new customers.
+- locals
+  - (noun) an inhabitant of a particular area or neighborhood
+  - This restaurant is a favorite among locals.

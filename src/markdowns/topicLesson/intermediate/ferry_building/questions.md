@@ -2,24 +2,22 @@
 
 #### Ferry Building - Intermediate
 
-1. If you could visit any city in the world, where would you go? Why?
+1. What are the main attractions where you live?
 
-2. What is one of the strangest things you have seen while traveling?
+2. Are there many tourists that visit your area? If so, then why do they come?
 
-3. Tell me about a business that started out small but became very successful.
+3. How do you travel to work? What is your trip like?
 
-4. What sorts of businesses are usually found near the ocean in your country?
+4. Have you ever been on a boat? If so, then when, where, and why?
 
-5. Would you like to be an entrepreneur one day? Why or why not?
+5. Are there food markets where you live? If so, then what type?
 
-6. Tell me about a time you changed your mind about something.
+6. Where do people buy their food where you live?
 
-7. How do you feel about tourism? It is helpful or harmful?
+7. What type of food do you eat? Is it healthy?
 
-8. Should people interfere with wildlife?
+8. What types of food trends are there? What do you think of them?
 
-9. Why do you think the sea lions came to Pier 39?
+9. What types of foods do you not like? Why?
 
-10. What problems did the sea lions cause?
-
-11. Do you think the sea lions at Pier 39 should be removed?
+10. What types of foods to you like? Why?
