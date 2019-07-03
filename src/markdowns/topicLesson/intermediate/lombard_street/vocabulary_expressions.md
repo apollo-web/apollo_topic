@@ -1,6 +1,6 @@
 ### Vocabulary & Expressions
 
-#### Lombard Street
+#### Lombard Street - Intermediate
 
 - man
   - (verb) to operate or control something

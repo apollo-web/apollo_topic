@@ -1,6 +1,6 @@
 ### Pronouncing
 
-#### Fisherman’s Wharf, Pier 39
+#### Golden Gate Bridge - Advanced
 
 Practice pronouncing each of the words.
 - entrepreneur

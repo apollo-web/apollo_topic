@@ -1,6 +1,6 @@
 ### Pronouncing
 
-#### Lombard Street
+#### Ferry Building - Beginner
 
 Practice pronouncing each of the words.
 - entrepreneur

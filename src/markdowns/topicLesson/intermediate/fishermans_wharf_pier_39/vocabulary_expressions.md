@@ -1,6 +1,6 @@
 ### Vocabulary & Expressions
 
-#### Ferry Building
+#### Fisherman’s Wharf, Pier 39 - Intermediate
 
 - man
   - (verb) to operate or control something
