@@ -25,8 +25,8 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 import Header from '@/components/Header'
-import FilterTab from '../components/FilterTab'
-import BottomBtn from '../components/BottomBtn'
+import FilterTab from '@/components/FilterTab'
+import BottomBtn from '@/components/BottomBtn'
 
 export default {
   name: 'testpreplist',

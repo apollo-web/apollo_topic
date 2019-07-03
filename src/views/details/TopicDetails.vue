@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 import Header from '@/components/Header'
 import BottomBtn from '@/components/BottomBtn'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
@@ -44,6 +44,10 @@ export default {
     ...mapState([
       'headerTitle',
       'cities',
+    ]),
+
+    ...mapGetters([
+      'getCurrentLevel',
     ]),
 
     entries () {
@@ -79,6 +83,7 @@ export default {
           id: this.cities[this.$route.params.topic].attractions[this.getAttrIndex].href,
         },
         query: {
+          lv: this.getCurrentLevel.toLowerCase(),
           index: 0,
         },
       })

@@ -10,7 +10,7 @@
         slot="header__right"
       )
 
-    //- FilterTab
+    FilterTab
 
     div.topicslist__title-container
       div.topicslist__title
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 import Header from '@/components/Header'
 import FilterTab from '@/components/FilterTab'
 import BottomBtn from '@/components/BottomBtn'
@@ -51,7 +51,11 @@ export default {
     ...mapState([
       'headerTitle',
       'cities',
-    ])
+    ]),
+
+    ...mapGetters([
+      'getCurrentLevel',
+    ]),
   },
 
   methods: {
@@ -65,6 +69,9 @@ export default {
         params: {
           topic: this.$route.params.topic,
           attr: attr,
+        },
+        query: {
+          lv: this.getCurrentLevel.toLowerCase(),
         },
       })
       this.UPDATE_HEADER_TITLE(title)

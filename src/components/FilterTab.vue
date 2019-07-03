@@ -37,6 +37,10 @@ export default {
     toggleSheet(bool) {
       this.SET_BOTTOM_SHEET(bool)
     },
+
+    setTopicLevel(lv, bool) {
+      SET_TOPIC_LEVEL([lv, bool])
+    },
   },
 
   computed: {
