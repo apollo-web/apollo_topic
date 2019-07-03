@@ -59,7 +59,8 @@ export default {
     },
 
     setTopicDetailsDesc () {
-      return this.cities[this.$route.params.topic].attractions[this.getAttrIndex].desc
+      let getCurrentLevel = this.$route.query.lv.toLowerCase()
+      return this.cities[this.$route.params.topic].attractions[this.getAttrIndex].desc[getCurrentLevel]
     },
 
     setTopicDetailsImg () {
