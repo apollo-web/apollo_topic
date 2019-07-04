@@ -290,47 +290,47 @@ export const state = {
 
   categories: {
     'TOEIC Speaking': {
-      'Lesson 1': {
-        title: 'Lesson 1',
-        href: 'lesson_1'
+      'Test 1': {
+        title: 'Test 1',
+        href: 'test_1',
       },
-      'Lesson 2': {
-        title: 'Lesson 2',
-        href: 'lesson_2'
+      'Test 2': {
+        title: 'Test 2',
+        href: 'test_2'
       },
-      'Lesson 3': {
-        title: 'Lesson 3',
-        href: 'lesson_3'
+      'Test 3': {
+        title: 'Test 3',
+        href: 'test_3'
       },
-      'Lesson 4': {
-        title: 'Lesson 4',
-        href: 'lesson_4'
+      'Test 4': {
+        title: 'Test 4',
+        href: 'test_4'
       },
-      'Lesson 5': {
-        title: 'Lesson 5',
-        href: 'lesson_5'
+      'Test 5': {
+        title: 'Test 5',
+        href: 'test_5'
       },
     },
     'OPIc': {
-      'Lesson 1': {
-        title: 'Lesson 1',
-        href: 'lesson_1'
+      'Test 1': {
+        title: 'Test 1',
+        href: 'test_1'
       },
-      'Lesson 2': {
-        title: 'Lesson 2',
-        href: 'lesson_2'
+      'Test 2': {
+        title: 'Test 2',
+        href: 'test_2'
       },
-      'Lesson 3': {
-        title: 'Lesson 3',
-        href: 'lesson_3'
+      'Test 3': {
+        title: 'Test 3',
+        href: 'test_3'
       },
-      'Lesson 4': {
-        title: 'Lesson 4',
-        href: 'lesson_4'
+      'Test 4': {
+        title: 'Test 4',
+        href: 'test_4'
       },
-      'Lesson 5': {
-        title: 'Lesson 5',
-        href: 'lesson_5'
+      'Test 5': {
+        title: 'Test 5',
+        href: 'test_5'
       },
     },
   },
