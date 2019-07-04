@@ -74,6 +74,8 @@ export default {
           lv: this.getCurrentLevel.toLowerCase(),
         },
       })
+
+      this.$forceUpdate()
       this.UPDATE_HEADER_TITLE(title)
     },
   },

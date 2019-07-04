@@ -143,6 +143,8 @@ export default {
             topic: this._obj.href,
           },
         })
+
+        this.$forceUpdate()
       }
     },
 
@@ -160,6 +162,8 @@ export default {
             index: Number(this.topicIndex),
           },
         })
+
+        this.$forceUpdate()
       }
       else if (this.topicIndex === 0) {
         this.$router.push({
@@ -172,6 +176,8 @@ export default {
             lv: this.getCurrentLevel.toLowerCase(),
           },
         })
+
+        this.$forceUpdate()
       }
     },
 
@@ -189,6 +195,8 @@ export default {
             topic: this._obj.href,
           },
         })
+
+        this.$forceUpdate()
       }
       else {
         this.$router.push({
@@ -201,6 +209,8 @@ export default {
             index: Number(this.topicIndex),
           },
         })
+
+        this.$forceUpdate()
       }
     },
   },

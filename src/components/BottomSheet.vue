@@ -120,8 +120,14 @@ export default {
         border-radius: $grid4x $grid4x 0 0;
         animation: 0.35s slide_up ease-in-out;
 
-        @media screen and (min-aspect-ratio: 13/9) {
-          padding-bottom: calc(#{$grid48x} + #{$grid12x});
+        // android softkey
+        @media screen and (device-aspect-ratio: 36/59) {
+          padding-bottom: calc(#{$grid48x} + #{$grid12x}) !important;
+        }
+
+        // iPhone X safearea
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+          padding-bottom: calc(env(safe-area-inset-bottom) + #{$grid52x});
         }
 
         @keyframes slide_up {
@@ -148,11 +154,6 @@ export default {
               padding-bottom: $grid52x;
             }
           }
-        }
-
-        // iPhone X safearea
-        @supports (padding-bottom: env(safe-area-inset-bottom)) {
-          padding-bottom: calc(env(safe-area-inset-bottom) + #{$grid52x});
         }
 
         .bottomsheet__wrapper {
