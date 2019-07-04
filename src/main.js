@@ -2,8 +2,10 @@ import Vue from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
 import store from '@/store/index.js'
+import {
+  unregister as unregisterServiceWorker
+} from '@/registerServiceWorker'
 
-import '@/registerServiceWorker'
 
 import VueLodash from 'vue-lodash'
 Vue.use(VueLodash)
