@@ -114,10 +114,10 @@ export default {
     })
 
     if ((this.topicIndex + 1) === this.entries['topicLesson'][this.$route.query.index].markdowns.length) {
-      this.msg_right = 'Finish'
+      return this.msg_right = 'Finish'
     }
     else {
-      this.msg_right = 'Next'
+      return this.msg_right = 'Next'
     }
   },
 

@@ -8,6 +8,7 @@ module.exports = {
       },
     },
   },
+
   chainWebpack(config) {
     config.module.rule('md')
       .test(/\.md/)
@@ -20,14 +21,17 @@ module.exports = {
         raw: true
       })
   },
+
   devServer: {
     port: 8080,
   },
+
   pwa: {
-    name: 'apollo_checkout',
+    name: 'apollo_topic',
     themeColor: '#844DFF',
     msTileColor: '#844DFF',
     appleMobileWebAppStatusBarStyle: 'black-translucent',
     appleMobileWebAppCapable: 'no',
   },
+
 }
