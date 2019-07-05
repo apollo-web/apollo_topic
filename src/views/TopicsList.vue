@@ -81,6 +81,8 @@ export default {
   },
 
   mounted () {
+    localStorage.clear()
+
     this.UPDATE_HEADER_TITLE(this.cities[this.$route.params.topic].title)
   },
 

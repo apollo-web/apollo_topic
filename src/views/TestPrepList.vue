@@ -46,6 +46,8 @@ export default {
   },
 
   mounted () {
+    localStorage.clear()
+
     // this.UPDATE_HEADER_TITLE(this.categories[this.$route.params.lesson].title)
   },
 
