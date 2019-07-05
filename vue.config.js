@@ -20,4 +20,7 @@ module.exports = {
         raw: true
       })
   },
+  devServer: {
+    port: 8080,
+  },
 }
