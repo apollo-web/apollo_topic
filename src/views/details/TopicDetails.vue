@@ -59,8 +59,7 @@ export default {
     },
 
     setTopicDetailsDesc () {
-      // let uppercaseFirstLetter = string.charAt(0).toUpperCase()
-      let getCurrentLevel = this.$route.query.lv.toLowerCase()
+      let getCurrentLevel = this.$route.query.lv
       return this.cities[this.$route.params.topic].attractions[this.getAttrIndex].desc[getCurrentLevel]
     },
 

@@ -55,7 +55,7 @@ export const state = {
           href: 'lombard_street',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sanfran_61_bg_032605.jpg/440px-Sanfran_61_bg_032605.jpg',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -65,7 +65,7 @@ export const state = {
           href: 'golden_gate_bridge',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/540px-GoldenGateBridge-001.jpg',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -75,7 +75,7 @@ export const state = {
           href: 'ferry_building',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/San_Francisco_Ferry_Building_%28cropped%29.jpg/600px-San_Francisco_Ferry_Building_%28cropped%29.jpg',
           desc: {
-            Advanced: `
+            advanced: `
               The San Francisco Ferry Building, locally known as, “the Ferry Building,” is the main terminal for ferries that travel across the San Francisco Bay. It first opened in 1898 and at its peak supported as many as 50,000 daily commuters. However, with the opening of the Bay Bridge and the Golden Gate Bridge in the 1930s, along with the mass use of automobiles, the Ferry Building saw a drastic decline in daily commuters. By the 1950s, the Ferry Building was used very little and much of the interior was converted to standard office space. By the 1990s, with the rise of Silicon Valley, city planners wanted to restore and reopen the Ferry Building as a major city attraction. After a four-year restoration, the Ferry Building was reopened to the public in March 2003 with a world class public food market.
               \n
               On any given day, the food market is bustling with locals and tourists who roam from shop to shop discovering the newest food trends. On weekdays during lunch, locals line up outside for food tents and trucks serving up delicious artisan meals. On weekends, the Ferry Building is home to the city’s largest farmer’s market where locals can buy a wide range of fresh fruits and vegetables. Today, over a hundred years after its opening, the Ferry Building sees as many people for its world class public food market as it does for its ferry terminal. By all measures, the recent restoration and reopening of the Ferry Building has been a tremendous success.
@@ -105,7 +105,7 @@ export const state = {
           href: 'hollywood',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Hollywood_sign_hill_view.jpg/500px-Hollywood_sign_hill_view.jpg',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -115,7 +115,7 @@ export const state = {
           href: 'universal_studios_hollywood',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Universal_archway_2019.jpg/570px-Universal_archway_2019.jpg',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -125,7 +125,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -135,7 +135,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -153,7 +153,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -163,7 +163,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -173,7 +173,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -183,7 +183,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -201,7 +201,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -211,7 +211,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -221,7 +221,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -231,7 +231,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -249,7 +249,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -259,7 +259,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -269,7 +269,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
@@ -279,7 +279,7 @@ export const state = {
           href: '',
           src: '',
           desc: {
-            Advanced: ``,
+            advanced: ``,
             intermediate: ``,
             beginner: ``,
           },
