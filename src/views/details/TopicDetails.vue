@@ -21,7 +21,9 @@
     BottomBtn(
       msg="View Lesson"
     )
-      div.slot_class(@click="startLesson()")
+      div.slot_class(
+        @click="startLesson()"
+      )
 </template>
 
 <script>

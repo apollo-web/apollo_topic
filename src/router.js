@@ -4,15 +4,15 @@ import store from '@/store/index.js'
 
 Vue.use(Router)
 
-import Topics from '@/views/Topics.vue'
-import TopicsList from '@/views/TopicsList.vue'
-import TopicDetails from '@/views/details/TopicDetails.vue'
+import Topics from '@/views/Topics'
+import TopicsList from '@/views/TopicsList'
+import TopicDetails from '@/views/details/TopicDetails'
 
-import TestPrep from '@/views/TestPrep.vue'
-import TestPrepList from '@/views/TestPrepList.vue'
-import TestPrepDetails from '@/views/details/TestPrepDetails.vue'
+import TestPrep from '@/views/TestPrep'
+import TestPrepList from '@/views/TestPrepList'
+import TestPrepDetails from '@/views/details/TestPrepDetails'
 
-import TopicLessonDetails from '@/views/details/TopicLessonDetails.vue'
+import TopicLessonDetails from '@/views/details/TopicLessonDetails'
 import LessonEntries from '@/statics/data/lessons.json'
 
 const lessonRoutes = Object.keys(LessonEntries).map(section => {
@@ -31,7 +31,9 @@ const lessonRoutes = Object.keys(LessonEntries).map(section => {
   return {
     path: `/${section}/:id`,
     name: section,
-    component: TopicLessonDetails,
+    component: _ => {
+      return import(`@/views/details/TopicLessonDetails`)
+    },
     children,
   }
 })

@@ -96,7 +96,7 @@ export default {
   },
 
   mounted () {
-    this.hint = this._obj.attractions[this.getAttrIndex].desc
+    this.hint = this._obj.attractions[this.getAttrIndex].desc[this.$route.query.lv]
 
     // console.log(this.entries['topicLesson'][this.$route.query.index].markdowns.length)
     // console.log(`Markdown length: ${this.entries['topicLesson'][this.$route.query.index].markdowns.length}`)
@@ -233,6 +233,11 @@ export default {
   .bottomsheet {
     top: 0;
     position: fixed;
+
+    .bottomsheet__body {
+      overflow-y: scroll;
+      max-height: 80vh !important;
+    }
   }
 }
 </style>
