@@ -237,6 +237,10 @@ export default {
     .bottomsheet__body {
       overflow-y: scroll;
       max-height: 80vh !important;
+
+      &::-webkit-scrollbar {
+        display: none !important;
+      }
     }
   }
 }
