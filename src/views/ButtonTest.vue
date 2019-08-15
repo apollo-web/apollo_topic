@@ -35,7 +35,7 @@ export default {
   color: white;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .button_test:focus

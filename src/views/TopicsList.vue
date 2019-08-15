@@ -109,7 +109,7 @@ export default {
 
     .topicslist__attractions-img-container {
       z-index: 1;
-      height: 148px;
+      height: 9.25rem;
       max-width: 100%;
       overflow: hidden;
       @include border-radius();
@@ -121,11 +121,11 @@ export default {
         @include border-radius();
 
         .topicslist__attractions-textbox {
-          height: 148px;
+          height: 9.25rem;
           margin: 0 auto;
           display: table;
           text-align: center;
-          line-height: 148px;
+          line-height: 9.25rem;
           width: calc(100% - #{$grid8x});
 
           .topicslist__attractions-text {
