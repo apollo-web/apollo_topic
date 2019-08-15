@@ -14,6 +14,7 @@ import TestPrepDetails from '@/views/details/TestPrepDetails'
 
 import TopicLessonDetails from '@/views/details/TopicLessonDetails'
 import LessonEntries from '@/statics/data/lessons.json'
+import ButtonTest from '@/views/ButtonTest'
 
 const lessonRoutes = Object.keys(LessonEntries).map(section => {
   let _index = store.state.topicIndex
@@ -83,6 +84,11 @@ export default new Router({
       path: '/topics/:lesson/:dir',
       name: 'testprepdetails',
       component: TestPrepDetails,
+    },
+    {
+      path: '/button',
+      name: 'buttonTest',
+      component: ButtonTest,
     },
   ],
 
