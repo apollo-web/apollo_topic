@@ -1,9 +1,14 @@
 <template lang="pug">
-  div#tab(
-    v-if="['topics', 'testprep'].includes($route.name)"
-  )
+  div#tab
     p Tab Testing
-
+    div.tab__button(
+      v-for="value in tab"
+    )
+      router-link.tab__button-link(
+        :to="value.href"
+      )
+        button.tab__button-btn(
+        ) {{ value.title }}
 </template>
 
 <script>
