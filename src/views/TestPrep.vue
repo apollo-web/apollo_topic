@@ -50,7 +50,7 @@ export default {
 
 }
 </script>
-<!--
+
 <style lang="scss" scoped>
 #testprep {
   margin-top: $grid4x;
@@ -102,4 +102,3 @@ export default {
   }
 }
 </style>
--->

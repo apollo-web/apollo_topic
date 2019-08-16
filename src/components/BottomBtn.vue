@@ -27,7 +27,7 @@ export default {
 
 }
 </script>
-<!--
+
 <style lang="scss" scoped>
 #bottombtn {
   bottom: 0;
@@ -112,4 +112,3 @@ export default {
   }
 }
 </style>
--->

@@ -107,7 +107,7 @@ export default {
 
 }
 </script>
-<!--
+
 <style lang="scss" scoped>
 #topicdetails {
   .topicdetails__container {
@@ -127,4 +127,3 @@ export default {
   }
 }
 </style>
--->

@@ -30,7 +30,7 @@ export default {
 
 }
 </script>
-<!--
+
 <style lang="scss" scoped>
 #tab {
   z-index: 2;
@@ -72,4 +72,3 @@ export default {
   }
 }
 </style>
--->
