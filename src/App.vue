@@ -3,7 +3,7 @@
     :class="{noscroll: bottomSheet}"
   )
     <p>Testing</p>
-    //Tab
+    Tab
     //router-view
 </template>
 
