@@ -24,8 +24,8 @@ export default {
 {
   width: 100%;
   text-align: center;
-  margin-top: $grid14x;
-  padding-top: $grid12x;
+  margin-top: 4rem;
+  padding-top: 3rem;
 }
 
 .button_test
