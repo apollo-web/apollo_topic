@@ -1,6 +1,5 @@
 <template lang="pug">
   div#tab
-    p Tab Testing
     div.tab__button(
       v-for="value in tab"
     )
