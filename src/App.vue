@@ -2,8 +2,9 @@
   div#app(
     :class="{noscroll: bottomSheet}"
   )
-    Tab
-    router-view
+    <p>Testing</p>
+    //Tab
+    //router-view
 </template>
 
 <script>
