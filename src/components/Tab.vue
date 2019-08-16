@@ -2,6 +2,7 @@
   div#tab(
     v-if="['topics', 'testprep'].includes($route.name)"
   )
+    p Tab Testing
     div.tab__button(
       v-for="value in tab"
     )
