@@ -58,9 +58,10 @@ export default {
   },
 }
 </script>
-
+<!--
 <style lang="scss" scoped>
 #testpreplist {
   margin-top: $grid14x;
 }
 </style>
+-->

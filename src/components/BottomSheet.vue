@@ -21,7 +21,7 @@
                 div.bottomsheet__header-title-text {{ title }}
             slot
 </template>
-
+<!--
 <script>
 import { mapState, mapMutations } from 'vuex'
 
@@ -217,3 +217,4 @@ export default {
   }
 }
 </style>
+-->

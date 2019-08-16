@@ -63,7 +63,7 @@ export default {
 
 }
 </script>
-
+<!--
 <style lang="scss" scoped>
 #topics {
   margin-top: $grid4x;
@@ -125,3 +125,4 @@ export default {
   }
 }
 </style>
+-->

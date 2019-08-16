@@ -94,7 +94,7 @@ export default {
 
 }
 </script>
-
+<!--
 <style lang="scss" scoped>
 #topicslist {
   margin-top: $grid14x;
@@ -145,3 +145,4 @@ export default {
   }
 }
 </style>
+-->

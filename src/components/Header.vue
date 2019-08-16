@@ -28,7 +28,7 @@ export default {
 
 }
 </script>
-
+<!--
 <style lang="scss" scoped>
 #headercomp {
   top: 0;
@@ -86,3 +86,4 @@ export default {
   }
 }
 </style>
+-->

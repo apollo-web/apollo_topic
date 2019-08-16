@@ -65,7 +65,7 @@ export default {
 
 }
 </script>
-
+<!--
 <style lang="scss" scoped>
 #filtertab {
   z-index: 2;
@@ -124,3 +124,4 @@ export default {
   }
 }
 </style>
+-->
