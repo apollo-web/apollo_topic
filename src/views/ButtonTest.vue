@@ -19,11 +19,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 #buttonTest
 {
   width: 100%;
   text-align: center;
+  margin-top: $grid14x;
+  padding-top: $grid12x;
 }
 
 .button_test
