@@ -3,8 +3,8 @@
     :class="{noscroll: bottomSheet}"
   )
     Tab
-    ButtonTest
-    //router-view
+    //ButtonTest
+    router-view
 </template>
 
 <script>
