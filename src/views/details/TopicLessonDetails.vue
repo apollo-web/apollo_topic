@@ -142,6 +142,9 @@ export default {
           params: {
             topic: this._obj.href,
           },
+          query: {
+            type: this.$route.query.type,
+          }
         })
 
         this.$forceUpdate()
@@ -160,6 +163,7 @@ export default {
           query: {
             lv: this.getCurrentLevel.toLowerCase(),
             index: Number(this.topicIndex),
+            type: this.$route.query.type,
           },
         })
 
@@ -174,6 +178,7 @@ export default {
           },
           query: {
             lv: this.getCurrentLevel.toLowerCase(),
+            type: this.$route.query.type,
           },
         })
 
@@ -194,6 +199,9 @@ export default {
           params: {
             topic: this._obj.href,
           },
+          query: {
+            type: this.$route.query.type,
+          }
         })
 
         this.$forceUpdate()
@@ -207,6 +215,7 @@ export default {
           query: {
             lv: this.getCurrentLevel.toLowerCase(),
             index: Number(this.topicIndex),
+            type: this.$route.query.type,
           },
         })
 

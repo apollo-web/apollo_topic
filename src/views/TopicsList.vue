@@ -72,6 +72,7 @@ export default {
         },
         query: {
           lv: this.getCurrentLevel.toLowerCase(),
+          type: this.$route.query.type,
         },
       })
 

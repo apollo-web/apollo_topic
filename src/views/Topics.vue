@@ -47,6 +47,7 @@ export default {
         params: {
           topic: topic,
         },
+        query: this.$route.query
       })
     },
   },

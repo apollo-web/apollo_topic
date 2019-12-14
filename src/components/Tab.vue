@@ -1,5 +1,7 @@
 <template lang="pug">
-  div#tab
+  div#tab(
+    v-if="['topics', 'testprep'].includes($route.name)"
+  )
     div.tab__button(
       v-for="value in tab"
     )

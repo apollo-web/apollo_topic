@@ -17,7 +17,7 @@
         v-for="(index, key) in category"
       )
         router-link(
-          :to="`/testprep/${index.href}`"
+          :to="{ path: `/testprep/${index.href}`, query: $route.query }"
         )
           div.testprep__list-lesson(
             @click="setHeaderTitle(key)"

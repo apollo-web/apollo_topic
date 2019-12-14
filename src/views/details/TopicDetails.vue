@@ -3,7 +3,7 @@
     Header
       div.header__left(
         slot="header__left"
-        @click="routerBack('topicslist', 'topic', cities[$route.params.topic].href)"
+        @click="routerBack('topicslist', 'topic', cities[$route.params.topic].href, $route.query)"
       )
         i.material-icons arrow_back
       div.header__right(
@@ -88,6 +88,7 @@ export default {
         query: {
           lv: this.getCurrentLevel.toLowerCase(),
           index: 0,
+          type: this.$route.query.type,
         },
       })
 
