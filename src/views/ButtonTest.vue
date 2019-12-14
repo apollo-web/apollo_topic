@@ -1,7 +1,9 @@
 <template>
     <div id="buttonTest">
         <p>Testing</p>
-        <button class="button_test" @click="showAndroidToast('Hello Android!')">Click</button>
+        <a class="yourButton" href="inapp://buttontest">
+          <button class="button_test" @click="showAndroidToast('Hello Android!')">Click</button>
+        </a>
     </div>
 </template>
 
