@@ -6,7 +6,7 @@
       v-for="value in tab"
     )
       router-link.tab__button-link(
-        :to="value.href"
+        :to="{ path: value.href, query: $route.query }"
       )
         button.tab__button-btn(
         ) {{ value.title }}

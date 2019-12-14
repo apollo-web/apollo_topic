@@ -8,7 +8,8 @@
         i.material-icons arrow_back
       div.header__right(
         slot="header__right"
-      )
+        @click="showAndroidToast('Select Tutor')"
+      ) Select Tutor
 
     div.topicdetails__container
       div.topicdetails__img-box
@@ -32,6 +33,7 @@ import Header from '@/components/Header'
 import BottomBtn from '@/components/BottomBtn'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 import { routerBack } from '@/mixins/routerBack.js'
+import { showToast } from '@/mixins/showToast.js'
 import LESSONENTRIES from '@/statics/data/lessons.json'
 
 export default {

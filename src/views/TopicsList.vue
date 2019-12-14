@@ -3,9 +3,9 @@
     Header
       div.header__left(
         slot="header__left"
-        @click="routerBack('topics')"
+        @click="routerBack('topics','param','param',$route.query)"
       )
-        i.material-icons close
+        i.material-icons arrow_back
       div.header__right(
         slot="header__right"
       )
@@ -28,7 +28,7 @@
             :src="attr.src"
           )
 
-    BottomBtn(
+    BottomBtn(v-if="!['student', 'tutor'].includes($route.query.type)"
       msg="Enroll"
     )
 </template>
