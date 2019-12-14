@@ -42,6 +42,7 @@ export default {
   mixins: [
     setHeaderTitle,
     routerBack,
+    showToast,
   ],
 
   computed: {
