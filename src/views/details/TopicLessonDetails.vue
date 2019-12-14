@@ -5,7 +5,7 @@
         slot="header__left"
         @click="quitLesson"
       )
-        i.material-icons close
+        i.material-icons arrow_back
       div.header__right(
         slot="header__right"
         @click="toggleSheet(true)"
