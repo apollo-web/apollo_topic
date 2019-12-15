@@ -38,7 +38,8 @@ section {
 
         ul,
         ol {
-          margin-bottom: $grid16x;
+          //margin-bottom: $grid16x;
+          margin-bottom: $grid4x;
         }
       }
     }
@@ -56,10 +57,10 @@ section {
     }
 
     em {
-      margin: 0 auto;
+      //margin: 0 auto;
       display: block;
-      max-width: 80%;
-      text-align: center;
+      //max-width: 80%;
+      //text-align: center;
     }
 
     hr {
@@ -69,6 +70,11 @@ section {
     p,
     li {
       @include font-size($p_font_size);
+    }
+
+    blockquote {
+      margin-inline-start: 15px;
+      margin-inline-end: 15px;
     }
 
   }

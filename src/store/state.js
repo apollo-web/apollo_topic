@@ -32,6 +32,7 @@ export const state = {
       titleDesc: 'City in California',
       attractions: [{
           title: 'Fisherman’s Wharf, Pier 39',
+          hashtags: '#wharf #pier39',
           href: 'fishermans_wharf_pier_39',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Sealions_on_Pier_39%2C_SF%2C_CA%2C_jjron_26.03.2012.jpg/440px-Sealions_on_Pier_39%2C_SF%2C_CA%2C_jjron_26.03.2012.jpg',
           desc: {
@@ -52,6 +53,7 @@ export const state = {
         },
         {
           title: 'Lombard Street',
+          hashtags: '#wharf #pier39',
           href: 'lombard_street',
           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sanfran_61_bg_032605.jpg/440px-Sanfran_61_bg_032605.jpg',
           desc: {
