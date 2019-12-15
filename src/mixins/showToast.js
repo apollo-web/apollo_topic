@@ -1,13 +1,27 @@
 export const showToast = {
     methods: {
-        showAndroidToast: function(toast) {
-            if(window.Mobile) {
-                if(typeof android !== 'undefined') {
-                    android.showToast(toast)
-                }
+        showToast: function(toast) {
+            if(this.getMobileOS() === 'Android') {
+                android.showToast(toast)
+            }
+            else if(this.getMobileOS() === 'iOS') {
+                self.location.href = "inapp://buttontest"
             }
             else
-                console.log("Not mobile")
+                console.log("Not Mobile")
+        },
+
+        closeView: function() {
+            if(this.getMobileOS() === 'Android') {
+                console.log("Android")
+                android.close()
+            }
+            else if(this.getMobileOS() === 'iOS') {
+                console.log("iOS")
+                self.location.href = "inapp://close"
+            }
+            else
+                console.log("Not Mobile")
         },
   
         getMobileOS: function() {

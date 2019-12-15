@@ -8,7 +8,10 @@
         i.material-icons arrow_back
       div.header__right(
         slot="header__right"
+        v-if="['s_session'].includes($route.query.type)"
+        @click="closeView()"
       )
+        i.material-icons close
 
     FilterTab
 
@@ -28,10 +31,12 @@
             :src="attr.src"
           )
 
-    BottomBtn(v-if="!['s_session', 't_session'].includes($route.query.type)"
-      msg="Enroll2"
-      @click="android.showToast('Enroll')"
+    BottomBtn(v-if="!['s_session', 't_session', 't'].includes($route.query.type)"
+      msg="Enroll"      
     )
+      div.slot_class(
+        @click="showToast('Enroll')"
+      )
 </template>
 
 <script>
@@ -40,12 +45,14 @@ import Header from '@/components/Header'
 import FilterTab from '@/components/FilterTab'
 import BottomBtn from '@/components/BottomBtn'
 import { routerBack } from '@/mixins/routerBack.js'
+import { showToast } from '@/mixins/showToast.js'
 
 export default {
   name: 'topicslist',
 
   mixins: [
     routerBack,
+    showToast
   ],
 
   computed: {

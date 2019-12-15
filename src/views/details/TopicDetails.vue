@@ -8,7 +8,8 @@
         i.material-icons arrow_back
       div.header__right(
         slot="header__right"
-        @click="android.showToast('Select Tutor');"
+        v-if="!['s_session', 't_session', 't'].includes($route.query.type)"
+        @click="showToast('Select Tutor');"
       ) Select Tutor
 
     div.topicdetails__container
