@@ -10,4 +10,14 @@ export const getters = {
     }
   },
 
+  getCurrentLevelName: state => {
+    let currentLevel
+
+    for (let lv in state.topicLevel) {
+      if (state.topicLevel[lv].bool === true) {
+        return currentLevel = lv
+      }
+    }
+  },
+
 }

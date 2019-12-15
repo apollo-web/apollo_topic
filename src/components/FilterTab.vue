@@ -2,8 +2,8 @@
   div#filtertab
     div.filtertab__container
       div.filtertab__level
-        p.filtertab__level-title Topic Level:
-        p.filtertab__level-level {{ getCurrentLevel }}
+        p.filtertab__level-title Category:
+        p.filtertab__level-level {{ getCurrentLevelName }}
       div.filtertab__filter(
         @click="toggleSheet(true)"
       )
@@ -51,7 +51,7 @@ export default {
     ]),
 
     ...mapGetters([
-      'getCurrentLevel',
+      'getCurrentLevelName',
     ]),
   },
 

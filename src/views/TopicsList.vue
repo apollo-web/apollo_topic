@@ -20,7 +20,7 @@
         p.topicslist__title-text Topics about
         p.topicslist__title-topic {{ headerTitle }}
       div.topicslist__attractions(
-        v-for="(attr, key) in cities[this.$route.params.topic].attractions"
+        v-for="(attr, key) in cities[currentTopic].attractions"
         @click="topicDetailsLink(attr.title, attr.href)"
       )
         div.topicslist__attractions-img-container
@@ -35,9 +35,9 @@
             :src="attr.src"
           )
 
-    BottomBtn(v-if="!['s_session', 't_session', 't'].includes($route.query.type)"
-      msg="Enroll"      
-    )
+    // BottomBtn(v-if="!['s_session', 't_session', 't'].includes($route.query.type)"
+        msg="Enroll"      
+      )
       div.slot_class(
         @click="showToast('Enroll')"
       )
@@ -50,12 +50,14 @@ import FilterTab from '@/components/FilterTab'
 import BottomBtn from '@/components/BottomBtn'
 import { routerBack } from '@/mixins/routerBack.js'
 import { showToast } from '@/mixins/showToast.js'
+import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 
 export default {
   name: 'topicslist',
 
   mixins: [
     routerBack,
+    setHeaderTitle,
     showToast
   ],
 
@@ -63,6 +65,7 @@ export default {
     ...mapState([
       'headerTitle',
       'cities',
+      'currentTopic',
     ]),
 
     ...mapGetters([
@@ -79,7 +82,8 @@ export default {
       this.$router.replace({
         name: 'topicdetails',
         params: {
-          topic: this.$route.params.topic,
+          //topic: this.$route.params.topic,
+          topic: this.currentTopic,
           attr: attr,
         },
         query: {
@@ -119,7 +123,7 @@ export default {
   mounted () {
     localStorage.clear()
 
-    this.UPDATE_HEADER_TITLE(this.cities[this.$route.params.topic].title)
+    this.UPDATE_HEADER_TITLE(this.cities[currentTopic].title)
   },
 
   components: {

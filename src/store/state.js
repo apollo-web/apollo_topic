@@ -15,11 +15,52 @@ export const state = {
     },
   },
 
+  extraStuff:{
+    'Personal Life': {
+      level: 'Personal Life',
+      bool: false,
+    },
+    'Entertainment & Hobbies': {
+      level: 'Entertainment & Hobbies',
+      bool: false,
+    },
+    'Food & Drinks': {
+      level: 'Food & Drinks',
+      bool: false,
+    },
+    'Sports & Health': {
+      level: 'Sports & Health',
+      bool: false,
+    },
+    'Economy': {
+      level: 'Economy',
+      bool: false,
+    },
+    'People & Relationships': {
+      level: 'People & Relationships',
+      bool: false,
+    },
+    'Discussion Topics': {
+      level: 'Discussion Topics',
+      bool: false,
+    },
+    'Society & Politics': {
+      level: 'Society & Politics',
+      bool: false,
+    },
+    'Travel & Geography': {
+      level: 'Travel & Geography',
+      bool: false,
+    },
+  },
+
   bottomSheet: false,
 
   currentRouteParams: null,
 
   topicIndex: 0,
+
+  currentTopic: 'san_francisco_ca',
 
   headerTitle: 'Topics',
 

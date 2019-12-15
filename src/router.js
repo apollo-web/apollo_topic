@@ -53,13 +53,14 @@ export default new Router({
       <- :topics: ->
     */
     {
-      path: '/topics',
-      name: 'topics',
+      path: '/topicslist',
+      name: 'topicslist',
       component: Topics,
     },
     {
-      path: '/topics/:topic',
-      name: 'topicslist',
+      //path: '/topics/:topic',
+      path: '/topics',
+      name: 'topics',
       component: TopicsList,
     },
     {

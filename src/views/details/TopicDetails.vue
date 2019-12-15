@@ -3,7 +3,7 @@
     Header
       div.header__left(
         slot="header__left"
-        @click="routerBack('topicslist', 'topic', cities[$route.params.topic].href, $route.query)"
+        @click="routerBack('topics', 'topic', cities[$route.params.topic].href, $route.query)"
       )
         i.material-icons arrow_back
       div.header__right(
