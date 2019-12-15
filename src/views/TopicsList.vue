@@ -28,8 +28,9 @@
             :src="attr.src"
           )
 
-    BottomBtn(v-if="!['student', 'tutor'].includes($route.query.type)"
-      msg="Enroll"
+    BottomBtn(v-if="!['s_session', 't_session'].includes($route.query.type)"
+      msg="Enroll2"
+      @click="android.showToast('Enroll')"
     )
 </template>
 

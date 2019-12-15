@@ -8,7 +8,7 @@
         i.material-icons arrow_back
       div.header__right(
         slot="header__right"
-        @click="showAndroidToast('Select Tutor')"
+        @click="android.showToast('Select Tutor');"
       ) Select Tutor
 
     div.topicdetails__container

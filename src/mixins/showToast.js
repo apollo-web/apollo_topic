@@ -1,11 +1,11 @@
 export const showToast = {
     methods: {
         showAndroidToast: function(toast) {
-            //if(android !== null)
-                //android.showToast(toast);
-            console.log(this.getMobileOS())
-            if(window.Mobile)
-                console.log(this.getMobileOS())
+            if(window.Mobile) {
+                if(typeof android !== 'undefined') {
+                    android.showToast(toast)
+                }
+            }
             else
                 console.log("Not mobile")
         },
@@ -22,7 +22,6 @@ export const showToast = {
                 return "Android";
             }
   
-            // iOS detection from: http://stackoverflow.com/a/9039885/177710
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 return "iOS";
             }
