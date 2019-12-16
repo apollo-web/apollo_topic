@@ -5,7 +5,7 @@ export const getters = {
 
     for (let lv in state.topicLevel) {
       if (state.topicLevel[lv].bool === true) {
-        return currentLevel = state.topicLevel[lv].level
+        return currentLevel = state.topicLevel[lv].dir
       }
     }
   },
@@ -15,7 +15,7 @@ export const getters = {
 
     for (let lv in state.topicLevel) {
       if (state.topicLevel[lv].bool === true) {
-        return currentLevel = lv
+        return currentLevel = state.topicLevel[lv].level
       }
     }
   },

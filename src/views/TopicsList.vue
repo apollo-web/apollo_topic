@@ -123,7 +123,7 @@ export default {
   mounted () {
     localStorage.clear()
 
-    this.UPDATE_HEADER_TITLE(this.cities[currentTopic].title)
+    this.UPDATE_HEADER_TITLE(this.cities[this.currentTopic].title)
   },
 
   components: {
@@ -172,6 +172,7 @@ export default {
           width: calc(100% - #{$grid8x});
 
           .topicslist__attractions-text {
+            margin: 0 auto;
             font-weight: 700;
             display: block;
             display: -webkit-box;

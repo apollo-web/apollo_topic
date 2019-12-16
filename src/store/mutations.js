@@ -14,11 +14,12 @@ export const mutations = {
     }
   },
 
-  SET_TOPIC_LEVEL: (state, [lv, bool]) => {
-    for (let lv in state.topicLevel) {
-      state.topicLevel[lv].bool = false
+  SET_TOPIC: (state, [lv, bool]) => {
+    for (let topic in state.topicLevel) {
+      state.topicLevel[topic].bool = false
     }
     state.topicLevel[lv].bool = true
+    state.currentTopic = lv
     state.bottomSheet = false
   },
 

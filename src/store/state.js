@@ -1,16 +1,19 @@
 export const state = {
 
   topicLevel: {
-    'Advanced': {
-      level: 'Advanced',
+    'ice_breakers': {
+      level: 'Ice Breakers',
+      dir: 'ice_breakers',
       bool: false,
     },
-    'Intermediate': {
-      level: 'Intermediate',
+    'business': {
+      level: 'Business',
+      dir: 'business',
       bool: false,
     },
-    'Beginner': {
-      level: 'Beginner',
+    'school_education': {
+      level: 'School & Education',
+      dir: 'school_education',
       bool: true,
     },
   },
