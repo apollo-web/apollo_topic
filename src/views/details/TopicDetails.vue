@@ -3,7 +3,7 @@
     Header
       div.header__left(
         slot="header__left"
-        @click="routerBack('topics', 'topic', cities[$route.params.topic].href, $route.query)"
+        @click="routerBack('topicslist', 'topic', currentCategory, $route.query)"
       )
         i.material-icons arrow_back
       div.header__right(
@@ -49,11 +49,12 @@ export default {
   computed: {
     ...mapState([
       'headerTitle',
-      'cities',
+      'categories',
+      'currentCategory',
     ]),
 
     ...mapGetters([
-      'getCurrentLevel',
+      'getCurrentLevelName',
     ]),
 
     entries () {
@@ -61,37 +62,38 @@ export default {
     },
 
     getAttrIndex () {
-      return _.findIndex(this.cities[this.$route.params.topic].attractions, {href: this.$route.params.attr})
+      return _.findIndex(this.categories[this.currentCategory].topics, {href: this.getCurrentLevelName})
     },
 
     setTopicDetailsDesc () {
-      let getCurrentLevel = this.$route.query.lv
-      return this.cities[this.$route.params.topic].attractions[this.getAttrIndex].desc[getCurrentLevel]
+      return this.categories[this.currentCategory].topics[this.getAttrIndex].desc
     },
 
     setTopicDetailsImg () {
-      return this.cities[this.$route.params.topic].attractions[this.getAttrIndex].src
+      return this.categories[this.currentCategory].topics[this.getAttrIndex].src
     }
   },
 
   methods: {
     ...mapMutations([
-      'SET_TOPIC_INDEX',
+      'SET_CAT_INDEX',
       'SET_CURRENT_ROUTE_PARAMS',
       'UPDATE_HEADER_TITLE',
     ]),
 
     startLesson () {
-      this.SET_TOPIC_INDEX(0)
-
+      this.SET_CAT_INDEX(0)
+      console.log(this.getCurrentLevelName)
       this.$router.push({
-        name: 'topicLesson',
+        //name: this.categories[this.currentCategory].topics[this.getAttrIndex].href,
+        name: 'topicCards',
         params: {
-          id: this.cities[this.$route.params.topic].attractions[this.getAttrIndex].href,
+          topic: this.currentCategory,
+          id: this.categories[this.currentCategory].topics[this.getAttrIndex].href,
         },
         query: {
-          lv: this.getCurrentLevel.toLowerCase(),
-          index: 0,
+          lv: this.getCurrentLevelName,
+          //index: 0,
           type: this.$route.query.type,
         },
       })
@@ -101,8 +103,8 @@ export default {
   },
 
   mounted () {
-    this.SET_CURRENT_ROUTE_PARAMS(this.$route.params.attr)
-    this.UPDATE_HEADER_TITLE(this.cities[this.$route.params.topic].attractions[this.getAttrIndex].title)
+    this.SET_CURRENT_ROUTE_PARAMS(this.$route.params.topic)
+    this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getAttrIndex].title)
   },
 
   components: {

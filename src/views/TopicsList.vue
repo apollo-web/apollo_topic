@@ -1,233 +1,174 @@
 <template lang="pug">
-  div#topicslist
+  div#topics
     Header
       div.header__left(
         slot="header__left"
-        @click="routerBack('topics','param','param',$route.query)"
+        @click="routerBack('topics')"
       )
         i.material-icons arrow_back
       div.header__right(
         slot="header__right"
-        v-if="['s_session'].includes($route.query.type)"
-        @click="closeView()"
       )
-        i.material-icons close
 
-    FilterTab
-
-    div.topicslist__title-container
-      div.topicslist__title
-        p.topicslist__title-text Topics about
-        p.topicslist__title-topic {{ headerTitle }}
-      div.topicslist__attractions(
-        v-for="(attr, key) in cities[currentTopic].attractions"
-        @click="topicDetailsLink(attr.title, attr.href)"
+    div.topics__list(
+      v-for="(topic, key, index) in entries['topicCards'].find(item => item.title === $route.query.lv).cards"
+      :key="index"
+    )
+      div.topics__list-router(
+        @click="topicListRouter(topic)"
       )
-        div.topicslist__attractions-img-container
-          div.topicslist__attractions-dimlayer
-            div.topicslist__attractions-textbox
-              span(
-                :class="textClass(attr.title)"
-              ) {{ textAdjust(attr.title) }}
-            div.topicslist__attractions-hashbox
-              span.topicslist__attractions-text {{ attr.hashtags }}
-          img.topicslist__attractions-img(
-            :src="attr.src"
-          )
-
-    // BottomBtn(v-if="!['s_session', 't_session', 't'].includes($route.query.type)"
-        msg="Enroll"      
-      )
-      div.slot_class(
-        @click="showToast('Enroll')"
-      )
+        div.topics__list-container(
+          @click="setHeaderTitle(topic.title)"
+        )
+          div.topics__list-textwrapper
+            div.topics__list-title {{ topic.title }}
+            div.topics__list-status {{ topic.status }}
+            div.topics__list-desc {{ topic.titleDesc }}
+          div.topics__list-imgwrapper
+            img.topics__list-img(
+              :src="topic.src"
+            )
 </template>
 
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex'
 import Header from '@/components/Header'
-import FilterTab from '@/components/FilterTab'
-import BottomBtn from '@/components/BottomBtn'
-import { routerBack } from '@/mixins/routerBack.js'
-import { showToast } from '@/mixins/showToast.js'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
+import { routerBack } from '@/mixins/routerBack.js'
+import LESSONENTRIES from '@/statics/data/lessons.json'
 
 export default {
   name: 'topicslist',
 
   mixins: [
-    routerBack,
     setHeaderTitle,
-    showToast
+    routerBack,
   ],
-
-  computed: {
-    ...mapState([
-      'headerTitle',
-      'cities',
-      'currentTopic',
-    ]),
-
-    ...mapGetters([
-      'getCurrentLevel',
-    ]),
-  },
 
   methods: {
     ...mapMutations([
+      'SET_CAT_INDEX',
+      'SET_CURRENT_ROUTE_PARAMS',
       'UPDATE_HEADER_TITLE',
     ]),
 
-    topicDetailsLink(title, attr) {
-      this.$router.replace({
-        name: 'topicdetails',
+    topicListRouter(topic) {
+      this.SET_CURRENT_ROUTE_PARAMS(topic.href)
+      this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getAttrIndex].title)
+      console.log(this.currentCategory + ":" + topic.href)
+      this.$router.push({
+        name: 'topicCards',
         params: {
-          //topic: this.$route.params.topic,
-          topic: this.currentTopic,
-          attr: attr,
+          topic: this.currentCategory,
+          id: topic.href,
         },
         query: {
-          lv: this.getCurrentLevel.toLowerCase(),
+          lv: this.$route.query.lv,
+          //index: 0,
           type: this.$route.query.type,
         },
       })
-
-      this.$forceUpdate()
-      this.UPDATE_HEADER_TITLE(title)
+      /*this.$router.push({
+        name: 'topicdetails',
+        params: {
+          category: this.currentCategory,
+          topic: topic,
+        },
+        query: this.$route.query
+      })*/
     },
-
-    textClass: function(text)
-    {
-      var classValue = 'topicslist__attractions-text';
-      if(text.length > 34)
-        classValue += ' three_lines';
-      else if(text.length > 28)
-        classValue += ' two_lines';
-        else if(text.length > 20)
-        classValue += ' oneline_small';
-      return classValue;
-    },
-
-    textAdjust: function(text)
-    {
-      var newText;
-      if(text.length > 34)
-        //newText = text.substr(0, 34) + "…";
-        newText = text.substr(0, 80)
-      else
-        newText = text;
-      return newText;
-    }
   },
 
-  mounted () {
-    localStorage.clear()
+  computed: {
+    ...mapState([
+      'categories',
+      'currentCategory',
+    ]),
 
-    this.UPDATE_HEADER_TITLE(this.cities[this.currentTopic].title)
+    ...mapGetters([
+      'getCurrentLevelName',
+    ]),
+    
+    entries () {
+      return LESSONENTRIES
+    },
+
+    getAttrIndex () {
+      return _.findIndex(this.categories[this.currentCategory].topics, {href: this.$route.query.lv})
+    },
+
+    setTopicDetailsDesc () {
+      return this.categories[this.currentCategory].topics[this.getAttrIndex].desc
+    },
+
+    setTopicDetailsImg () {
+      return this.categories[this.currentCategory].topics[this.getAttrIndex].src
+    }
   },
 
   components: {
     Header,
-    FilterTab,
-    BottomBtn,
   },
 
 }
 </script>
 
 <style lang="scss" scoped>
-#topicslist {
-  margin-top: $grid14x;
+#topics {
+  margin-top: $grid4x;
 
-  .topicslist__attractions {
-    height: 100%;
+  .topics__list {
     cursor: pointer;
-    max-width: 100%;
-    position: relative;
-    margin-bottom: $grid4x;
-    padding: 0 $grid4x 0 $grid4x;
 
-    .topicslist__attractions-img-container {
-      z-index: 1;
-      height: 6.25rem;
-      max-width: 100%;
-      overflow: hidden;
-      @include border-radius();
+    .topics__list-router {
+      width: 100%;
+      display: block;
+      height: $grid20x;
 
-      .topicslist__attractions-dimlayer {
-        position: absolute;
-        background-color: $black38;
-        width: calc(100% - #{$grid4x} - #{$grid4x});
-        @include border-radius();
+      .topics__list-textwrapper {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        height: $grid16x;
+        padding: $grid2x 0;
+        width: calc(100% - #{$grid16x});
 
-        .topicslist__attractions-textbox {
-          height: 3.75rem;
-          margin: 0 auto;
-          display: table;
-          text-align: center;
-          line-height: 3.75rem;
-          vertical-align: middle;
-          max-height: $grid14x;
-          overflow:hidden;          
-          width: calc(100% - #{$grid8x});
-
-          .topicslist__attractions-text {
-            margin: 0 auto;
-            font-weight: 700;
-            display: block;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1;
-            padding-top: $grid2x;
-            overflow:hidden;
-            max-width: $grid72x;
-            max-height: $grid14x;
-            @include font-size($grid6x);
-          }
-
-          .oneline_small{
-            @include font-size($grid5x);
-            text-overflow: ellipsis;
-            margin-top:$grid2x;
-          }
-
-          .two_lines {
-            @include font-size($grid4x);
-            word-break: break-all;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 2;
-          }
-
-          .three_lines {
-            @include font-size($grid4x);
-            word-break: break-all;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 2;
-          }
+        .topics__list-title,
+        .topics__list-status,
+        .topics__list-desc {
+          width: 100%;
+          color: #fff;
         }
-        .topicslist__attractions-hashbox {
-          height: 40px;
-          margin: 0 auto;
-          display: table;
-          text-align: center;
-          line-height: 40px;
-          width: calc(100% - #{$grid8x});
 
-          .topicslist__attractions-text {
-            font-weight: 500;
-            font-style: italic;
-            color: rgba(255,255,255,0.8);
-            display: table-cell;
-            padding-bottom: $grid2x;
-            vertical-align: middle;
-            @include font-size($grid4x);
-          }
+        .topics__list-title {
+          font-weight: 700;
+          @include font-size($grid4x);
+        }
+
+        .topics__list-status {
+          @include font-size(14px);
+          @include line-height($grid3x);
+        }
+
+        .topics__list-desc {
+          color: $white54;
+          @include font-size(14px);
         }
       }
 
-      .topicslist__attractions-img {
-        z-index: 0;
-        width: 100%;
+      .topics__list-imgwrapper {
+        position: relative;
+
+        .topics__list-img {
+          right: 0;
+          bottom: $grid2x;
+          width: $grid16x;
+          height: $grid16x;
+          position: absolute;
+          display: inline-block;
+          @include border-radius();
+        }
       }
     }
   }

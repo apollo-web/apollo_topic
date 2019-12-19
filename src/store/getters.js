@@ -20,4 +20,8 @@ export const getters = {
     }
   },
 
+  getCurrentTopic: state => {
+      return state.currentTopic
+  },
+
 }

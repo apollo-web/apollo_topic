@@ -8,7 +8,7 @@ export default {
   name: 'testprepdetails',
 
   beforeDestroy () {
-    this.SET_TOPIC_INDEX(0)
+    this.SET_CAT_INDEX(0)
   },
 
 }

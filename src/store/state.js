@@ -4,7 +4,7 @@ export const state = {
     'ice_breakers': {
       level: 'Ice Breakers',
       dir: 'ice_breakers',
-      bool: false,
+      bool: true,
     },
     'business': {
       level: 'Business',
@@ -14,45 +14,56 @@ export const state = {
     'school_education': {
       level: 'School & Education',
       dir: 'school_education',
-      bool: true,
+      bool: false,
     },
-  },
-
-  extraStuff:{
-    'Personal Life': {
+    'culture_history': {
+      level: 'Culture & History',
+      dir: 'culture_history',
+      bool: false,
+    },
+    'personal_life': {
       level: 'Personal Life',
+      dir: 'personal_life',
       bool: false,
     },
-    'Entertainment & Hobbies': {
+    'entertainment': {
       level: 'Entertainment & Hobbies',
+      dir: 'entertainment',
       bool: false,
     },
-    'Food & Drinks': {
+    'food_drinks': {
       level: 'Food & Drinks',
+      dir: 'food_drinks',
       bool: false,
     },
-    'Sports & Health': {
+    'sports_health': {
       level: 'Sports & Health',
+      dir: 'sports_health',
       bool: false,
     },
-    'Economy': {
+    'economy': {
       level: 'Economy',
+      dir: 'economy',
       bool: false,
     },
-    'People & Relationships': {
+    'people': {
       level: 'People & Relationships',
+      dir: 'people',
       bool: false,
     },
-    'Discussion Topics': {
+    'discussion': {
       level: 'Discussion Topics',
+      dir: 'discussion',
       bool: false,
     },
-    'Society & Politics': {
+    'society_politics': {
       level: 'Society & Politics',
+      dir: 'society_politics',
       bool: false,
     },
-    'Travel & Geography': {
+    'travel_geography': {
       level: 'Travel & Geography',
+      dir: 'travel_geography',
       bool: false,
     },
   },
@@ -63,9 +74,60 @@ export const state = {
 
   topicIndex: 0,
 
-  currentTopic: 'san_francisco_ca',
+  currentCategory: 'ice_breakers',
+
+  currentTopic: 'Ice Breakers',
 
   headerTitle: 'Topics',
+
+  categories: {
+    'ice_breakers': {
+      title: 'Ice Breakers',
+      href: 'ice_breakers',
+      topics: [{
+        title: "Ice Breakers",
+        hashtags: "#fun #beginner #firsttime",
+        href: "Ice Breakers",
+        src: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Ice_Block%2C_Canal_Park%2C_Duluth_%2832752478892%29.jpg',
+        desc: 'This is a hint',
+        },
+      ],
+    },
+    'business': {
+      title: 'Business',
+      href: 'business',
+      topics: [{
+        title: "Business",
+        hashtags: "#work #career",
+        href: "Business",
+        src: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Society.svg',
+        },
+        {
+          title: "Job Interview",
+          hashtags: "#interview #hiring #confidence",
+          href: "Job Interview",
+          src: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Job_interview.jpg',
+        },
+      ],
+    },
+    'school_education': {
+      title: 'School & Education',
+      href: 'school_education',
+      topics: [{
+        title: "School",
+        hashtags: "#schoollife #academic #grades",
+        href: "School",
+        src: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png',
+        },
+        {
+          title: "Foreign Language",
+          hashtags: "#communicate #travel",
+          href: "Foreign language",
+          src: 'https://mycroft.ai/wp-content/uploads/2018/05/languages-edited.png',
+        },
+      ],
+    },
+  },
 
   cities: {
     'san_francisco_ca': {
@@ -334,7 +396,7 @@ export const state = {
     },
   },
 
-  categories: {
+  tests: {
     'TOEIC Speaking': {
       'Test 1': {
         title: 'Test 1',

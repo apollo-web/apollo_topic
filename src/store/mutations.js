@@ -14,21 +14,26 @@ export const mutations = {
     }
   },
 
-  SET_TOPIC: (state, [lv, bool]) => {
+  SET_CAT: (state, [lv, bool]) => {
     for (let topic in state.topicLevel) {
       state.topicLevel[topic].bool = false
     }
-    state.topicLevel[lv].bool = true
-    state.currentTopic = lv
+    state.topicLevel[lv.dir].bool = true
+    state.currentCategory = lv.dir
+    state.headerTitle = lv.level
     state.bottomSheet = false
   },
 
-  SET_TOPIC_INDEX: (state, n) => {
+  SET_CAT_INDEX: (state, n) => {
     state.topicIndex = Number(n)
   },
 
   SET_CURRENT_ROUTE_PARAMS: (state, param) => {
     state.currentRouteParams = param
+  },
+
+  SET_CURRENT_TOPIC: (state, param) => {
+    state.currentTopic = param
   },
 
 }

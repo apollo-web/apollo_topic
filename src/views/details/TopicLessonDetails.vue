@@ -14,10 +14,10 @@
     div.wrapper
       router-view#markdown.container
 
-      BottomBtnHalf(
+      // BottomBtnHalf(
         msg_left="Back"
         :msg_right="msg_right"
-      )
+      // )
         div.slot_class(
           slot="left"
           @click="slotBack"
@@ -74,12 +74,12 @@ export default {
     ...mapState([
       'topicIndex',
       'bottomSheet',
-      'cities',
+      'categories',
       'currentRouteParams',
     ]),
 
     ...mapGetters([
-      'getCurrentLevel',
+      'getCurrentLevelName',
     ]),
 
     entries() {
@@ -87,22 +87,27 @@ export default {
     },
 
     _obj() {
-      return _.find(this.cities, this.cities[this.$route.query.index])
+      return _.find(this.categories, this.categories[0])
+    },
+
+    getTopicAttrIndex () {
+      return _.findIndex(this.entries['topicCards'], {title: this.$route.query.lv})
     },
 
     getAttrIndex () {
-      return _.findIndex(this.entries['topicLesson'], {href: this.currentRouteParams})
+      console.log(this.currentRouteParams)
+      return _.findIndex(this.entries['topicCards'][this.getTopicAttrIndex].cards, {href: this.currentRouteParams})
     },
   },
 
   mounted () {
-    this.hint = this._obj.attractions[this.getAttrIndex].desc[this.$route.query.lv]
+    this.hint = this._obj.topics[this.getAttrIndex].desc
 
     // console.log(this.entries['topicLesson'][this.$route.query.index].markdowns.length)
     // console.log(`Markdown length: ${this.entries['topicLesson'][this.$route.query.index].markdowns.length}`)
     // console.log(`topicIndex: ${this.topicIndex}`)
 
-    this.UPDATE_HEADER_TITLE(this._obj.attractions[this.getAttrIndex].title)
+    this.UPDATE_HEADER_TITLE(this._obj.topics[this.getAttrIndex].title)
 
     this.$nextTick(() => {
       if (localStorage.getItem('reloaded')) {
@@ -113,7 +118,8 @@ export default {
       }
     })
 
-    if ((this.topicIndex + 1) === this.entries['topicLesson'][this.$route.query.index].markdowns.length) {
+    //if ((this.topicIndex + 1) === this.entries['topicCards'][this.$route.query.index].markdowns.length) {
+    if((this.topicIndex + 1) === 1) {
       return this.msg_right = 'Finish'
     }
     else {
@@ -124,7 +130,7 @@ export default {
   methods: {
     ...mapMutations([
       'SET_BOTTOM_SHEET',
-      'SET_TOPIC_INDEX',
+      'SET_CAT_INDEX',
       'UPDATE_HEADER_TITLE',
     ]),
 
@@ -133,35 +139,36 @@ export default {
     },
 
     quitLesson () {
-      let _confirmClose = confirm(
+      /*let _confirmClose = confirm(
         `The lesson is not finished yet.\nWould you really quit the lesson?`
       )
-      if (_confirmClose) {
+      if (_confirmClose) {*/
         this.$router.push({
           name: 'topicslist',
           params: {
             topic: this._obj.href,
           },
           query: {
+            lv: this.getCurrentLevelName,
             type: this.$route.query.type,
           }
         })
 
         this.$forceUpdate()
-      }
+      //}
     },
 
     slotBack () {
       if (this.topicIndex !== 0) {
-        this.SET_TOPIC_INDEX(this.topicIndex - 1)
+        this.SET_CAT_INDEX(this.topicIndex - 1)
 
         this.$router.push({
-          name: 'topicLesson',
+          name: 'topicCards',
           params: {
             id: this.$route.query.index,
           },
           query: {
-            lv: this.getCurrentLevel.toLowerCase(),
+            lv: this.getCurrentLevelName,
             index: Number(this.topicIndex),
             type: this.$route.query.type,
           },
@@ -173,11 +180,11 @@ export default {
         this.$router.push({
           name: 'topicdetails',
           params: {
-            topic: this._obj.href,
-            attr: this._obj.attractions[this.getAttrIndex].href,
+            category: this._obj.href,
+            topic: this.entries['topicCards'].cards[this.getAttrIndex].title,
           },
           query: {
-            lv: this.getCurrentLevel.toLowerCase(),
+            lv: this.getCurrentLevelName,
             type: this.$route.query.type,
           },
         })
@@ -189,9 +196,10 @@ export default {
     slotForward () {
       let getJsonTopicIndex = _.findIndex(this.entries[this.$route.query.index], { href: this.$route.query.index })
 
-      let markdownLength = this.entries['topicLesson'][this.$route.query.index].markdowns.length
+      //let markdownLength = this.entries['topicCards'][this.$route.query.index].markdowns.length
+      let markdownLength = 0
 
-      this.SET_TOPIC_INDEX(this.topicIndex + 1)
+      this.SET_CAT_INDEX(this.topicIndex + 1)
 
       if (this.topicIndex === markdownLength) {
         this.$router.push({
@@ -207,13 +215,14 @@ export default {
         this.$forceUpdate()
       }
       else {
+        console.log('id:' + this.$route.params.id)
         this.$router.push({
-          name: 'topicLesson',
+          name: 'topicCards',
           params: {
             id: this.$route.params.id,
           },
           query: {
-            lv: this.getCurrentLevel.toLowerCase(),
+            lv: this.getCurrentLevel,
             index: Number(this.topicIndex),
             type: this.$route.query.type,
           },

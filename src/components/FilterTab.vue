@@ -17,7 +17,7 @@
       div.bottomsheet__body
         div.bottomsheet__body-list(
           v-for="lv in topicLevel"
-          @click="SET_TOPIC([lv.dir, true])"
+          @click="SET_CAT([lv, true])"
         ) {{ lv.level }}
 </template>
 
@@ -31,7 +31,8 @@ export default {
   methods: {
     ...mapMutations([
       'SET_BOTTOM_SHEET',
-      'SET_TOPIC',
+      'SET_CAT',
+      'UPDATE_HEADER_TITLE',
     ]),
 
     toggleSheet(bool) {
@@ -39,13 +40,13 @@ export default {
     },
 
     setTopicLevel(lv, bool) {
-      SET_TOPIC([lv, bool])
+      SET_CAT([lv, bool])
+      UPDATE_HEADER_TITLE(lv)
     },
   },
 
   computed: {
     ...mapState([
-      'currentLevel',
       'bottomSheet',
       'topicLevel',
     ]),

@@ -19,19 +19,37 @@ import ButtonTest from '@/views/ButtonTest'
 const lessonRoutes = Object.keys(LessonEntries).map(section => {
   let _index = store.state.topicIndex
   let _currentRouteParams = store.state.currentRouteParams
-  let _currentTopic = store.getters.getCurrentLevel.toLowerCase()
+  let _currentCategory = store.getters.getCurrentLevel
+  let _currentTopic =store.getters.getCurrentTopic
+  let _childindex = LessonEntries[section].map(e => e.title).indexOf(_currentTopic);
+  console.log(_currentTopic)
+  
+  const children = LessonEntries[section][_childindex].cards.map(child => ({
+    //const cards = child.cards.map(card => ({
+      path: `/${section}/:topic/:id`,
+      name: child.href,
+      props: (route) => ({ query: route.query.q }),
+      component: _ => {
+        return import(`@/markdowns/${section}/${_currentCategory}/${_currentTopic}/${child.href}.md`)
+      },
+      }))
+    //}))
 
-  const children = LessonEntries[section].map(child => ({
-    path: `/${section}/:id`,
-    name: child.href,
-    component: _ => {
-      return import(`@/markdowns/${section}/${_currentTopic}/${_currentRouteParams}/${child.markdowns[_index]}.md`)
-    },
-  }))
+    //return cards
+    /* return {
+      path: `/${section}/${_currentCategory}/${child.title}`,
+      name: child.title,
+      component: _ => {
+        return import(`@/views/details/TopicLessonDetails`)
+      },
+      cards,
+    } */
+  //})
 
   return {
-    path: `/${section}/:id`,
+    path: `/${section}/:topic/:id`,
     name: section,
+    props: (route) => ({ query: route.query.q }),
     component: _ => {
       return import(`@/views/details/TopicLessonDetails`)
     },
@@ -53,18 +71,18 @@ export default new Router({
       <- :topics: ->
     */
     {
-      path: '/topicslist',
-      name: 'topicslist',
+      path: '/topics',
+      name: 'topics',
       component: Topics,
     },
     {
       //path: '/topics/:topic',
-      path: '/topics',
-      name: 'topics',
+      path: '/topicslist/:topic',
+      name: 'topicslist',
       component: TopicsList,
     },
     {
-      path: '/topics/:topic/:attr',
+      path: '/topics/:category/:topic',
       name: 'topicdetails',
       component: TopicDetails,
     },

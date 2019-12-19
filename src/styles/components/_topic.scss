@@ -2,7 +2,7 @@
 #testprep {
   padding: $grid4x !important;
   margin-bottom: $grid4x !important;
-  margin-top: calc(#{$header} + #{$header}) !important;
+  margin-top: calc(#{$header}) !important;
 
   @supports (padding-bottom: env(safe-area-inset-bottom)) {
     margin-bottom: $grid16x !important;

@@ -9,12 +9,12 @@
       )
 
     div.testprep__list(
-      v-for="(category, key, index) in categories"
+      v-for="(test, key, index) in tests"
       :key="index"
     )
       div.testprep__list-title {{ key }}
       div.testprep__list-wrapper(
-        v-for="(index, key) in category"
+        v-for="(index, key) in test"
       )
         router-link(
           :to="{ path: `/testprep/${index.href}`, query: $route.query }"
@@ -40,7 +40,7 @@ export default {
 
   computed: {
     ...mapState([
-      'categories',
+      'tests',
     ]),
   },
 
