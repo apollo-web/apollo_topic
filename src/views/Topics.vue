@@ -17,7 +17,7 @@
     div.topicslist__title-container
       div.topicslist__title
         p.topicslist__title-text Topics about
-        p.topicslist__title-topic {{ headerTitle }}
+        p.topicslist__title-topic {{ categories[currentCategory].title }}
       div.topicslist__attractions(
         v-for="(attr, key) in categories[currentCategory].topics"
         @click="topicDetailsLink(attr.title, attr.href)"
@@ -96,7 +96,7 @@ export default {
       this.SET_CURRENT_TOPIC(attr)
       this.$forceUpdate()
       this.$router.go()
-      this.UPDATE_HEADER_TITLE(title)
+      this.UPDATE_HEADER_TITLE('Topics')
     },
 
     textClass: function(text)
@@ -126,7 +126,7 @@ export default {
   mounted () {
     localStorage.clear()
 
-    this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].title)
+    this.UPDATE_HEADER_TITLE('Topics')
   },
 
   components: {

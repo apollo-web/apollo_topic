@@ -2,7 +2,7 @@
   div#filtertab
     div.filtertab__container
       div.filtertab__level
-        p.filtertab__level-title Category:
+        p.filtertab__level-title 
         p.filtertab__level-level {{ getCurrentLevelName }}
       div.filtertab__filter(
         @click="toggleSheet(true)"

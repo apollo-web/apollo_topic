@@ -35,11 +35,12 @@ section {
 
       li {
         color: #fff;
+        margin-bottom: $grid4x;
 
         ul,
         ol {
           //margin-bottom: $grid16x;
-          margin-bottom: $grid4x;
+          margin-bottom: $grid2x;
         }
       }
     }
