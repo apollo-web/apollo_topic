@@ -8,6 +8,7 @@
         i.material-icons arrow_back
       div.header__right(
         slot="header__right"
+        v-if="hint !== ''"
         @click="toggleSheet(true)"
       ) Hint
 
@@ -75,39 +76,40 @@ export default {
       'topicIndex',
       'bottomSheet',
       'categories',
+      'currentCategory',
       'currentRouteParams',
     ]),
 
     ...mapGetters([
-      'getCurrentLevelName',
+      'getCurrentLevel',
+      'getCurrentTopic',
     ]),
 
     entries() {
       return LESSONENTRIES
     },
 
-    _obj() {
-      return _.find(this.categories, this.categories[0])
+    _obj() {      
+      return _.find(this.entries['topicCards'], entry => entry.title === this.getCurrentTopic)
     },
 
     getTopicAttrIndex () {
-      return _.findIndex(this.entries['topicCards'], {title: this.$route.query.lv})
+      return _.findIndex(this.entries['topicCards'], {title: this.getCurrentTopic})
     },
 
     getAttrIndex () {
-      console.log(this.currentRouteParams)
-      return _.findIndex(this.entries['topicCards'][this.getTopicAttrIndex].cards, {href: this.currentRouteParams})
+      return _.findIndex(this._obj.cards, {href: this.currentRouteParams})
     },
   },
 
   mounted () {
-    this.hint = this._obj.topics[this.getAttrIndex].desc
+    this.hint = this._obj.cards[this.getAttrIndex].hint
 
     // console.log(this.entries['topicLesson'][this.$route.query.index].markdowns.length)
     // console.log(`Markdown length: ${this.entries['topicLesson'][this.$route.query.index].markdowns.length}`)
     // console.log(`topicIndex: ${this.topicIndex}`)
 
-    this.UPDATE_HEADER_TITLE(this._obj.topics[this.getAttrIndex].title)
+    this.UPDATE_HEADER_TITLE(this._obj.cards[this.getAttrIndex].title)
 
     this.$nextTick(() => {
       if (localStorage.getItem('reloaded')) {
@@ -146,10 +148,10 @@ export default {
         this.$router.push({
           name: 'topicslist',
           params: {
-            topic: this._obj.href,
+            topic: this.currentCategory,
           },
           query: {
-            lv: this.getCurrentLevelName,
+            lv: this.getCurrentTopic,
             type: this.$route.query.type,
           }
         })

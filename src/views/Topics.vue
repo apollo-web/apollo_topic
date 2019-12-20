@@ -89,12 +89,13 @@ export default {
         },
         query: {
           //lv: this.getCurrentLevel.toLowerCase(),
-          lv: title,
+          lv: attr,
           type: this.$route.query.type,
         },
       })
-      this.SET_CURRENT_TOPIC(title)
+      this.SET_CURRENT_TOPIC(attr)
       this.$forceUpdate()
+      this.$router.go()
       this.UPDATE_HEADER_TITLE(title)
     },
 

@@ -11,7 +11,7 @@
       )
 
     div.topics__list(
-      v-for="(topic, key, index) in entries['topicCards'].find(item => item.title === $route.query.lv).cards"
+      v-for="(topic, key, index) in entries['topicCards'].find(item => item.title === currentTopic).cards"
       :key="index"
     )
       div.topics__list-router(
@@ -54,14 +54,9 @@ export default {
 
     topicListRouter(topic) {
       this.SET_CURRENT_ROUTE_PARAMS(topic.href)
-      this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getAttrIndex].title)
-      console.log(this.currentCategory + ":" + topic.href)
+      //this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getAttrIndex].title)
       this.$router.push({
-        name: 'topicCards',
-        params: {
-          topic: this.currentCategory,
-          id: topic.href,
-        },
+        path: `/topicCards/${this.currentCategory}/${this.$route.query.lv}/${topic.href}`,
         query: {
           lv: this.$route.query.lv,
           //index: 0,
@@ -83,6 +78,7 @@ export default {
     ...mapState([
       'categories',
       'currentCategory',
+      'currentTopic'
     ]),
 
     ...mapGetters([

@@ -4,6 +4,8 @@
         <a class="yourButton" href="inapp://buttontest">
           <button class="button_test" @click="showAndroidToast('Hello Android!')">Click</button>
         </a>
+        <router-view></router-view>
+
     </div>
 </template>
 

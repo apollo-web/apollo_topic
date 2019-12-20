@@ -19,42 +19,33 @@ import ButtonTest from '@/views/ButtonTest'
 const lessonRoutes = Object.keys(LessonEntries).map(section => {
   let _index = store.state.topicIndex
   let _currentRouteParams = store.state.currentRouteParams
-  let _currentCategory = store.getters.getCurrentLevel
+  let _currentCategory = store.state.currentCategory
   let _currentTopic =store.getters.getCurrentTopic
   let _childindex = LessonEntries[section].map(e => e.title).indexOf(_currentTopic);
-  console.log(_currentTopic)
-  
-  const children = LessonEntries[section][_childindex].cards.map(child => ({
+    
+  const children = LessonEntries[section][_childindex].cards.map(child => {
+    console.log('/markdowns/' + section + '/' + _currentCategory + '/' +_currentTopic + '/' + child.href + '.md')
+    return {
     //const cards = child.cards.map(card => ({
-      path: `/${section}/:topic/:id`,
+      path: `${child.href}`,
       name: child.href,
-      props: (route) => ({ query: route.query.q }),
       component: _ => {
         return import(`@/markdowns/${section}/${_currentCategory}/${_currentTopic}/${child.href}.md`)
-      },
-      }))
+      }}
+    })
     //}))
 
     //return cards
-    /* return {
-      path: `/${section}/${_currentCategory}/${child.title}`,
-      name: child.title,
+    return {
+      path: `/${section}/:topic/:id`,
+      name: section,
       component: _ => {
         return import(`@/views/details/TopicLessonDetails`)
       },
-      cards,
-    } */
+      children: children,
+    }
   //})
 
-  return {
-    path: `/${section}/:topic/:id`,
-    name: section,
-    props: (route) => ({ query: route.query.q }),
-    component: _ => {
-      return import(`@/views/details/TopicLessonDetails`)
-    },
-    children,
-  }
 })
 
 export default new Router({
@@ -86,8 +77,20 @@ export default new Router({
       name: 'topicdetails',
       component: TopicDetails,
     },
-    /*
-      <- :testprep: ->
+    /*{
+      path: '/topicCards/:topic/:id',
+      name: 'topicCards',
+      component: TopicLessonDetails,
+      children:[
+        {
+          path: 'who_do_you_think_is_beautiful_2',
+          name: 'who_do_you_think_is_beautiful_2',
+          component:  _ => import(`@/markdowns/topicCards/discussion/beauty/who_do_you_think_is_beautiful_2.md`),
+        }
+      ]
+    },
+    
+    /*  <- :testprep: ->
     */
     {
       path: '/testprep',
