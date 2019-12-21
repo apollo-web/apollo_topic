@@ -11,7 +11,7 @@
         i.material-icons expand_more
 
     BottomSheet(
-      title="Topic Level"
+      title="Select Category"
       v-if="bottomSheet"
     )
       div.bottomsheet__body
@@ -121,6 +121,20 @@ export default {
 
     i {
       margin-bottom: $grid2x;
+    }
+  }
+
+  #bottomsheet {
+    top: 0;
+    position: fixed;
+
+    .bottomsheet__body {
+      overflow-y: scroll;
+      max-height: 80vh !important;
+
+      &::-webkit-scrollbar {
+        display: none !important;
+      }
     }
   }
 }

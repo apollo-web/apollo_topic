@@ -24,7 +24,7 @@ const lessonRoutes = Object.keys(LessonEntries).map(section => {
   let _childindex = LessonEntries[section].map(e => e.title).indexOf(_currentTopic);
     
   const children = LessonEntries[section][_childindex].cards.map(child => {
-    console.log('/markdowns/' + section + '/' + _currentCategory + '/' +_currentTopic + '/' + child.href + '.md')
+    //console.log('/markdowns/' + section + '/' + _currentCategory + '/' +_currentTopic + '/' + child.href + '.md')
     return {
     //const cards = child.cards.map(card => ({
       path: `${child.href}`,

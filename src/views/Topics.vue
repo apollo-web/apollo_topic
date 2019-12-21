@@ -10,7 +10,7 @@
         v-if="['s_session'].includes($route.query.type)"
         @click="closeView()"
       )
-        i.material-icons close
+        //i.material-icons close
 
     FilterTab
 
