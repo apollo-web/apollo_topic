@@ -17,22 +17,25 @@
     div.topicslist__title-container
       div.topicslist__title
         p.topicslist__title-text Topics about
-        p.topicslist__title-topic {{ categories[currentCategory].title }}
-      div.topicslist__attractions(
-        v-for="(attr, key) in categories[currentCategory].topics"
-        @click="topicDetailsLink(attr.title, attr.href)"
+        p.topicslist__title-topic {{ topicLevel[currentFilter].level }}
+      div.topicslist__attractions2(
+        v-for="(cat, key2) in getCategories()"
       )
-        div.topicslist__attractions-img-container
-          div.topicslist__attractions-dimlayer
-            div.topicslist__attractions-textbox
-              span(
-                :class="textClass(attr.title)"
-              ) {{ textAdjust(attr.title) }}
-            div.topicslist__attractions-hashbox
-              span.topicslist__attractions-text {{ attr.hashtags }}
-          img.topicslist__attractions-img(
-            :src="attr.src"
-          )
+        div.topicslist__attractions(
+          v-for="(attr, key) in categories[key2].topics"
+          @click="topicDetailsLink(attr.title, attr.href, cat.href)"
+        )
+          div.topicslist__attractions-img-container
+            div.topicslist__attractions-dimlayer
+              div.topicslist__attractions-textbox
+                span(
+                  :class="textClass(attr.title)"
+                ) {{ textAdjust(attr.title) }}
+              div.topicslist__attractions-hashbox
+                span.topicslist__attractions-text {{ attr.hashtags }}
+            img.topicslist__attractions-img(
+              :src="attr.src"
+            )
 
     // BottomBtn(v-if="!['s_session', 't_session', 't'].includes($route.query.type)"
         msg="Enroll"      
@@ -63,8 +66,10 @@ export default {
   computed: {
     ...mapState([
       'headerTitle',
+      'topicLevel',
       'categories',
       'currentCategory',
+      'currentFilter',
     ]),
 
     ...mapGetters([
@@ -76,10 +81,22 @@ export default {
     ...mapMutations([
       'UPDATE_HEADER_TITLE',
       'SET_CURRENT_TOPIC',
+      'SET_CAT',
     ]),
 
-    topicDetailsLink(title, attr) {
-      console.log('title' + title)
+    getCategories: function() {
+      if(this.currentFilter === 'all')
+        return this.categories;
+      else {        
+        return Object.keys(this.categories)
+          .filter( key => key === this.currentFilter )
+          .reduce( (res, key) => (res[key] = this.categories[key], res), {} )
+      }
+    },
+
+    topicDetailsLink(title, attr, cat) {
+      console.log('title' + title + ":"+ cat)
+      this.SET_CAT(cat)
       this.$router.replace({
         name: 'topicslist',
         params: {

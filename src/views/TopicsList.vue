@@ -59,7 +59,7 @@ export default {
       this.$router.push({
         path: `/topicCards/${this.currentCategory}/${this.$route.query.lv}/${topic.href}`,
         query: {
-          lv: this.$route.query.lv,
+          //lv: this.$route.query.lv,
           //index: 0,
           type: this.$route.query.type,
         },
