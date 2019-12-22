@@ -14,14 +14,18 @@ export const mutations = {
     }
   },
 
-  SET_CAT: (state, [cat, bool]) => {
+  SET_FILTER: (state, [cat, bool]) => {
     for (let topic in state.topicLevel) {
       state.topicLevel[topic].bool = false
     }
     state.topicLevel[cat.dir].bool = true
-    state.currentCategory = cat.dir
+    state.currentFilter = cat.dir
     //state.headerTitle = cat.level
     state.bottomSheet = false
+  },
+
+  SET_CAT: (state, cat) => {
+    state.currentCategory = cat
   },
 
   SET_CAT_INDEX: (state, n) => {

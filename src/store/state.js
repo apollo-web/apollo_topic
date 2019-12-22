@@ -1,10 +1,15 @@
 export const state = {
 
   topicLevel: {
+    'all': {
+      level: 'All Categories',
+      dir: 'all',
+      bool: true,
+    },
     'ice_breakers': {
       level: 'Ice Breakers',
       dir: 'ice_breakers',
-      bool: true,
+      bool: false,
     },
     'business': {
       level: 'Business',
@@ -73,6 +78,8 @@ export const state = {
   currentRouteParams: null,
 
   topicIndex: 0,
+
+  currentFilter: 'all',
 
   currentCategory: 'ice_breakers',
 

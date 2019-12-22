@@ -1,12 +1,12 @@
 <template lang="pug">
   div#filtertab
-    div.filtertab__container
+    div.filtertab__container(
+        @click="toggleSheet(true)"
+      )
       div.filtertab__level
         p.filtertab__level-title 
         p.filtertab__level-level {{ getCurrentLevelName }}
-      div.filtertab__filter(
-        @click="toggleSheet(true)"
-      )
+      div.filtertab__filter
         p.filtertab__filter-text Change
         i.material-icons expand_more
 
@@ -17,7 +17,7 @@
       div.bottomsheet__body
         div.bottomsheet__body-list(
           v-for="lv in topicLevel"
-          @click="SET_CAT([lv, true])"
+          @click="setTopicLevel(lv, true)"
         ) {{ lv.level }}
 </template>
 
@@ -31,7 +31,7 @@ export default {
   methods: {
     ...mapMutations([
       'SET_BOTTOM_SHEET',
-      'SET_CAT',
+      'SET_FILTER',
       'UPDATE_HEADER_TITLE',
     ]),
 
@@ -40,8 +40,7 @@ export default {
     },
 
     setTopicLevel(lv, bool) {
-      SET_CAT([lv, bool])
-      UPDATE_HEADER_TITLE(lv)
+      this.SET_FILTER([lv, bool])
     },
   },
 

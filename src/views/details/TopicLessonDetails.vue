@@ -58,7 +58,7 @@ export default {
     msg_right: 'Next',
   }),
 
-  watch: {
+  /*watch: {
     '$route.query.index'() {
       this.$nextTick(() => {
         if (localStorage.getItem('reloaded')) {
@@ -69,7 +69,7 @@ export default {
         }
       })
     }
-  },
+  },*/
 
   computed: {
     ...mapState([
@@ -111,14 +111,17 @@ export default {
 
     this.UPDATE_HEADER_TITLE(this._obj.cards[this.getAttrIndex].title)
 
-    this.$nextTick(() => {
+    /*this.$nextTick(() => {
+      console.log("Tick")
       if (localStorage.getItem('reloaded')) {
         localStorage.removeItem('reloaded')
+        console.log('reloaded remove')
       } else {
+        console.log('reloaded 1')
         localStorage.setItem('reloaded', '1')
         this.$router.go(0)
       }
-    })
+    })*/
 
     //if ((this.topicIndex + 1) === this.entries['topicCards'][this.$route.query.index].markdowns.length) {
     if((this.topicIndex + 1) === 1) {
