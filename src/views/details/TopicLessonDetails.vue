@@ -29,7 +29,7 @@
         )
 
     BottomSheet.bottomsheet(
-      title="Hint"
+      title="Sample Answer"
       v-if="bottomSheet"
     )
       div.bottomsheet__body

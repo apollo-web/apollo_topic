@@ -5,13 +5,13 @@ Level Beginner
 ### Talk about it
 - Q1. Let’s suppose that you can run your cafe. And how would you run your cafe? Please tell me about your detail plan! (like marketing, location, what drink and food, what concept, no kids, etc.) 
 ### Expression and vocabulary
-- **Locate in** : ~사업을 시작하다.
+- **Locate in** : ~사업을 시작하다.  
 [e.g.] where do you locate in for your new business?
 
-- **Commercial** : 광고
+- **Commercial** : 광고  
 [e.g.] This company is running a Youtube commercial for a new product.
 
-- **Ban** : 금지하다.
+- **Ban** : 금지하다.  
 [e.g.] all kids are banned in this cafe.
 
 

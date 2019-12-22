@@ -13,7 +13,7 @@ Level Beginner
 - Q2. What is the best, easiest and fastest way to lose weight?
   - Q2a. What kind of diet would you recommend to your friend?
   - Q2b. What is your own way to lose weight? Please explain.
-#TV프로그램 #체중감량 #다이어트 #건강 #헬스 #경험
+
 ### Expression and vocabulary
 - **Work out** : (건강・몸매 관리 등을 위해) 운동하다  
 [e.g.] I work out regularly and never eat to excess.
@@ -21,16 +21,13 @@ Level Beginner
 - **Stay away from** : 멀리하다  
 [e.g.] I try to stay away from junk foods and fast foods.
 
-- **Hit the gym** : 체육관[헬스장]을 다니다
-  
+- **Hit the gym** : 체육관[헬스장]을 다니다    
 [e.g.] Just finished work, now it’s time to hit the gym.
 
-- **Put the weight back on** : 살이 다시 찌다, 요요 현상이 오다
-  
+- **Put the weight back on** : 살이 다시 찌다, 요요 현상이 오다    
 [e.g.] I tried several diets but I always put the weight back on.
 
-- **Get in shape** : 좋은 몸 상태(몸매)를 유지하다
-  
+- **Get in shape** : 좋은 몸 상태(몸매)를 유지하다    
 [e.g.] I?had?to?do?a?lot?of?weight?training?to?get?in?shape.
 
 

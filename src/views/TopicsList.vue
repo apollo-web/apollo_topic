@@ -26,6 +26,7 @@
             div.topics__list-desc {{ topic.titleDesc }}
           div.topics__list-imgwrapper
             img.topics__list-img(
+              v-if="false"
               :src="topic.src"
             )
 </template>

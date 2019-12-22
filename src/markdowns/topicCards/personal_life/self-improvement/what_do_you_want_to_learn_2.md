@@ -5,13 +5,13 @@ Level Intermediate
 ### Talk about it
 - Q1. Let’s suppose that you’re an interviewee. And you should explain what your best ability is or what you’re good at to make interviewers be fond of you. What’s your plan?
 ### Expression and vocabulary
-- **Be good at ~** : ~을 잘하다.
+- **Be good at ~** : ~을 잘하다.  
 [e.g.] I think you’re good at listening to others.
 
-- **Learn from** : ~로부터 배우다.
+- **Learn from** : ~로부터 배우다.  
 [e.g.] I learn the important lesson from my grandfather. 
 
-- **Be capable of** : ~을 할 수 있다.
+- **Be capable of** : ~을 할 수 있다.  
 [e.g.] I want you to be bold. Because you are capable of doing more things than you know.
 
 
