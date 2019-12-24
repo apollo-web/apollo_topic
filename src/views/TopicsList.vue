@@ -140,6 +140,8 @@ export default {
 
         .topics__list-title {
           font-weight: 700;
+          overflow: hidden;
+          text-overflow: ellipsis;
           @include font-size($grid4x);
         }
 
@@ -150,6 +152,8 @@ export default {
 
         .topics__list-desc {
           color: $white54;
+          overflow: hidden;
+          text-overflow: ellipsis;
           @include font-size(14px);
         }
       }
