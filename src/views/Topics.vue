@@ -7,10 +7,10 @@
         //i.material-icons arrow_back
       div.header__right(
         slot="header__right"
-        v-if="['s_session'].includes($route.query.type)"
+        v-if="showClose()"
         @click="closeView()"
       )
-        //i.material-icons close
+        i.material-icons close
 
     FilterTab
 
@@ -51,7 +51,7 @@ import Header from '@/components/Header'
 import FilterTab from '@/components/FilterTab'
 import BottomBtn from '@/components/BottomBtn'
 import { routerBack } from '@/mixins/routerBack.js'
-import { showToast } from '@/mixins/showToast.js'
+import { nativeCalls } from '@/mixins/nativeCalls.js'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 
 export default {
@@ -60,7 +60,7 @@ export default {
   mixins: [
     routerBack,
     setHeaderTitle,
-    showToast
+    nativeCalls,
   ],
 
   computed: {
@@ -114,6 +114,19 @@ export default {
       this.$forceUpdate()
       this.$router.go()
       this.UPDATE_HEADER_TITLE('Topics')
+    },
+
+    showClose() {
+      var result = false;
+      var getOS = this.getMobileOS()
+      if(getOS === 'Android'){
+        result = true;
+      }
+      else if(getOS === 'iOS'){
+        result = false;
+      }
+      //return result;
+      return result && ['s_session'].includes(this.$route.query.type)
     },
 
     textClass: function(text)

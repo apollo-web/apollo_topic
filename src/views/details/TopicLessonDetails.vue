@@ -6,11 +6,16 @@
         @click="quitLesson"
       )
         i.material-icons arrow_back
-      div.header__right(
+      // div.header__right(
         slot="header__right"
         v-if="hint !== ''"
         @click="toggleSheet(true)"
-      ) Hint
+      // ) Hint
+      div.header__right(
+        slot="header__right"
+        v-if="!['s_session', 't_session', 't'].includes($route.query.type)"
+        @click="showToast('Select Tutor');"
+      ) Select Tutor
 
     div.wrapper
       router-view#markdown.container

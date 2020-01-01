@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import { showToast } from '@/mixins/showToast.js'
+import { nativeCalls } from '@/mixins/nativeCalls.js'
 
 export default {
   name: 'buttonTest',
 
   mixins: [
-    showToast,
+    nativeCalls,
   ],
 }
 </script>
