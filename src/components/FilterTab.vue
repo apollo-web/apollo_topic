@@ -3,9 +3,9 @@
     div.filtertab__container(
         @click="toggleSheet(true)"
       )
-      div.filtertab__level
-        p.filtertab__level-title 
-        p.filtertab__level-level {{ getCurrentLevelName }}
+      div.filtertab__category
+        p.filtertab__category-title 
+        p.filtertab__category-category {{ getCurrentCategoryName }}
       div.filtertab__filter
         p.filtertab__filter-text Change
         i.material-icons expand_more
@@ -16,9 +16,9 @@
     )
       div.bottomsheet__body
         div.bottomsheet__body-list(
-          v-for="lv in topicLevel"
-          @click="setTopicLevel(lv, true)"
-        ) {{ lv.level }}
+          v-for="cat in topicCategory"
+          @click="setTopicCategory(cat, true)"
+        ) {{ cat.name }}
 </template>
 
 <script>
@@ -39,19 +39,19 @@ export default {
       this.SET_BOTTOM_SHEET(bool)
     },
 
-    setTopicLevel(lv, bool) {
-      this.SET_FILTER([lv, bool])
+    setTopicCategory(cat, bool) {
+      this.SET_FILTER([cat, bool])
     },
   },
 
   computed: {
     ...mapState([
       'bottomSheet',
-      'topicLevel',
+      'topicCategory',
     ]),
 
     ...mapGetters([
-      'getCurrentLevelName',
+      'getCurrentCategoryName',
     ]),
   },
 
@@ -76,7 +76,7 @@ export default {
   background-color: $brand_dark;
   border-bottom: 1px solid $white38;
 
-  .filtertab__level,
+  .filtertab__category,
   .filtertab__filter {
     color: #fff;
     height: $header;
@@ -84,21 +84,21 @@ export default {
     display: inline-block;
   }
 
-  .filtertab__level {
+  .filtertab__category {
     float: left;
 
-    .filtertab__level-title,
-    .filtertab__level-level {
+    .filtertab__category-title,
+    .filtertab__category-category {
       display: inline-block;
       @include font-size($grid4x);
       @include line-height($grid3x);
     }
 
-    .filtertab__level-title {
+    .filtertab__category-title {
       padding-right: $grid;
     }
 
-    .filtertab__level-level {
+    .filtertab__category-category {
       font-weight: 700;
     }
   }

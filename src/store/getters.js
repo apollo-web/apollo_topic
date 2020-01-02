@@ -1,21 +1,21 @@
 export const getters = {
 
-  getCurrentLevel: state => {
-    let currentLevel
+  getCurrentCategory: state => {
+    let currentCategory
 
-    for (let lv in state.topicLevel) {
-      if (state.topicLevel[lv].bool === true) {
-        return currentLevel = state.topicLevel[lv].dir
+    for (let cat in state.topicCategory) {
+      if (state.topicCategory[cat].bool === true) {
+        return currentCategory = state.topicCategory[cat].dir
       }
     }
   },
 
-  getCurrentLevelName: state => {
-    let currentLevel
+  getCurrentCategoryName: state => {
+    let currentCategory
 
-    for (let lv in state.topicLevel) {
-      if (state.topicLevel[lv].bool === true) {
-        return currentLevel = state.topicLevel[lv].level
+    for (let cat in state.topicCategory) {
+      if (state.topicCategory[cat].bool === true) {
+        return currentCategory = state.topicCategory[cat].name
       }
     }
   },

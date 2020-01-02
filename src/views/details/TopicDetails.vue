@@ -54,23 +54,23 @@ export default {
     ]),
 
     ...mapGetters([
-      'getCurrentLevelName',
+      'getCurrentCategoryName',
     ]),
 
     entries () {
       return LESSONENTRIES
     },
 
-    getAttrIndex () {
-      return _.findIndex(this.categories[this.currentCategory].topics, {href: this.getCurrentLevelName})
+    getTopicIndex () {
+      return _.findIndex(this.categories[this.currentCategory].topics, {href: this.getCurrentCategoryName})
     },
 
     setTopicDetailsDesc () {
-      return this.categories[this.currentCategory].topics[this.getAttrIndex].desc
+      return this.categories[this.currentCategory].topics[this.getTopicIndex].desc
     },
 
     setTopicDetailsImg () {
-      return this.categories[this.currentCategory].topics[this.getAttrIndex].src
+      return this.categories[this.currentCategory].topics[this.getTopicIndex].src
     }
   },
 
@@ -83,18 +83,19 @@ export default {
 
     startLesson () {
       this.SET_CAT_INDEX(0)
-      console.log(this.getCurrentLevelName)
+      console.log(this.getCurrentCategoryName)
       this.$router.push({
-        //name: this.categories[this.currentCategory].topics[this.getAttrIndex].href,
+        //name: this.categories[this.currentCategory].topics[this.getTopicIndex].href,
         name: 'topicCards',
         params: {
           topic: this.currentCategory,
-          id: this.categories[this.currentCategory].topics[this.getAttrIndex].href,
+          id: this.categories[this.currentCategory].topics[this.getTopicIndex].href,
         },
         query: {
-          lv: this.getCurrentLevelName,
+          cat: this.getCurrentCategoryName,
           //index: 0,
           type: this.$route.query.type,
+          lv: this.$route.query.lv,
         },
       })
 
@@ -104,7 +105,7 @@ export default {
 
   mounted () {
     this.SET_CURRENT_ROUTE_PARAMS(this.$route.params.topic)
-    this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getAttrIndex].title)
+    this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getTopicIndex].title)
   },
 
   components: {

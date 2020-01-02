@@ -81,7 +81,7 @@ export default {
     ]),
 
     ...mapGetters([
-      'getCurrentLevel',
+      'getCurrentCategory',
       'getCurrentTopic',
     ]),
 
@@ -93,23 +93,19 @@ export default {
       return _.find(this.entries['topicCards'], entry => entry.title === this.getCurrentTopic)
     },
 
-    getTopicAttrIndex () {
-      return _.findIndex(this.entries['topicCards'], {title: this.getCurrentTopic})
-    },
-
-    getAttrIndex () {
+    getTopicIndex () {
       return _.findIndex(this._obj.cards, {href: this.currentRouteParams})
     },
   },
 
   mounted () {
-    this.hint = this._obj.cards[this.getAttrIndex].hint
+    this.hint = this._obj.cards[this.getTopicIndex].hint
 
     // console.log(this.entries['topicLesson'][this.$route.query.index].markdowns.length)
     // console.log(`Markdown length: ${this.entries['topicLesson'][this.$route.query.index].markdowns.length}`)
     // console.log(`topicIndex: ${this.topicIndex}`)
 
-    this.UPDATE_HEADER_TITLE(this._obj.cards[this.getAttrIndex].title)
+    this.UPDATE_HEADER_TITLE(this._obj.cards[this.getTopicIndex].title)
 
     /*this.$nextTick(() => {
       console.log("Tick")
@@ -154,8 +150,9 @@ export default {
             topic: this.currentCategory,
           },
           query: {
-            lv: this.getCurrentTopic,
+            cat: this.getCurrentTopic,
             type: this.$route.query.type,
+            lv: this.$route.query.lv,
           }
         })
 
@@ -173,9 +170,10 @@ export default {
             id: this.$route.query.index,
           },
           query: {
-            lv: this.getCurrentLevelName,
+            cat: this.getCurrentCategoryName,
             index: Number(this.topicIndex),
             type: this.$route.query.type,
+            lv: this.$route.query.lv,
           },
         })
 
@@ -186,11 +184,12 @@ export default {
           name: 'topicdetails',
           params: {
             category: this._obj.href,
-            topic: this.entries['topicCards'].cards[this.getAttrIndex].title,
+            topic: this.entries['topicCards'].cards[this.getTopicIndex].title,
           },
           query: {
-            lv: this.getCurrentLevelName,
+            cat: this.getCurrentCategoryName,
             type: this.$route.query.type,
+            lv: this.$route.query.lv,
           },
         })
 
@@ -214,6 +213,7 @@ export default {
           },
           query: {
             type: this.$route.query.type,
+            lv: this.$route.query.lv,
           }
         })
 
@@ -227,9 +227,10 @@ export default {
             id: this.$route.params.id,
           },
           query: {
-            lv: this.getCurrentLevel,
+            cat: this.getCurrentCategory,
             index: Number(this.topicIndex),
             type: this.$route.query.type,
+            lv: this.$route.query.lv,
           },
         })
 
