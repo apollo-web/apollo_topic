@@ -51,7 +51,7 @@ import Header from '@/components/Header'
 import FilterTab from '@/components/FilterTab'
 import BottomBtn from '@/components/BottomBtn'
 import { routerBack } from '@/mixins/routerBack.js'
-import { showToast } from '@/mixins/showToast.js'
+import { nativeCalls } from '@/mixins/nativeCalls.js'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 
 export default {
@@ -60,7 +60,7 @@ export default {
   mixins: [
     routerBack,
     setHeaderTitle,
-    showToast
+    nativeCalls,
   ],
 
   computed: {

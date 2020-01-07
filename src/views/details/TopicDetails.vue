@@ -34,7 +34,7 @@ import Header from '@/components/Header'
 import BottomBtn from '@/components/BottomBtn'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 import { routerBack } from '@/mixins/routerBack.js'
-import { showToast } from '@/mixins/showToast.js'
+import { nativeCalls } from '@/mixins/nativeCalls.js'
 import LESSONENTRIES from '@/statics/data/lessons.json'
 
 export default {
@@ -43,7 +43,7 @@ export default {
   mixins: [
     setHeaderTitle,
     routerBack,
-    showToast,
+    nativeCalls,
   ],
 
   computed: {
