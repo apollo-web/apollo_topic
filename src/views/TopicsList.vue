@@ -84,7 +84,7 @@ export default {
       }
       else
       {
-        return 'All'
+        return 'All Levels'
       }
     },
 
