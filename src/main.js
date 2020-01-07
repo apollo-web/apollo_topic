@@ -17,3 +17,9 @@ new Vue({
   store,
   render: h => h(App),
 }).$mount('#app')
+
+router.afterEach(( to, from ) => {
+  firebase.analytics().logEvent('screen_view', {
+    screen_name: to.name,
+  });
+});

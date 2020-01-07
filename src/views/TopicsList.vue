@@ -3,13 +3,20 @@
     Header
       div.header__left(
         slot="header__left"
-        @click="routerBack('topics')"
+        @click="routerBack('topics','level','level',$route.query)"
       )
         i.material-icons arrow_back
       div.header__right(
         slot="header__right"
       )
-    
+    div.topicslist__title
+      p.topicslist__title-text Topic Cards for
+      p.topicslist__title-topic {{ showLevel() }}
+
+    div.topics__emptylist(
+      v-if="entries['topicCards'].find(item => item.title === currentTopic).cards.filter(card => getLevel(card.level)).length == 0"
+    )
+      div.topics__emptylist-text Sorry, no topic cards match your level
     div.topics__list(
       v-for="(topic, key, index) in entries['topicCards'].find(item => item.title === currentTopic).cards.filter(card => getLevel(card.level))"
       :key="index"
@@ -77,19 +84,18 @@ export default {
       }
       else
       {
-        return 'Beginner'
+        return 'All'
       }
     },
 
     getLevel: function(level)
     {
-      console.log(level + "++" +this.$route.query.lv )
-      if(this.$route.query.lv !== undefined)
+      if(this.$route.query.lv)
       {
         return level.toLowerCase() === this.$route.query.lv.toLowerCase()
       }
       else
-        return false;
+        return true
     },
   },
 

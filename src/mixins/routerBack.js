@@ -12,6 +12,15 @@ export const routerBack = {
             query: q,
           })
         }
+        else if(param === 'level')
+        {
+          this.$router.push({
+            name: name,
+            query: {
+              lv: q.lv,
+            },
+          })
+        }
         else {
           this.$router.push({
             name: name,
