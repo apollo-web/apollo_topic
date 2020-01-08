@@ -15,12 +15,12 @@ export const mutations = {
   },
 
   SET_FILTER: (state, [cat, bool]) => {
-    for (let topic in state.topicLevel) {
-      state.topicLevel[topic].bool = false
+    for (let topic in state.topicCategory) {
+      state.topicCategory[topic].bool = false
     }
-    state.topicLevel[cat.dir].bool = true
+    state.topicCategory[cat.dir].bool = true
     state.currentFilter = cat.dir
-    //state.headerTitle = cat.level
+    //state.headerTitle = cat.name
     state.bottomSheet = false
   },
 

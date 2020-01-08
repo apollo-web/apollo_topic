@@ -1,73 +1,73 @@
 export const state = {
 
-  topicLevel: {
+  topicCategory: {
     'all': {
-      level: 'All Categories',
+      name: 'All Categories',
       dir: 'all',
       bool: true,
     },
     'ice_breakers': {
-      level: 'Ice Breakers',
+      name: 'Ice Breakers',
       dir: 'ice_breakers',
       bool: false,
     },
     'business': {
-      level: 'Business',
+      name: 'Business',
       dir: 'business',
       bool: false,
     },
     'school_education': {
-      level: 'School & Education',
+      name: 'School & Education',
       dir: 'school_education',
       bool: false,
     },
     'culture_history': {
-      level: 'Culture & History',
+      name: 'Culture & History',
       dir: 'culture_history',
       bool: false,
     },
     'personal_life': {
-      level: 'Personal Life',
+      name: 'Personal Life',
       dir: 'personal_life',
       bool: false,
     },
     'entertainment': {
-      level: 'Entertainment & Hobbies',
+      name: 'Entertainment & Hobbies',
       dir: 'entertainment',
       bool: false,
     },
     'food_drinks': {
-      level: 'Food & Drinks',
+      name: 'Food & Drinks',
       dir: 'food_drinks',
       bool: false,
     },
     'sports_health': {
-      level: 'Sports & Health',
+      name: 'Sports & Health',
       dir: 'sports_health',
       bool: false,
     },
     'economy': {
-      level: 'Economy',
+      name: 'Economy',
       dir: 'economy',
       bool: false,
     },
     'people': {
-      level: 'People & Relationships',
+      name: 'People & Relationships',
       dir: 'people',
       bool: false,
     },
     'discussion': {
-      level: 'Discussion Topics',
+      name: 'Discussion Topics',
       dir: 'discussion',
       bool: false,
     },
     'society_politics': {
-      level: 'Society & Politics',
+      name: 'Society & Politics',
       dir: 'society_politics',
       bool: false,
     },
     'travel_geography': {
-      level: 'Travel & Geography',
+      name: 'Travel & Geography',
       dir: 'travel_geography',
       bool: false,
     },

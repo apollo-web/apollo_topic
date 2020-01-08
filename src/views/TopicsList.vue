@@ -3,15 +3,22 @@
     Header
       div.header__left(
         slot="header__left"
-        @click="routerBack('topics')"
+        @click="routerBack('topics','level','level',$route.query)"
       )
         i.material-icons arrow_back
       div.header__right(
         slot="header__right"
       )
+    div.topicslist__title
+      p.topicslist__title-text Topic Cards for
+      p.topicslist__title-topic {{ showLevel() }}
 
+    div.topics__emptylist(
+      v-if="entries['topicCards'].find(item => item.title === currentTopic).cards.filter(card => getLevel(card.level)).length == 0"
+    )
+      div.topics__emptylist-text Sorry, no topic cards match your level
     div.topics__list(
-      v-for="(topic, key, index) in entries['topicCards'].find(item => item.title === currentTopic).cards"
+      v-for="(topic, key, index) in entries['topicCards'].find(item => item.title === currentTopic).cards.filter(card => getLevel(card.level))"
       :key="index"
     )
       div.topics__list-router(
@@ -22,11 +29,10 @@
         )
           div.topics__list-textwrapper
             div.topics__list-title {{ topic.title }}
-            div.topics__list-status {{ topic.status }}
+            div.topics__list-level {{ topic.level }}
             div.topics__list-desc {{ topic.titleDesc }}
           div.topics__list-imgwrapper
-            img.topics__list-img(
-              v-if="false"
+            img.topics__list-img(              
               :src="topic.src"
             )
 </template>
@@ -55,23 +61,41 @@ export default {
 
     topicListRouter(topic) {
       this.SET_CURRENT_ROUTE_PARAMS(topic.href)
-      //this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getAttrIndex].title)
+      //this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getTopicIndex].title)
       this.$router.push({
-        path: `/topicCards/${this.currentCategory}/${this.$route.query.lv}/${topic.href}`,
+        path: `/topicCards/${this.currentCategory}/${this.$route.query.cat}/${topic.href}`,
         query: {
-          //lv: this.$route.query.lv,
+          //cat: this.$route.query.cat,
           //index: 0,
           type: this.$route.query.type,
+          lv: this.$route.query.lv,
         },
       })
-      /*this.$router.push({
-        name: 'topicdetails',
-        params: {
-          category: this.currentCategory,
-          topic: topic,
-        },
-        query: this.$route.query
-      })*/
+    },
+
+    showLevel: function()
+    {
+      if(this.$route.query.lv)
+      {
+        if(isNaN(this.$route.query.lv))
+          return this.$route.query.lv
+        else
+          return 'Level ' + this.$route.query.lv
+      }
+      else
+      {
+        return 'All Levels'
+      }
+    },
+
+    getLevel: function(level)
+    {
+      if(this.$route.query.lv)
+      {
+        return level.toLowerCase() === this.$route.query.lv.toLowerCase()
+      }
+      else
+        return true
     },
   },
 
@@ -83,23 +107,23 @@ export default {
     ]),
 
     ...mapGetters([
-      'getCurrentLevelName',
+      'getCurrentCategoryName',
     ]),
     
     entries () {
       return LESSONENTRIES
     },
 
-    getAttrIndex () {
-      return _.findIndex(this.categories[this.currentCategory].topics, {href: this.$route.query.lv})
+    getTopicIndex () {
+      return _.findIndex(this.categories[this.currentCategory].topics, {href: this.$route.query.cat})
     },
 
     setTopicDetailsDesc () {
-      return this.categories[this.currentCategory].topics[this.getAttrIndex].desc
+      return this.categories[this.currentCategory].topics[this.getTopicIndex].desc
     },
 
     setTopicDetailsImg () {
-      return this.categories[this.currentCategory].topics[this.getAttrIndex].src
+      return this.categories[this.currentCategory].topics[this.getTopicIndex].src
     }
   },
 
@@ -113,6 +137,40 @@ export default {
 <style lang="scss" scoped>
 #topics {
   margin-top: $grid4x;
+  height: 100%;
+
+
+  .topicslist__title {
+    height: $grid12x;
+
+    .topicslist__title-text,
+    .topicslist__title-topic {
+      display: inline-block;
+      @include font-size($grid4x);
+      @include line-height($grid3x);
+    }
+
+    .topicslist__title-text {
+      padding-right: $grid !important;
+    }
+
+    .topicslist__title-topic {
+      font-weight: 700;
+    }
+  }
+    
+
+  .topics__emptylist{
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+
+    .topics__emptylist-text{
+      display: inline-block;
+    }
+  }
+
 
   .topics__list {
     cursor: pointer;
@@ -132,7 +190,7 @@ export default {
         width: calc(100% - #{$grid16x});
 
         .topics__list-title,
-        .topics__list-status,
+        .topics__list-level,
         .topics__list-desc {
           width: 100%;
           color: #fff;
@@ -145,7 +203,7 @@ export default {
           @include font-size($grid4x);
         }
 
-        .topics__list-status {
+        .topics__list-level {
           @include font-size(14px);
           @include line-height($grid3x);
         }

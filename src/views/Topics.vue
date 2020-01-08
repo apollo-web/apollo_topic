@@ -7,34 +7,34 @@
         //i.material-icons arrow_back
       div.header__right(
         slot="header__right"
-        v-if="['s_session'].includes($route.query.type)"
+        v-if="showClose()"
         @click="closeView()"
       )
-        //i.material-icons close
+        i.material-icons close
 
     FilterTab
 
     div.topicslist__title-container
-      div.topicslist__title
-        p.topicslist__title-text Topics about
-        p.topicslist__title-topic {{ topicLevel[currentFilter].level }}
-      div.topicslist__attractions2(
-        v-for="(cat, key2) in getCategories()"
+      // div.topicslist__title
+        p.topicslist__title-text Topics for 
+        p.topicslist__title-topic {{ getLevel() }}
+      div.topicslist__categories(
+        v-for="(cat, key_cat) in getCategories()"
       )
-        div.topicslist__attractions(
-          v-for="(attr, key) in categories[key2].topics"
-          @click="topicDetailsLink(attr.title, attr.href, cat.href)"
+        div.topicslist__topics(
+          v-for="(topic, key) in categories[key_cat].topics"
+          @click="topicDetailsLink(topic.title, topic.href, cat.href)"
         )
-          div.topicslist__attractions-img-container
-            div.topicslist__attractions-dimlayer
-              div.topicslist__attractions-textbox
+          div.topicslist__topics-img-container
+            div.topicslist__topics-dimlayer
+              div.topicslist__topics-textbox
                 span(
-                  :class="textClass(attr.title)"
-                ) {{ textAdjust(attr.title) }}
-              div.topicslist__attractions-hashbox
-                span.topicslist__attractions-text {{ attr.hashtags }}
-            img.topicslist__attractions-img(
-              :src="attr.src"
+                  :class="textClass(topic.title)"
+                ) {{ textAdjust(topic.title) }}
+              div.topicslist__topics-hashbox
+                span.topicslist__topics-text {{ topic.hashtags }}
+            img.topicslist__topics-img(
+              :src="topic.src"
             )
 
     // BottomBtn(v-if="!['s_session', 't_session', 't'].includes($route.query.type)"
@@ -51,7 +51,7 @@ import Header from '@/components/Header'
 import FilterTab from '@/components/FilterTab'
 import BottomBtn from '@/components/BottomBtn'
 import { routerBack } from '@/mixins/routerBack.js'
-import { showToast } from '@/mixins/showToast.js'
+import { nativeCalls } from '@/mixins/nativeCalls.js'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 
 export default {
@@ -60,20 +60,20 @@ export default {
   mixins: [
     routerBack,
     setHeaderTitle,
-    showToast
+    nativeCalls,
   ],
 
   computed: {
     ...mapState([
       'headerTitle',
-      'topicLevel',
+      'topicCategory',
       'categories',
       'currentCategory',
       'currentFilter',
     ]),
 
     ...mapGetters([
-      'getCurrentLevel',
+      'getCurrentCategory',
     ]),
   },
 
@@ -94,7 +94,7 @@ export default {
       }
     },
 
-    topicDetailsLink(title, attr, cat) {
+    topicDetailsLink(title, topic, cat) {
       console.log('title' + title + ":"+ cat)
       this.SET_CAT(cat)
       this.$router.replace({
@@ -102,23 +102,53 @@ export default {
         params: {
           //topic: this.$route.params.topic,
           topic: this.currentCategory,
-          //attr: attr,
+          //topic: topic,
         },
         query: {
-          //lv: this.getCurrentLevel.toLowerCase(),
-          lv: attr,
+          //cat: this.getCurrentCategory.toLowerCase(),
+          cat: topic,
           type: this.$route.query.type,
+          lv: this.$route.query.lv,
         },
       })
-      this.SET_CURRENT_TOPIC(attr)
+      this.SET_CURRENT_TOPIC(topic)
       this.$forceUpdate()
       this.$router.go()
       this.UPDATE_HEADER_TITLE('Topics')
     },
 
+    getLevel: function()
+    {
+      if(this.$route.query.lv)
+      {
+        if(isNaN(this.$route.query.lv))
+          return this.$route.query.lv
+        else
+          return 'Level ' + this.$route.query.lv
+      }
+      else
+      {
+        return 'Beginner'
+      }
+    },
+
+    showClose: function()
+    {
+      var result = false;
+      var getOS = this.getMobileOS()
+      if(getOS === 'Android'){
+        result = true;
+      }
+      else if(getOS === 'iOS'){
+        result = false;
+      }
+      //return result;
+      return result && ['s_session'].includes(this.$route.query.type)
+    },
+
     textClass: function(text)
     {
-      var classValue = 'topicslist__attractions-text';
+      var classValue = 'topicslist__topics-text';
       if(text.length > 34)
         classValue += ' three_lines';
       else if(text.length > 28)
@@ -159,7 +189,7 @@ export default {
 #topicslist {
   margin-top: $grid14x;
 
-  .topicslist__attractions {
+  .topicslist__topics {
     height: 100%;
     cursor: pointer;
     max-width: 100%;
@@ -167,21 +197,21 @@ export default {
     margin-bottom: $grid4x;
     padding: 0 $grid4x 0 $grid4x;
 
-    .topicslist__attractions-img-container {
+    .topicslist__topics-img-container {
       z-index: 1;
       height: 6.25rem;
       max-width: 100%;
       overflow: hidden;
       @include border-radius();
 
-      .topicslist__attractions-dimlayer {
+      .topicslist__topics-dimlayer {
         position: absolute;
         height: 100%;
         background-color: $black38;
         width: calc(100% - #{$grid4x} - #{$grid4x});
         @include border-radius();
 
-        .topicslist__attractions-textbox {
+        .topicslist__topics-textbox {
           height: 3.75rem;
           margin: 0 auto;
           display: table;
@@ -192,7 +222,7 @@ export default {
           overflow:hidden;          
           width: calc(100% - #{$grid8x});
 
-          .topicslist__attractions-text {
+          .topicslist__topics-text {
             margin: 0 auto;
             font-weight: 700;
             display: block;
@@ -226,7 +256,7 @@ export default {
             -webkit-line-clamp: 2;
           }
         }
-        .topicslist__attractions-hashbox {
+        .topicslist__topics-hashbox {
           height: 40px;
           margin: 0 auto;
           display: table;
@@ -234,7 +264,7 @@ export default {
           line-height: 40px;
           width: calc(100% - #{$grid8x});
 
-          .topicslist__attractions-text {
+          .topicslist__topics-text {
             font-weight: 500;
             font-style: italic;
             color: rgba(255,255,255,0.8);
@@ -246,7 +276,7 @@ export default {
         }
       }
 
-      .topicslist__attractions-img {
+      .topicslist__topics-img {
         z-index: 0;
         width: 100%;
       }
