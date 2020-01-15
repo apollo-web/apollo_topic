@@ -48,6 +48,7 @@ import BottomBtnHalf from '@/components/BottomBtnHalf'
 import BottomSheet from '@/components/BottomSheet'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 import { routerBack } from '@/mixins/routerBack.js'
+import { nativeCalls } from '@/mixins/nativeCalls.js'
 import LESSONENTRIES from '@/statics/data/lessons.json'
 
 export default {
@@ -56,6 +57,7 @@ export default {
   mixins: [
     setHeaderTitle,
     routerBack,
+    nativeCalls,
   ],
 
   data: _ => ({
@@ -105,7 +107,7 @@ export default {
 
   mounted () {
     this.hint = this._obj.cards[this.getTopicIndex].hint
-
+    this.logEvent('screen_view', {screen_name: 'view_topic_lesson'})
     // console.log(this.entries['topicLesson'][this.$route.query.index].markdowns.length)
     // console.log(`Markdown length: ${this.entries['topicLesson'][this.$route.query.index].markdowns.length}`)
     // console.log(`topicIndex: ${this.topicIndex}`)

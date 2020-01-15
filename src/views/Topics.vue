@@ -172,7 +172,7 @@ export default {
 
   mounted () {
     localStorage.clear()
-
+    this.logEvent('screen_view', {screen_name: 'view_topics_web'})
     this.UPDATE_HEADER_TITLE('Topics')
   },
 

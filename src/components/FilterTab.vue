@@ -24,9 +24,14 @@
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex'
 import BottomSheet from '@/components/BottomSheet'
+import { nativeCalls } from '@/mixins/nativeCalls.js'
 
 export default {
   name: 'filtertab',
+
+  mixins: [
+    nativeCalls,
+  ],
 
   methods: {
     ...mapMutations([
@@ -36,10 +41,12 @@ export default {
     ]),
 
     toggleSheet(bool) {
+      this.logEvent('topics_cmb_category', {type: 'bottomSheet'})
       this.SET_BOTTOM_SHEET(bool)
     },
 
     setTopicCategory(cat, bool) {
+      this.logEvent('actsht_topics_category_item', {category: cat})      
       this.SET_FILTER([cat, bool])
     },
   },

@@ -42,6 +42,7 @@ import { mapState, mapMutations, mapGetters } from 'vuex'
 import Header from '@/components/Header'
 import { setHeaderTitle } from '@/mixins/setHeaderTitle.js'
 import { routerBack } from '@/mixins/routerBack.js'
+import { nativeCalls } from '@/mixins/nativeCalls.js'
 import LESSONENTRIES from '@/statics/data/lessons.json'
 
 export default {
@@ -50,6 +51,7 @@ export default {
   mixins: [
     setHeaderTitle,
     routerBack,
+    nativeCalls,
   ],
 
   methods: {
@@ -60,6 +62,7 @@ export default {
     ]),
 
     topicListRouter(topic) {
+      this.logEvent('topic_cards_item', {topicCard: topic})
       this.SET_CURRENT_ROUTE_PARAMS(topic.href)
       //this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getTopicIndex].title)
       this.$router.push({
@@ -92,7 +95,28 @@ export default {
     {
       if(this.$route.query.lv)
       {
-        return level.toLowerCase() === this.$route.query.lv.toLowerCase()
+        if(isNaN(this.$route.query.lv)) {
+          
+          return (Number(this.$route.query.lv) >= (Number(newLevel) - 1)) && (Number(this.$route.query.lv) <= (Number(newLevel) + 1))
+        }
+        else {
+          var newLevel = 0
+          if(isNAN(level))
+          {
+            if(level.toLowerCase() === 'beginner' ){
+              newLevel = 2
+            }
+            else if(level.toLowerCase() === 'intermediate' ){
+              newLevel = 5
+            }
+            else if(level.toLowerCase() === 'advanced' ){
+              newLevel = 8
+            }
+            else return true
+          }
+          else newLevel = level
+          return level.toLowerCase() === this.$route.query.lv.toLowerCase()
+        }
       }
       else
         return true
@@ -129,6 +153,10 @@ export default {
 
   components: {
     Header,
+  },
+
+  mounted () {
+    this.logEvent('screen_view', {screen_name: 'view_topic_cards'})
   },
 
 }

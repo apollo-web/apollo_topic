@@ -63,9 +63,9 @@ export const nativeCalls = {
             return;
           }
         
-          if (window.AnalyticsWebInterface) {
+          if (window.android) {
             // Call Android interface
-            window.AnalyticsWebInterface.logEvent(name, JSON.stringify(params));
+            window.android.logEvent(name, JSON.stringify(params));
           } else if (window.webkit
               && window.webkit.messageHandlers
               && window.webkit.messageHandlers.firebase) {
@@ -87,9 +87,9 @@ export const nativeCalls = {
             return;
           }
         
-          if (window.AnalyticsWebInterface) {
+          if (window.android) {
             // Call Android interface
-            window.AnalyticsWebInterface.setUserProperty(name, value);
+            window.android.setUserProperty(name, value);
           } else if (window.webkit
               && window.webkit.messageHandlers
               && window.webkit.messageHandlers.firebase) {

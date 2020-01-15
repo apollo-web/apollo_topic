@@ -24,6 +24,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
+import { nativeCalls } from '@/mixins/nativeCalls.js'
 
 export default {
   props: {
@@ -33,6 +34,10 @@ export default {
   data: _ => ({
     isActive: true,
   }),
+
+  mixins: [
+    nativeCalls,
+  ],
 
   computed: {
     ...mapState([
@@ -46,10 +51,16 @@ export default {
     ]),
 
     toggleHandler(bool) {
+      if(!bool)
+        this.logEvent('actsht_topics_category_close', {type: 'bottomSheet'})
       this.SET_BOTTOM_SHEET(bool)
       this.isActive = !this.isActive
     },
 
+  },
+
+  mounted () {
+    this.logEvent('actsht_topics_category', {type: 'bottomSheet'})
   },
 
   beforeDestroy () {
