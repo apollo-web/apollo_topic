@@ -14,7 +14,7 @@
       div.header__right(
         slot="header__right"
         v-if="!['s_session', 't_session', 't'].includes($route.query.type)"
-        @click="showToast('Select Tutor');"
+        @click="selectTutor()"
       ) Select Tutor
 
     div.wrapper
@@ -144,6 +144,11 @@ export default {
 
     toggleSheet(bool) {
       this.SET_BOTTOM_SHEET(bool)
+    },
+
+    selectTutor() {
+      this.logEvent('topic_lesson_btn_tutor', {type: 'button'})
+      this.showToast('Select Tutor')
     },
 
     quitLesson () {
