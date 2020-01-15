@@ -78,7 +78,7 @@ export const nativeCalls = {
             window.webkit.messageHandlers.firebase.postMessage(message);
           } else {
             // No Android or iOS interface found
-            console.log("No native APIs found.");
+            console.log("No native APIs found:" + name);
           }
         },
         

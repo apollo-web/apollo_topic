@@ -95,7 +95,7 @@ export default {
     },
 
     topicDetailsLink(title, topic, cat) {
-      console.log('title' + title + ":"+ cat)
+      this.logEvent('topics_item_topic', {topic: 'topic'})
       this.SET_CAT(cat)
       this.$router.replace({
         name: 'topicslist',

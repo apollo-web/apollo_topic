@@ -8,13 +8,11 @@
 
 <script>
 import Tab from '@/components/Tab'
-import ButtonTest from '@/views/ButtonTest'
 import { mapState } from 'vuex'
 
 export default {
   components: {
     Tab,
-    ButtonTest,
   },
 
   computed: {

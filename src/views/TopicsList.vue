@@ -95,14 +95,23 @@ export default {
     {
       if(this.$route.query.lv)
       {
+        var newQueryLevel = 0
+        var newLevel = 0
         if(isNaN(this.$route.query.lv)) {
-          
-          return (Number(this.$route.query.lv) >= (Number(newLevel) - 1)) && (Number(this.$route.query.lv) <= (Number(newLevel) + 1))
+          if(this.$route.query.lv.toLowerCase() === 'beginner' ){
+              newQueryLevel = 2
+            }
+            else if(this.$route.query.lv.toLowerCase() === 'intermediate' ){
+              newQueryLevel = 5
+            }
+            else if(this.$route.query.lv.toLowerCase() === 'advanced' ){
+              newQueryLevel = 8
+            }          
         }
         else {
-          var newLevel = 0
-          if(isNAN(level))
-          {
+          newQueryLevel = this.$route.query.lv
+        }
+        if(isNaN(level)) {
             if(level.toLowerCase() === 'beginner' ){
               newLevel = 2
             }
@@ -113,10 +122,11 @@ export default {
               newLevel = 8
             }
             else return true
-          }
-          else newLevel = level
-          return level.toLowerCase() === this.$route.query.lv.toLowerCase()
         }
+        else {
+          newLevel = level
+        }
+        return (Number(newQueryLevel) >= (Number(newLevel) - 1)) && (Number(newQueryLevel) <= (Number(newLevel) + 1))
       }
       else
         return true
