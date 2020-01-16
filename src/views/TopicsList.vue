@@ -166,7 +166,7 @@ export default {
   },
 
   mounted () {
-    this.logEvent('screen_view', {screen_name: 'view_topic_cards'})
+    this.logEvent('screen_view', {screen_name: 'view_topic_cards', firebase_scren: 'view_topic_cards'})
   },
 
 }

@@ -107,7 +107,7 @@ export default {
 
   mounted () {
     this.hint = this._obj.cards[this.getTopicIndex].hint
-    this.logEvent('screen_view', {screen_name: 'view_topic_lesson'})
+    this.logEvent('screen_view', {screen_name: 'view_topic_lesson', firebase_screen: 'view_topic_lesson'})
     // console.log(this.entries['topicLesson'][this.$route.query.index].markdowns.length)
     // console.log(`Markdown length: ${this.entries['topicLesson'][this.$route.query.index].markdowns.length}`)
     // console.log(`topicIndex: ${this.topicIndex}`)

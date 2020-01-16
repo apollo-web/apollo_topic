@@ -47,5 +47,6 @@ new Vue({
 router.afterEach(( to, from ) => {
   logEvent('screen_view', {
     screen_name: to.name,
+    firebase_screen: to.name
   });
 });
