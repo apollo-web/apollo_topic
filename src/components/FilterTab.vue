@@ -46,7 +46,7 @@ export default {
     },
 
     setTopicCategory(cat, bool) {
-      this.logEvent('actsht_topics_category_item', {category: cat})      
+      this.logEvent('actsht_topics_category_item', {category: cat.dir})      
       this.SET_FILTER([cat, bool])
     },
   },

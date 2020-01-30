@@ -62,7 +62,7 @@ export default {
     ]),
 
     topicListRouter(topic) {
-      this.logEvent('topic_cards_item', {topicCard: topic})
+      this.logEvent('topic_cards_item', {'topicCard': topic.href})
       this.SET_CURRENT_ROUTE_PARAMS(topic.href)
       //this.UPDATE_HEADER_TITLE(this.categories[this.currentCategory].topics[this.getTopicIndex].title)
       this.$router.push({
@@ -166,7 +166,7 @@ export default {
   },
 
   mounted () {
-    this.logEvent('screen_view', {screen_name: 'view_topic_cards', firebase_scren: 'view_topic_cards'})
+    this.setScreen('view_topic_cards')
   },
 
 }

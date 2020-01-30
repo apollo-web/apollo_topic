@@ -1,10 +1,10 @@
 export const nativeCalls = {
     methods: {
         showToast: function(toast) {
-            if(this.getMobileOS() === 'Android') {
-                android.showToast(toast)
+            if(this.getMobileOS2() === 'Android') {
+                window.android.showToast(toast)
             }
-            else if(this.getMobileOS() === 'iOS') {
+            else if(this.getMobileOS2() === 'iOS') {
                 self.location.href = "inapp://buttontest"
             }
             else
@@ -79,6 +79,7 @@ export const nativeCalls = {
           } else {
             // No Android or iOS interface found
             console.log("No native APIs found:" + name);
+            console.log(params)
           }
         },
         
@@ -103,6 +104,29 @@ export const nativeCalls = {
           } else {
             // No Android or iOS interface found
             console.log("No native APIs found.");
+          }
+        },
+
+        setScreen: function(name) {
+          if (!name) {
+            return;
+          }
+        
+          if (window.android) {
+            // Call Android interface
+            window.android.setScreen(name);
+          } else if (window.webkit
+              && window.webkit.messageHandlers
+              && window.webkit.messageHandlers.firebase) {
+            // Call iOS interface
+            var message = {
+              command: 'setScreen',
+              name: name
+            };
+            window.webkit.messageHandlers.firebase.postMessage(message);
+          } else {
+            // No Android or iOS interface found
+            console.log("No native APIs found. setScreen2 " + name);
           }
         }
     }

@@ -13,27 +13,27 @@ Vue.use(VueLodash)
 
 Vue.config.productionTip = false
 
-function logEvent(name, params) {
+
+function setScreen(name) {
   if (!name) {
     return;
   }
 
   if (window.android) {
     // Call Android interface
-    window.android.logEvent(name, JSON.stringify(params));
+    window.android.setScreen(name);
   } else if (window.webkit
       && window.webkit.messageHandlers
       && window.webkit.messageHandlers.firebase) {
     // Call iOS interface
     var message = {
-      command: 'logEvent',
-      name: name,
-      parameters: params
+      command: 'setScreen',
+      name: name
     };
     window.webkit.messageHandlers.firebase.postMessage(message);
   } else {
     // No Android or iOS interface found
-    console.log("No native APIs found.");
+    console.log("No native APIs found. setScreen " + name);
   }
 }
 
@@ -45,8 +45,5 @@ new Vue({
 }).$mount('#app')
 
 router.afterEach(( to, from ) => {
-  logEvent('screen_view', {
-    screen_name: to.name,
-    firebase_screen: to.name
-  });
+  setScreen(to.name);
 });

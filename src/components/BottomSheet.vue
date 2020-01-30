@@ -52,7 +52,7 @@ export default {
 
     toggleHandler(bool) {
       if(!bool)
-        this.logEvent('actsht_topics_category_close', {type: 'bottomSheet'})
+        this.logEvent('actsht_topics_category_close', {'type': 'bottomSheet'})
       this.SET_BOTTOM_SHEET(bool)
       this.isActive = !this.isActive
     },
@@ -60,7 +60,7 @@ export default {
   },
 
   mounted () {
-    this.logEvent('actsht_topics_category', {type: 'bottomSheet'})
+    this.logEvent('actsht_topics_category', {'type': 'bottomSheet'})
   },
 
   beforeDestroy () {

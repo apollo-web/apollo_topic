@@ -95,7 +95,7 @@ export default {
     },
 
     topicDetailsLink(title, topic, cat) {
-      this.logEvent('topics_item_topic', {topic: 'topic'})
+      this.logEvent('topics_item_topic', {'topic': topic})
       this.SET_CAT(cat)
       this.$router.replace({
         name: 'topicslist',
@@ -172,7 +172,7 @@ export default {
 
   mounted () {
     localStorage.clear()
-    this.logEvent('screen_view', {screen_name: 'view_topics_web', firebase_screen: 'view_topics_web'})
+    this.setScreen('view_topics_web')
     this.UPDATE_HEADER_TITLE('Topics')
   },
 
