@@ -140,7 +140,7 @@ export default {
         result = true;
       }
       else if(getOS === 'iOS'){
-        result = false;
+        result = true;
       }
       //return result;
       return result && ['s_session'].includes(this.$route.query.type)
