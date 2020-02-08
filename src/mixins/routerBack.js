@@ -18,6 +18,7 @@ export const routerBack = {
             name: name,
             query: {
               lv: q.lv,
+              type: q.type,
             },
           })
         }
