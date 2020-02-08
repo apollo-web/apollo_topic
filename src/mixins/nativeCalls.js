@@ -11,17 +11,23 @@ export const nativeCalls = {
                 console.log("Not Mobile")
         },
 
-        closeView: function() {
-            if(this.getMobileOS() === 'Android') {
-                console.log("Android")
-                android.close()
-            }
-            else if(this.getMobileOS() === 'iOS') {
-                console.log("iOS")
-                self.location.href = "inapp://close"
-            }
-            else
-                console.log("Not Mobile")
+        closeView: function() {        
+          if (window.android) {
+            // Call Android interface
+            window.android.close();
+          } else if (window.webkit
+              && window.webkit.messageHandlers
+              && window.webkit.messageHandlers.firebase) {
+            // Call iOS interface
+            var message = {
+              command: 'closeView',
+              name: 'close_topic'
+            };
+            window.webkit.messageHandlers.firebase.postMessage(message);
+          } else {
+            // No Android or iOS interface found
+            console.log("No native APIs found: close");
+          }
         },
   
         getMobileOS: function() {
