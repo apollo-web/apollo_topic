@@ -20,7 +20,7 @@ export const nativeCalls = {
               && window.webkit.messageHandlers.firebase) {
             // Call iOS interface
             var message = {
-              command: 'closeView',
+              command: 'close',
               name: 'close_topic'
             };
             window.webkit.messageHandlers.firebase.postMessage(message);
@@ -85,7 +85,6 @@ export const nativeCalls = {
           } else {
             // No Android or iOS interface found
             console.log("No native APIs found:" + name);
-            console.log(params)
           }
         },
         
@@ -134,6 +133,29 @@ export const nativeCalls = {
             // No Android or iOS interface found
             console.log("No native APIs found. setScreen2 " + name);
           }
-        }
+        },
+
+        selectTutor: function(name) {
+          if (!name) {
+            return;
+          }
+        
+          if (window.android) {
+            // Call Android interface
+            window.android.selectTutor(name);
+          } else if (window.webkit
+              && window.webkit.messageHandlers
+              && window.webkit.messageHandlers.firebase) {
+            // Call iOS interface
+            var message = {
+              command: 'selectTutor',
+              name: name
+            };
+            window.webkit.messageHandlers.firebase.postMessage(message);
+          } else {
+            // No Android or iOS interface found
+            console.log("No native APIs found. selectTutor " + name);
+          }
+        },
     }
 }
