@@ -166,7 +166,7 @@ export default {
   },
 
   mounted () {
-    this.setScreen('view_topic_cards')
+    //this.setScreen('view_topic_cards')
   },
 
 }

@@ -135,26 +135,27 @@ export const nativeCalls = {
           }
         },
 
-        selectTutor: function(name) {
+        selectTutor: function(name, url) {
           if (!name) {
             return;
           }
         
           if (window.android) {
             // Call Android interface
-            window.android.selectTutor(name);
+            window.android.selectTutor(name, url);
           } else if (window.webkit
               && window.webkit.messageHandlers
               && window.webkit.messageHandlers.firebase) {
             // Call iOS interface
             var message = {
               command: 'selectTutor',
-              name: name
+              name: name,
+              url: url
             };
             window.webkit.messageHandlers.firebase.postMessage(message);
           } else {
             // No Android or iOS interface found
-            console.log("No native APIs found. selectTutor " + name);
+            console.log("No native APIs found. selectTutor " + name + ", " + url);
           }
         },
     }

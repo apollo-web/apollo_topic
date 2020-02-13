@@ -148,7 +148,7 @@ export default {
 
     select() {
       this.logEvent('topic_lesson_btn_tutor', {'type': 'button'})
-      this.selectTutor(this.$route.path)
+      this.selectTutor(this.currentCategory,this.$route.path)
     },
 
     quitLesson () {
