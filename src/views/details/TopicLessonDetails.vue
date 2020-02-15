@@ -148,6 +148,7 @@ export default {
 
     select() {
       this.logEvent('topic_lesson_btn_tutor', {'type': 'button'})
+      //console.log(window.location.protocol + "//" + window.location.host + this.$route.path)
       this.selectTutor(this.currentCategory,this.$route.path)
     },
 
