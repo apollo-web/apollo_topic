@@ -142,7 +142,7 @@ export const nativeCalls = {
         
           if (window.android) {
             // Call Android interface
-            window.android.selectTutor(name, url);
+            window.android.selectTutor(name, 'https://apollo-topics.web.app' + url + '?type=s_session');
           } else if (window.webkit
               && window.webkit.messageHandlers
               && window.webkit.messageHandlers.firebase) {
@@ -150,12 +150,12 @@ export const nativeCalls = {
             var message = {
               command: 'selectTutor',
               name: name,
-              url: url
+              url: url + '?type=s_session'
             };
             window.webkit.messageHandlers.firebase.postMessage(message);
           } else {
             // No Android or iOS interface found
-            console.log("No native APIs found. selectTutor " + name + ", " + url);
+            console.log("No native APIs found. selectTutor " + name + ", " + 'https://apollo-topics.web.app' + url + '?type=s_session');
           }
         },
     }
