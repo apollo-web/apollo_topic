@@ -45,5 +45,6 @@ new Vue({
 }).$mount('#app')
 
 router.afterEach(( to, from ) => {
-  setScreen(to.name);
+  if(!to.params.id)
+  { setScreen(to.name); }
 });
