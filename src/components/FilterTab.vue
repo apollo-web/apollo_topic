@@ -81,7 +81,7 @@ export default {
   height: $header;
   position: fixed;
   background-color: $brand_dark;
-  border-bottom: 1px solid $white38;
+  //border-bottom: 1px solid $white38;
 
   .filtertab__category,
   .filtertab__filter {
